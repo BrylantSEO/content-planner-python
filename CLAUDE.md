@@ -9,8 +9,11 @@ Semantic-OS is a collection of Claude AI skills for semantic SEO analysis and AI
 ## Repository Structure
 
 - **`/skills/`** - Original `.skill` files (ZIP archives) and `optimized/` directory with optimized versions
-- **`/.claude/skills/`** - Active skills directory (14 semantic SEO skills + skill-creator + serpdata-search)
+- **`/.claude/skills/`** - Active skills directory (20 semantic SEO skills + skill-creator + nodeshub-search)
+- **`/.claude/agents/`** - Sub-agents (keyword-clustering-pipeline)
 - **`/.claude/settings.local.json`** - Claude permissions configuration
+- **`/data/`** - Working data directory (keywords/, clusters/, embeddings/)
+- **`.env`** - API keys (GEMINI_API_KEY, NODESHUB_API_KEY) - not tracked in git
 
 ## Skills Architecture
 
@@ -37,22 +40,51 @@ Packaged `.skill` files (ZIP archives) are in `/skills/optimized/` for distribut
 - **lexical-expander** - Synonym/antonym/hypernym/hyponym/meronym relationship trees
 - **semantic-role-labels-parser** - Agent/Predicate/Patient/Beneficiary role parsing
 
+### Keyword Clustering Pipeline (6 skills + 1 sub-agent)
+- **keyword-expander** - Seed keyword expansion via Token Insertion + Query Expansion + SERP enrichment (PAA, Related, Chips, Filter Sidebar), target 300+ keywords
+- **keyword-clusterer** - Embedding-based clustering with `cluster.py` (Gemini API + K-means/DBSCAN/hierarchical), embedding cache, metadata logging
+- **cluster-namer** - Cluster naming, Central Entity + canonical query identification (LLM)
+- **cluster-mapper** - CORE/OUTER topical map based on attribute type vs Source Context + SERP Intelligence (content format recommendations)
+- **cluster-validator** - SERP-based cluster validation (overlap detection, coherence checking)
+- **content-gap-detector** - Compares clusters with SERP to identify content gaps (COVERED/GAP/UNIQUE), prioritized P1-P4
+- **keyword-clustering-pipeline** (sub-agent) - Orchestrates skills with SERP enrichment, inter-step validation and error recovery
+
+### Search Integration (1 skill)
+- **nodeshub-search** - Google SERP results via NodeHub API (organic, PAA, related searches, refine chips, videos, filters)
+
 ### Meta (2 skills)
 - **content-auditor** - Comprehensive 8-dimension content audit combining all semantic SEO criteria
 - **skill-creator** - Meta-skill for creating and optimizing new skills
 
 ## Python Integration
 
-SerpData Search skill (`.claude/skills/serpdata-search/`) provides Google Search API integration:
+### Keyword Clusterer
 
 ```bash
-python3 ".claude/skills/serpdata-search/serpdata_search.py" "KEYWORD" [hl] [gl]
+python3 .claude/skills/keyword-clusterer/cluster.py INPUT.csv OUTPUT.csv [options]
+```
+
+Options: `--algorithm kmeans|dbscan|hierarchical`, `--k N`, `--visualize`, `--min-samples N`, `--eps FLOAT`, `--no-cache`
+
+Features: embedding cache (`data/embeddings/`), metadata logging (`_metadata.json`), keyword preprocessing, API retry with backoff, k-distance DBSCAN auto-tuning.
+
+Requires: `GEMINI_API_KEY` in `.env`, `pip install -r .claude/skills/keyword-clusterer/requirements.txt`
+
+### NodeHub Search
+
+NodeHub Search skill (`.claude/skills/nodeshub-search/`) provides Google SERP via NodeHub API:
+
+```bash
+python3 .claude/skills/nodeshub-search/nodeshub_search.py "KEYWORD" [hl] [gl]
 ```
 
 - `hl` - language (default: `pl`)
 - `gl` - country/location (default: `pl`)
+- `--json` - raw JSON output
 
-Returns top 10 organic results + People Also Ask + Related Searches.
+Returns top 10 organic results + People Also Ask + Related Searches + Refine Chips + Videos + Filter Sidebar.
+
+Requires: `NODESHUB_API_KEY` in `.env`, `pip install requests python-dotenv`
 
 ## Skill Packaging
 

@@ -24,6 +24,26 @@ Co użytkownik NAPRAWDĘ chce wiedzieć? Jakie założenia są w pytaniu? Jakie 
 ### 3. Weryfikacyjna
 Pytania sprawdzające fakty, o źródła/autorytety, porównawcze.
 
+## SERP Grounding (opcjonalnie)
+
+Pobierz SERP dla pytania głównego via `nodeshub_search.py`:
+
+```bash
+python3 .claude/skills/nodeshub-search/nodeshub_search.py "PYTANIE_GŁÓWNE"
+```
+
+Porównaj wygenerowane sub-zapytania z PAA i Related Searches z SERP. Oznacz każde sub-zapytanie:
+
+| Tag | Znaczenie | Akcja |
+|---|---|---|
+| `[CONFIRMED]` | Sub-zapytanie pokrywa się z PAA/Related | Wysoki priorytet - potwierdzone przez Google |
+| `[PREDICTED]` | Tylko dekompozycja LLM, brak w SERP | Niższy priorytet - może być ważne, ale brak potwierdzenia |
+| `[SERP-ONLY]` | W SERP (PAA/Related) ale nie w dekompozycji LLM | **DODAJ** jako content gap - realne pytanie pominięte przez LLM |
+
+`[SERP-ONLY]` = potwierdzone content gaps. To realne pytania użytkowników których LLM nie wygenerował → gotowa lista luk do pokrycia.
+
+Jeśli `nodeshub-search` niedostępny → pomiń grounding, wszystkie sub-zapytania bez tagów.
+
 ## Format wyjściowy
 
 ```markdown
@@ -31,11 +51,11 @@ Pytania sprawdzające fakty, o źródła/autorytety, porównawcze.
 Pytanie: [oryginalne] | Encja: [główna] | Intencja: [typ] | Złożoność: [prosta/średnia/złożona]
 
 ### Sub-zapytania
-| # | Sub-zapytanie | Cel | Typ źródła |
-|---|---------------|-----|------------|
-| 1 | [sub-query] | Definicja | Wikipedia, encyklopedie |
-| 2 | [sub-query] | Aktualne dane | News, blogi |
-| 3 | [sub-query] | Opinie | Reddit, fora |
+| # | Sub-zapytanie | Cel | Typ źródła | Grounding |
+|---|---------------|-----|------------|-----------|
+| 1 | [sub-query] | Definicja | Wikipedia, encyklopedie | [CONFIRMED] |
+| 2 | [sub-query] | Aktualne dane | News, blogi | [PREDICTED] |
+| 3 | [sub-query] | Opinie | Reddit, fora | [SERP-ONLY] |
 
 ### Wizualizacja
                     ┌─→ [sub-query 1] → źródła definicyjne
