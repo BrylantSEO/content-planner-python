@@ -1,71 +1,31 @@
 ---
 name: eav-extractor
-description: Ekstrahuje strukturę Entity-Attribute-Value z tekstu. Użyj do analizy artykułów, opisów produktów lub stron pod kątem semantycznej zawartości faktycznej.
+description: >
+  Ekstrahuje strukturę Entity-Attribute-Value (EAV) z tekstu - trójki faktyczne służące jako fundamentalny model danych
+  w semantycznym SEO i Knowledge Graphs. Użyj do analizy artykułów, opisów produktów lub stron pod kątem
+  semantycznej zawartości faktycznej, identyfikacji brakujących atrybutów i oceny pokrycia tematycznego.
+  Triggery: wyciągnij EAV, analiza encji, struktura faktów, co mówi tekst o encji.
 ---
 
 # EAV Extractor
 
-Analizujesz tekst i wydobywasz z niego strukturę Entity-Attribute-Value (EAV) - fundamentalny model danych w semantycznym SEO.
+Wydobywaj strukturę Entity-Attribute-Value (EAV) z tekstu - trójki [Encja] → [Atrybut] → [Wartość].
 
-## Definicje
-
-### Entity (Encja)
-Rzeczy z rzeczywistego świata, które można zidentyfikować:
-- Osoby (Jan Kowalski, Elon Musk)
-- Miejsca (Kraków, Aquapark)
-- Organizacje (Google, Nike)
-- Produkty (iPhone 15, Tesla Model 3)
-- Koncepty (Semantic SEO, Machine Learning)
-
-**Test encji:** Czy to coś, co może mieć stronę w Wikipedii?
-
-### Attribute (Atrybut)
-Właściwości encji. 5 typów atrybutów:
+## Typy atrybutów
 
 | Typ | Opis | Przykład |
 |-----|------|----------|
-| **Proste** | Pojedyncza wartość | kolor: czerwony |
-| **Złożone** | Wiele powiązanych wartości | adres: {ulica, miasto, kod} |
-| **Bezpośrednie** | Należy do encji | rok urodzenia osoby |
-| **Pośrednie** | Wynika z relacji | wiek (obliczony z daty urodzenia) |
-| **Jedno-wartościowe** | Jedna wartość | data urodzenia |
-| **Wielo-wartościowe** | Wiele wartości | języki obce |
-| **Pochodne** | Obliczone z innych | BMI (z wagi i wzrostu) |
-| **Przechowywane** | Zapisane bezpośrednio | nazwa |
-| **Kluczowe** | Identyfikujące encję | PESEL, NIP |
-
-### Value (Wartość)
-Konkretne dane przypisane do atrybutu:
-- Liczby: 1200 zł, 15 cm, 28°C
-- Teksty: "czerwony", "premium"
-- Daty: 2024-01-15
-- Wartości logiczne: tak/nie
-- Encje (relacje): producent = [Tesla]
-
----
+| Prosty | Pojedyncza wartość | kolor: czerwony |
+| Złożony | Wiele powiązanych wartości | adres: {ulica, miasto, kod} |
+| Pochodny | Obliczony z innych | BMI (z wagi i wzrostu) |
+| Kluczowy | Identyfikujący encję | PESEL, NIP |
+| Wielo-wartościowy | Wiele wartości | języki obce |
 
 ## Proces ekstrakcji
 
-### Krok 1: Identyfikacja encji
-Znajdź wszystkie encje w tekście:
-- Rzeczowniki własne (nazwy)
-- Rzeczowniki pospolite oznaczające konkretne byty
-- Koncepty i abstrakcje traktowane jako "rzeczy"
-
-### Krok 2: Ekstrakcja atrybutów
-Dla każdej encji znajdź:
-- Właściwości wymienione wprost
-- Właściwości wynikające z kontekstu
-- Relacje z innymi encjami
-
-### Krok 3: Przypisanie wartości
-Dla każdego atrybutu:
-- Konkretna wartość (jeśli podana)
-- Typ wartości (liczba, tekst, data, encja)
-- [brak] jeśli atrybut wspomniany, ale bez wartości
-
-
----
+1. **Identyfikuj encje** - Rzeczowniki własne, konkretne byty, koncepty (test Wikipedii).
+2. **Ekstrahuj atrybuty** - Właściwości wprost, wynikające z kontekstu, relacje z innymi encjami.
+3. **Przypisz wartości** - Konkretna wartość + typ (liczba, tekst, data, encja). Oznacz `[brak]` gdy atrybut bez wartości.
 
 ## Format odpowiedzi
 
@@ -75,74 +35,35 @@ Dla każdego atrybutu:
 ### Zidentyfikowane encje
 1. **[Encja główna]** - [krótki opis]
 2. **[Encja 2]** - [krótki opis]
-...
 
-### Tabela Entity-Attribute-Value
+### Tabela EAV
 
-| Entity | Attribute | Value | Typ atrybutu |
-|--------|-----------|-------|--------------|
+| Entity | Attribute | Value | Typ |
+|--------|-----------|-------|-----|
 | [E1] | [atrybut] | [wartość] | [typ] |
-| [E1] | [atrybut] | [wartość] | [typ] |
-| [E2] | [atrybut] | [wartość] | [typ] |
 
 ### Relacje między encjami
 - [E1] --[relacja]--> [E2]
-- [E1] --[relacja]--> [E3]
 
 ### Statystyki
-- Liczba encji: X
-- Liczba atrybutów: Y
-- Liczba wartości liczbowych: Z
+- Encje: X | Atrybuty: Y | Wartości liczbowe: Z
 - Gęstość faktyczna: Y/liczba zdań
 ```
 
----
-
 ## Przykład
 
-**Input tekst:**
-"Aquapark Kraków to największy park wodny w Małopolsce. Obiekt posiada 8 zjeżdżalni, basen olimpijski o długości 50 metrów i strefę SPA. Temperatura wody utrzymywana jest na poziomie 28°C. Ceny biletów zaczynają się od 45 zł za godzinę."
+**Input:** "Aquapark Kraków to największy park wodny w Małopolsce. Posiada 8 zjeżdżalni, basen olimpijski 50m i strefę SPA. Temperatura wody: 28°C. Bilety od 45 zł/h."
 
-**Output:**
-
-### Zidentyfikowane encje
-1. **Aquapark Kraków** - główna encja (obiekt rekreacyjny)
-2. **Małopolska** - lokalizacja (region)
-3. **Basen olimpijski** - element obiektu
-4. **Strefa SPA** - element obiektu
-
-### Tabela Entity-Attribute-Value
-
-| Entity | Attribute | Value | Typ atrybutu |
-|--------|-----------|-------|--------------|
+| Entity | Attribute | Value | Typ |
+|--------|-----------|-------|-----|
 | Aquapark Kraków | typ | park wodny | prosty |
-| Aquapark Kraków | ranking wielkości | największy w Małopolsce | pochodny |
-| Aquapark Kraków | lokalizacja | Małopolska | prosty (relacja) |
-| Aquapark Kraków | liczba zjeżdżalni | 8 | prosty, liczbowy |
-| Aquapark Kraków | temperatura wody | 28°C | prosty, liczbowy |
-| Aquapark Kraków | cena minimalna | 45 zł/h | prosty, liczbowy |
-| Basen olimpijski | długość | 50 m | prosty, liczbowy |
-| Basen olimpijski | część | Aquapark Kraków | prosty (relacja) |
-| Strefa SPA | część | Aquapark Kraków | prosty (relacja) |
+| Aquapark Kraków | ranking | największy w Małopolsce | pochodny |
+| Aquapark Kraków | zjeżdżalnie | 8 | prosty |
+| Aquapark Kraków | temperatura wody | 28°C | prosty |
+| Aquapark Kraków | cena min | 45 zł/h | prosty |
+| Basen olimpijski | długość | 50 m | prosty |
+| Basen olimpijski | część | Aquapark Kraków | relacja |
 
-### Relacje między encjami
-- Aquapark Kraków --znajduje się w--> Małopolska
-- Basen olimpijski --jest częścią--> Aquapark Kraków
-- Strefa SPA --jest częścią--> Aquapark Kraków
+Relacje: Aquapark Kraków --lokalizacja--> Małopolska, Basen --część--> Aquapark, SPA --część--> Aquapark
 
-### Statystyki
-- Liczba encji: 4
-- Liczba atrybutów: 9
-- Liczba wartości liczbowych: 4 (8, 50m, 28°C, 45zł)
-- Gęstość faktyczna: 9 atrybutów / 4 zdania = 2.25 fakty/zdanie
-
----
-
-## Wskazówki dla optymalizacji SEO
-
-Po ekstrakcji EAV możesz:
-
-1. **Zidentyfikować brakujące atrybuty** - jakie właściwości encji powinny być dodane?
-2. **Sprawdzić konkretność wartości** - czy wartości są liczbowe/konkretne czy ogólnikowe?
-3. **Ocenić pokrycie tematyczne** - czy wszystkie istotne atrybuty CE są obecne?
-4. **Planować rozbudowę contentu** - które atrybuty mają search demand i brakuje im wartości?
+Statystyki: 4 encje, 9 atrybutów, 4 wartości liczbowe, gęstość: 2.25 fakty/zdanie

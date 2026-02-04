@@ -1,10 +1,11 @@
 ---
 name: bluf-generator
 description: >
-  Przekształca tekst na format BLUF (Bottom Line Up Front) zoptymalizowany pod cytowanie przez AI Search i RAG. 
-  Używaj gdy użytkownik chce przepisać tekst by AI go cytowało, zoptymalizować treść pod wyszukiwarki AI, 
-  stworzyć odpowiedź z kluczową informacją w pierwszych 50 słowach, usunąć watę słowną z tekstu SEO, 
-  lub zamienić ogólniki na konkretne liczby. Triggery - przepisz na BLUF, zoptymalizuj pod AI, odpowiedź na górze.
+  Przekształca tekst na format BLUF (Bottom Line Up Front) zoptymalizowany pod cytowanie przez AI Search i RAG.
+  Używaj gdy użytkownik chce przepisać tekst by AI go cytowało, zoptymalizować treść pod wyszukiwarki AI,
+  stworzyć odpowiedź z kluczową informacją w pierwszych 50 słowach, usunąć watę słowną z tekstu SEO,
+  lub zamienić ogólniki na konkretne liczby. Triggery: przepisz na BLUF, zoptymalizuj pod AI, odpowiedź na górze,
+  usuń watę, zagęść tekst.
 ---
 
 # BLUF Generator
@@ -21,26 +22,19 @@ Reszta:   KONTEKST - rozwinięcie, przykłady
 
 ## Workflow
 
-### 1. Zidentyfikuj pytanie
-Określ na jakie pytanie odpowiada tekst (jawnie lub domyślnie).
+1. **Zidentyfikuj pytanie** - na co tekst odpowiada (jawnie lub domyślnie).
+2. **Znajdź odpowiedź** - zlokalizuj właściwą odpowiedź w tekście.
+3. **Przepisz w BLUF** - odpowiedź na początek, dodaj liczby, usuń wstępy i ogólniki.
+4. **Zwróć wynik** z analizą i tabelą struktury.
 
-### 2. Znajdź odpowiedź
-Zlokalizuj gdzie w tekście jest właściwa odpowiedź.
-
-### 3. Przepisz w strukturze BLUF
-- Przenieś odpowiedź na początek
-- Dodaj konkretne liczby (zakresy jeśli brak dokładnych)
-- Usuń wstępy i ogólniki
-
-### 4. Zwróć wynik
+## Format wyniku
 
 ```
 ## Analiza
 - Pytanie: [zidentyfikowane pytanie]
-- Problem: [gdzie była ukryta odpowiedź, brak liczb, itp.]
+- Problem: [gdzie ukryta odpowiedź, brak liczb, itp.]
 
 ## Transformacja BLUF
-
 [przepisany tekst]
 
 ## Struktura
@@ -51,25 +45,13 @@ Zlokalizuj gdzie w tekście jest właściwa odpowiedź.
 | Kontekst | [rozwinięcie] |
 ```
 
-## Przykład transformacji
+## Przykład
 
-**❌ Wejście (typowy artykuł SEO):**
-```
-W dzisiejszych czasach e-commerce rozwija się w zawrotnym tempie. 
-Coraz więcej firm przenosi swoją działalność do internetu. Jednym 
-z kluczowych wyzwań jest optymalizacja konwersji. W tym artykule 
-przyjrzymy się najlepszym praktykom...
-```
+**Przed:** "W dzisiejszych czasach e-commerce rozwija się w zawrotnym tempie. Coraz więcej firm przenosi działalność do internetu. Jednym z kluczowych wyzwań jest optymalizacja konwersji..."
 
-**✅ Wyjście BLUF:**
-```
-Aby zwiększyć konwersję w sklepie online, skup się na trzech 
-obszarach: skróć czas ładowania do poniżej 3 sekund, uprość 
-checkout do 3 kroków i dodaj social proof. Te zmiany podnoszą 
-konwersję o 20-35% według Baymard Institute 2024.
-```
+**Po BLUF:** "Aby zwiększyć konwersję w sklepie online, skróć czas ładowania do <3s, uprość checkout do 3 kroków i dodaj social proof. Te zmiany podnoszą konwersję o 20-35% (Baymard Institute 2024)."
 
-## Transformacje kluczowe
+## Kluczowe transformacje
 
 | Ogólnik | → Precyzja |
 |---------|------------|
@@ -77,7 +59,6 @@ konwersję o 20-35% według Baymard Institute 2024.
 | "często" | "w X% przypadków" |
 | "szybko" | "w ciągu X dni/godzin" |
 | "znacząco" | "o X%" |
-| "regularnie" | "co X dni" |
 
 | Eliminuj | Przykład |
 |----------|----------|
@@ -86,9 +67,3 @@ konwersję o 20-35% według Baymard Institute 2024.
 | Puste przymiotniki | "najlepszy", "innowacyjny" |
 
 Szczegółowe zasady transformacji → `references/transformations.md`
-
-## Brak tekstu od użytkownika
-
-Poproś o:
-1. Tekst do transformacji, lub
-2. Pytanie/temat do wygenerowania odpowiedzi BLUF
