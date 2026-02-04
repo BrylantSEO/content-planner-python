@@ -30,6 +30,11 @@ Kolekcja skilli Claude AI do semantycznego SEO i optymalizacji pod AI Search (RA
 | `query-fanout` | Symuluje dekompozycję zapytań przez AI Search |
 | `lexical-expander` | Generuje drzewo relacji leksykalnych (synonimy, hiponimy, antonimy) |
 
+### Narzędzia deweloperskie
+| Skill | Opis |
+|-------|------|
+| `skill-creator` | Tworzy nowe skille Claude - szablony, walidacja, pakowanie |
+
 ## Użycie
 
 Skille działają w Claude Code. Wywołaj je przez slash command:
