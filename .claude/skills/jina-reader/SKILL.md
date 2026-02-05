@@ -19,6 +19,9 @@ Pobieraj treść stron WWW jako markdown przez Jina Reader API.
 # Pojedynczy URL
 python3 .claude/skills/jina-reader/jina_reader.py "URL"
 
+# Pojedynczy URL z czyszczeniem (nawigacja, obrazy, boilerplate)
+python3 .claude/skills/jina-reader/jina_reader.py "URL" --clean
+
 # Batch mode (lista URLs z pliku)
 python3 .claude/skills/jina-reader/jina_reader.py --batch urls.txt --output data/competitor_content
 

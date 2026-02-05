@@ -9,10 +9,10 @@ Semantic-OS is a collection of Claude AI skills for semantic SEO analysis and AI
 ## Repository Structure
 
 - **`/skills/`** - Original `.skill` files (ZIP archives) and `optimized/` directory with optimized versions
-- **`/.claude/skills/`** - Active skills directory (24 semantic SEO skills + skill-creator + nodeshub-search + jina-reader)
-- **`/.claude/agents/`** - Sub-agents (keyword-clustering-pipeline, content-planner)
+- **`/.claude/skills/`** - Active skills directory (28 semantic SEO skills + skill-creator + nodeshub-search + jina-reader)
+- **`/.claude/agents/`** - Sub-agents (keyword-clustering-pipeline, content-planner, content-auditor-pipeline)
 - **`/.claude/settings.local.json`** - Claude permissions configuration
-- **`/data/`** - Working data directory (keywords/, clusters/, embeddings/, briefs/)
+- **`/data/`** - Working data directory (keywords/, clusters/, embeddings/, briefs/, audits/)
 - **`.env`** - API keys (GEMINI_API_KEY, NODESHUB_API_KEY) - not tracked in git
 
 ## Skills Architecture
@@ -60,8 +60,15 @@ Packaged `.skill` files (ZIP archives) are in `/skills/optimized/` for distribut
 ### Search Integration (1 skill)
 - **nodeshub-search** - Google SERP results via NodeHub API (organic, PAA, related searches, refine chips, videos, filters)
 
+### Content Audit Pipeline (4 skills + 1 sub-agent)
+- **csi-alignment-checker** - CSI alignment audit: infer CSI, extract EAV, compare with SERP benchmark, validate BLUF/chunks/URR placement (standalone use)
+- **content-quality-scorer** - 4-dimension quality scoring (CoR + Density + SRL + TF-IDF), each 0-10 with BEFORE/AFTER (standalone use)
+- **eeat-evaluator** - E-E-A-T evaluation (Experience + Expertise + Authority + Trust), each 0-10 with suggestions (standalone use)
+- **audit-report-generator** - Final audit report: reads scores.md + benchmark.md + source.md, generates CQS 0-100, BEFORE/AFTER, SRL transformations, structure, EEAT blocks
+- **content-auditor-pipeline** (sub-agent) - Orchestrates 4 steps: jina-reader → competitor-gap-analyzer → merged analysis (scores.md) → audit report in `data/audits/`
+
 ### Meta (2 skills)
-- **content-auditor** - Comprehensive 8-dimension content audit combining all semantic SEO criteria
+- **content-auditor** - Quick 8-dimension content audit (single skill, paste text, CQS 1-10)
 - **skill-creator** - Meta-skill for creating and optimizing new skills
 
 ## Python Integration
@@ -103,6 +110,7 @@ python3 .claude/skills/jina-reader/jina_reader.py "URL"
 python3 .claude/skills/jina-reader/jina_reader.py --batch urls.txt --output data/competitor_content
 ```
 
+- `--clean` - apply noise cleaning (nav, images, boilerplate removal) in single URL mode
 - `--json` - raw JSON output
 - `--batch` - batch mode from file with URLs (parallel, 5 workers)
 - `--output` - output directory for batch mode

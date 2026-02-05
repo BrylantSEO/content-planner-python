@@ -402,11 +402,14 @@ def generate_consolidated(results, output_dir, max_words_per_competitor=1500):
     return consolidated_path
 
 
-def format_result(data):
+def format_result(data, apply_clean=False):
     """Format Jina Reader response for display."""
     title = data.get("data", {}).get("title", "")
     content = data.get("data", {}).get("content", "")
     url = data.get("data", {}).get("url", "")
+
+    if apply_clean:
+        content = clean_content(content)
 
     print(f"\n{'='*60}")
     print(f"TITLE: {title}")
@@ -424,6 +427,8 @@ def main():
     parser.add_argument("--json", action="store_true", help="Output raw JSON")
     parser.add_argument("--no-consolidate", action="store_true",
                         help="Skip generating quality report and consolidated file")
+    parser.add_argument("--clean", action="store_true",
+                        help="Apply noise cleaning (nav, images, boilerplate removal)")
     parser.add_argument("--workers", type=int, default=5,
                         help="Number of parallel workers for batch mode (default: 5)")
     args = parser.parse_args()
@@ -439,7 +444,7 @@ def main():
         if args.json:
             print(json.dumps(data, ensure_ascii=False, indent=2))
         else:
-            format_result(data)
+            format_result(data, apply_clean=args.clean)
         return
 
     # Batch mode (parallel)
