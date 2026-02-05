@@ -10,7 +10,9 @@ skills:
   - keyword-expander
   - keyword-clusterer
   - cluster-namer
+  - cluster-validator
   - cluster-mapper
+  - content-gap-detector
   - nodeshub-search
 ---
 
@@ -86,7 +88,21 @@ python3 .claude/skills/keyword-clusterer/cluster.py \
 - [ ] Nazwy klastrów nie powtarzają się
 - [ ] Canonical query jest jednym z keywords w klastrze
 
-### Krok 4: Mapowanie (cluster-mapper)
+### Krok 4: Walidacja klastrów (cluster-validator)
+- Pobierz SERP dla canonical query każdego klastra via nodeshub-search
+- Oblicz SERP overlap między parami klastrów (porównanie URL-i z top 10)
+- Oblicz SERP coherence wewnątrz klastrów (sampling 3 losowych keywords per klaster)
+- Generuj rekomendacje: MERGE / SPLIT / OK
+- Jeśli MERGE → połącz klastry i wróć do kroku 3 (renaming)
+- Jeśli SPLIT → podziel klaster i wróć do kroku 3
+- Zapisz: `data/clusters/[seed]_validation.md`
+
+**Walidacja po kroku 4:**
+- [ ] Każda para klastrów sprawdzona pod kątem overlap
+- [ ] Klastry z overlap >50% zmergowane (lub oznaczone do review)
+- [ ] Klastry z coherence <30% podzielone (lub oznaczone do review)
+
+### Krok 5: Mapowanie (cluster-mapper)
 - Użyj Source Context do klasyfikacji CORE vs OUTER
 - Kryterium: typ atrybutu (main/derived/minor), NIE wolumen
 - Wyznacz pillar pages i supporting pages
@@ -94,12 +110,12 @@ python3 .claude/skills/keyword-clusterer/cluster.py \
 - Zaproponuj kolejność publikacji: CORE → OUTER
 - Zapisz: `data/clusters/[seed]_topical_map.md`
 
-**Walidacja po kroku 4:**
+**Walidacja po kroku 5:**
 - [ ] Każdy klaster zaklasyfikowany jako CORE lub OUTER
 - [ ] Pillar pages wyznaczone (1-3)
 - [ ] Kolejność publikacji sensowna (CORE first)
 
-### Krok 5: Struktura serwisu (finalny dokument)
+### Krok 6: Struktura serwisu (finalny dokument)
 
 Wygeneruj wizualny dokument struktury serwisu. Zapisz: `data/clusters/[seed]_struktura_serwisu.md`
 
@@ -115,11 +131,23 @@ Dokument zawiera 5 sekcji:
 
 **5. Rekomendacje formatów** — tabela: typ strony → format → schema markup.
 
-**Walidacja po kroku 5:**
+**Walidacja po kroku 6:**
 - [ ] Plik `[seed]_struktura_serwisu.md` istnieje
-- [ ] Drzewo ASCII zawiera WSZYSTKIE supporting pages z kroków 4
+- [ ] Drzewo ASCII zawiera WSZYSTKIE supporting pages z kroków 5
 - [ ] Każdy keyword z clustered CSV przypisany do strony
 - [ ] Priorytety P0-P3 spójne z topical map
+
+### Krok 7: Content gaps (content-gap-detector)
+- Dla każdego klastra CORE (3-5 klastrów) pobierz SERP canonical query
+- Wyciągnij tematy z organic titles, PAA, Related Searches, Filter Sidebar
+- Porównaj z keywords w klastrze → oznacz jako COVERED / GAP / UNIQUE
+- Priorytetyzuj gaps: P1 (krytyczny) → P4 (niski)
+- Zapisz: `data/clusters/[seed]_content_gaps.md`
+
+**Walidacja po kroku 7:**
+- [ ] Każdy klaster CORE przeanalizowany
+- [ ] Gaps priorytetyzowane P1-P4
+- [ ] Plik `[seed]_content_gaps.md` zawiera rekomendacje
 
 ## Error recovery
 
@@ -131,7 +159,8 @@ Dokument zawiera 5 sekcji:
 | Za dużo klastrów (>25) | Zmniejsz k lub użyj DBSCAN z wyższym `--min-samples`. |
 | API rate limit | Skrypt ma wbudowany retry. Jeśli dalej failuje - odczekaj 60s i uruchom ponownie (cache oszczędzi już pobrane embeddingi). |
 | Krok 1 dał <300 kw | Wróć do expander i dodaj więcej wariantów z brakujących kategorii tokenów. |
-| SERP API niedostępny | Pipeline działa bez SERP (LLM-only). Pomiń krok 0, SERP Intelligence w kroku 4, i content gaps. |
+| SERP API niedostępny | Pipeline działa bez SERP (LLM-only). Pomiń kroki 0, 4, SERP Intelligence w kroku 5, i krok 7 (content gaps). |
+| Overlap >50% (krok 4) | Zmerguj klastry i wróć do kroku 3 (renaming). |
 
 ## Output
 
@@ -139,5 +168,7 @@ Zwróć:
 - Podsumowanie: ile keywords → ile klastrów → ile CORE vs OUTER
 - Ścieżki do wszystkich plików wynikowych
 - Tabela klastrów z Central Entity, canonical query i liczbą keywords
-- Topical map z kolejnością publikacji
+- Wynik walidacji klastrów (MERGE/SPLIT/OK)
+- Topical map z kolejnością publikacji + Content Format Recommendations
 - **Struktura serwisu** z drzewem stron i mapowaniem keywords (`[seed]_struktura_serwisu.md`)
+- **Content gaps** z priorytetyzacją P1-P4 (`[seed]_content_gaps.md`)
