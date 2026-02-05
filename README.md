@@ -41,6 +41,17 @@ Kolekcja skilli Claude AI do semantycznego SEO i optymalizacji pod AI Search (RA
 
 Pipeline orchestrowany przez sub-agenta `keyword-clustering-pipeline` z walidacją międzykrokową i SERP enrichment.
 
+### Content Planning Pipeline
+| Skill | Opis |
+|-------|------|
+| `topic-researcher` | Bada temat semantycznie: CSI, ramka semantyczna, query fanout, terminologia |
+| `competitor-gap-analyzer` | Analiza konkurencji: SERP + ekstrakcja treści, EAV, klasyfikacja URR, gap analysis |
+| `contextual-vector-builder` | Buduje strukturę artykułu: H1/H2/H3 z mapowania URR, BLUF per sekcja, chunki RAG |
+| `content-brief-generator` | Kompiluje kompletny brief: 9 sekcji, metryki jakości, checklist 15-punktowy |
+| `jina-reader` | Konwertuje URL na markdown przez Jina Reader API (single + batch mode) |
+
+Pipeline orchestrowany przez sub-agenta `content-planner`: topic-researcher → competitor-gap-analyzer → contextual-vector-builder → content-brief-generator. Briefs zapisywane do `data/briefs/`.
+
 ### Integracja z wyszukiwarką
 | Skill | Opis |
 |-------|------|
@@ -82,6 +93,22 @@ Lub automatycznie przez sub-agenta:
 Uruchom keyword-clustering-pipeline dla "baseny ogrodowe"
 ```
 
+### Content Planning Pipeline
+
+Od tematu do gotowego content briefu:
+
+```
+/topic-researcher "kortyzol" (Source Context: portal medyczny)
+/competitor-gap-analyzer "kortyzol" (+ wynik topic-researcher)
+/contextual-vector-builder (+ wyniki poprzednich kroków)
+/content-brief-generator (+ wyniki poprzednich kroków)
+```
+
+Lub automatycznie przez sub-agenta:
+```
+Uruchom content-planner dla "kortyzol" (Source Context: portal medyczny)
+```
+
 ## Python
 
 ### Keyword Clusterer
@@ -102,6 +129,19 @@ python3 .claude/skills/nodeshub-search/nodeshub_search.py "KEYWORD" [hl] [gl] [-
 
 Wymaga: `NODESHUB_API_KEY` w `.env`, `pip install requests python-dotenv`
 
+### Jina Reader
+
+```bash
+python3 .claude/skills/jina-reader/jina_reader.py "URL"
+python3 .claude/skills/jina-reader/jina_reader.py --batch urls.txt --output data/competitor_content
+```
+
+Opcje: `--batch` (batch mode z pliku URL), `--output` (katalog wyjściowy), `--workers N` (domyślnie 5), `--no-consolidate`, `--json`
+
+Batch mode generuje: pliki `.md` + `_quality_report.txt` + `_consolidated.md` (max 1500 słów/konkurent, z czyszczeniem szumu).
+
+Wymaga: `pip install requests python-dotenv`. Opcjonalnie: `JINA_API_KEY` w `.env`
+
 ## Pakowanie skilli
 
 ```bash
@@ -115,10 +155,10 @@ python3 .claude/skills/skill-creator/scripts/quick_validate.py .claude/skills/<s
 ## Struktura repozytorium
 
 ```
-├── .claude/skills/          # Definicje skilli Claude (22 skille)
-├── .claude/agents/          # Sub-agenty (keyword-clustering-pipeline)
+├── .claude/skills/          # Definicje skilli Claude (27 skilli)
+├── .claude/agents/          # Sub-agenty (keyword-clustering-pipeline, content-planner)
 ├── skills/optimized/        # Spakowane .skill do dystrybucji
-├── data/                    # Dane robocze (keywords/, clusters/, embeddings/)
+├── data/                    # Dane robocze (keywords/, clusters/, embeddings/, briefs/)
 ├── audyt/                   # Dokumentacja procesu audytu AI Search
 ├── ai-semantic-seo-full.md  # Materiały kursowe
 └── CLAUDE.md                # Instrukcje dla Claude Code

@@ -1,0 +1,21 @@
+# Quality Report
+# Generated: 2026-02-05 03:49:51
+# Directory: data/briefs/kortyzol/competitors
+
+Status    Words  URL
+-------- ------  --------------------------------------------------
+OK         4493  https://www.doz.pl/czytelnia/a18426-Co_jesc_by_obnizyc_kortyzol_Dieta_kortyzolowa
+OK         7381  https://pl.wikipedia.org/wiki/Kortyzol
+OK         3137  https://www.synevo.pl/akademia-zdrowia/kortyzol-co-to-jest-i-jak-dziala-hormon-stresu/
+OK         1458  https://diag.pl/pacjent/artykuly/hormon-stresu-kortyzol/
+OK         3297  https://www.medistore.com.pl/a/kortyzol-norma-objawy-podwyszonego-i-obnionego-kortyzolu
+OK         1764  https://www.adamed.expert/pacjent/zdrowie-psychiczne/kortyzol-hormon-stresu-jak-obnizyc-poziom-kortyzolu
+OK         2143  https://laboratorium.luxmedlublin.pl/Kortyzol
+OK         1806  https://www.aptekarosa.pl/blog/article/1484-co-to-jest-kortyzol-norma-hormonu-stresu-objawy-podwyzszonego-poziomu-i-jego-rola-w-organizmie.html
+OK         2487  https://www.luxmed.pl/dla-pacjenta/artykuly-i-poradniki/kortyzol
+
+# Summary
+OK:    9
+SKIP:  0 (< 200 words)
+ERROR: 0
+Total words (OK only): 27966
