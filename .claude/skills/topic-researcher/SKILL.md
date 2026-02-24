@@ -16,6 +16,7 @@ Przeprowadzaj pełny research semantyczny tematu artykułu. Łączysz analizy z 
 
 - **Temat artykułu** (np. "Kortyzol - hormon stresu")
 - **Source Context** (np. "portal medyczny dla pacjentów")
+- **Query Fanout output** (opcjonalny): `data/briefs/[slug]/00_query_fanout.json` — lista wariantów z typami i confidence z NodeHub API
 
 ## Proces analizy
 
@@ -53,6 +54,28 @@ Wygeneruj 15 elementów ramki semantycznej dla CE:
 | Negation | Co jeśli brak? | "niedobór [CE] objawy" |
 
 ### 3. Query Fanout (5-10 sub-queries)
+
+**Tryb A — z `00_query_fanout.json` (preferowany):**
+
+Jeśli plik `00_query_fanout.json` jest dostępny, użyj `generated_variants` jako bazy sub-queries zamiast generować od zera:
+
+1. Weź `generated_variants` z pliku — każdy wariant ma `keyword`, `type` i `confidence`
+2. Mapuj typy API na elementy Frame Semantics wg tabeli:
+
+| Typ API | Element Frame Semantics | Priorytet |
+|---------|------------------------|-----------|
+| `specification` | Instrument / Quantity / Condition | ROOT |
+| `reformulation` | Synonymy / Alternative CSI | ROOT |
+| `implicit` | Purpose / Result / Beneficiary | ROOT |
+| `comparative` | Comparison / Negation | RARE |
+| `entity_expanded` | CE powiązane / Location | RARE |
+| `follow_up` | Cause / Time / Manner | OUTER |
+
+3. Priorytetyzuj wg confidence: `≥0.85` → P1, `0.75–0.85` → P2, `<0.75` → P3
+4. Uzupełnij maks 2-3 własnymi sub-queries dla elementów ramki niepokrytych przez API
+5. `top_titles` z pliku = wstępny SERP landscape — skomentuj krótko widoczne wzorce tytułów
+
+**Tryb B — LLM-only (gdy brak `00_query_fanout.json`):**
 
 Symuluj dekompozycję AI Search. Dla CSI wygeneruj sub-queries:
 
@@ -103,10 +126,10 @@ Wygeneruj drzewo relacji leksykalnych dla CE:
 [15 elementów]
 
 ## 3. Query Fanout
-| # | Sub-query | Element ramki | Pokrycie |
-|---|-----------|---------------|----------|
-| 1 | [query] | [element] | Do pokrycia |
-[5-10 queries]
+| # | Sub-query | Typ API / Element ramki | Conf | P | Pokrycie |
+|---|-----------|------------------------|------|---|----------|
+| 1 | [query] | [typ] / [element] | [%] | P1 | Do pokrycia |
+[5-10 queries; jeśli Tryb A: wypełnij Typ API i Conf z 00_query_fanout.json; jeśli Tryb B: Typ API = "—"]
 
 ## 4. Terminologia rozszerzona
 | Relacja | Terminy |

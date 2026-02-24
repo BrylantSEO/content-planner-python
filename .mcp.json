@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=wbxrvveebxscbmxshkyc",
+      "headers": {
+        "Authorization": "Bearer sbp_4e1658250af753c6d93a6dcaaef8a04526774dcd"
+      }
+    },
+    "senuto": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "senuto-mcp"
+      ],
+      "env": {
+        "SENUTO_API_KEY": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NDk5NzAsImV4cCI6MTc3NDYwMDkxMiwiaWF0IjoxNzcxOTIyNTEyfQ.C5Z8bj9WgYRkbJBlEVgs020XS9ZayoPHw2vZd194wF0"
+      }
+    }
+  }
+}

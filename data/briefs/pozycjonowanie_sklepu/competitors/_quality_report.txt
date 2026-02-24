@@ -1,0 +1,21 @@
+# Quality Report
+# Generated: 2026-02-24 11:35:36
+# Directory: data/briefs/pozycjonowanie_sklepu/competitors
+
+Status    Words  URL
+-------- ------  --------------------------------------------------
+OK        25544  https://widoczni.com/pozycjonowanie-sklepu-internetowego/
+OK         7025  https://semcore.pl/pozycjonowanie-sklepow-internetowych/
+OK         8280  https://www.sempire.pl/jak-pozycjonowac-sklep-internetowy.html
+OK         1864  https://www.idosell.com/pl/seo/
+OK         4670  https://cyberfolks.pl/blog/pozycjonowanie-sklepu-internetowego-jak-sie-do-tego-zabrac/
+OK       146462  https://pikseo.pl/pozycjonowanie-e-commerce/
+OK         1928  https://www.netim.pl/pozycjonowanie-sklepow/
+OK         1803  https://www.elephate.com/pl/seo/pozycjonowanie-sklepu/
+OK         3136  https://www.shopgold.pl/pozycjonowanie-sklepu-internetowego-poradnik-nc-3.html
+
+# Summary
+OK:    9
+SKIP:  0 (< 200 words)
+ERROR: 0
+Total words (OK only): 200712

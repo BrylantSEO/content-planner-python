@@ -1,0 +1,23 @@
+# Quality Report
+# Generated: 2026-02-24 09:49:18
+# Directory: data/audits/jak-reklamowac-hotel/competitors
+
+Status    Words  URL
+-------- ------  --------------------------------------------------
+SKIP         50  https://inpost.pl/aktualnosci-reklama-hotelu-jak-promowac-hotel-w-internecie-i-nie-tylko
+OK         5040  https://widoczni.com/blog/jak-promowac-hotel/
+SKIP         50  https://solix.pl/blog/jak-skutecznie-wypromowac-hotel-przyklady/
+OK         1361  https://semstart.pl/rozwoj-firmy/7-sposobow-na-promocje-reklame-i-marketing-hotelu-pensjonatu/
+OK         3641  https://green-fields.pl/blog/marketing-hotelu/
+SKIP         12  https://www.biznes-hotel.pl/artykul/jak-promowac-hotel-w-internecie-12-skutecznych-strategii
+OK         2607  https://markowyhotel.pl/promocja-i-marketing-hotelu/
+OK         6619  https://zielinskijerzy.com/blog/nie-tylko-booking-i-airbnb-jak-promowac-hotel-zeby-miec-wlasne-zrodla-rezerwacji-i-zyski-pod-kontrola/
+OK         3751  https://simpliteca.com/oferta/marketing-w-gastronomii/marketing-hoteli-luksusowych/
+
+# Summary
+OK:    6
+SKIP:  3 (< 200 words)
+ERROR: 0
+Total words (OK only): 23019
+
+WARNING: Only 6 OK competitors (< 7). Analysis quality may be degraded.

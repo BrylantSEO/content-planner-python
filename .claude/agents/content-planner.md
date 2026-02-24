@@ -23,6 +23,22 @@ Wykonuj wszystkie komendy automatycznie bez pauz — nie pytaj o potwierdzenie m
 
 Utwórz katalog roboczy dla tematu: `data/briefs/[slug]/` (slug: lowercase, spacje → underscore, bez polskich znaków).
 
+### Krok 0: Query Fanout SERP Intelligence
+
+```bash
+python3 .claude/skills/nodeshub-search/query_fanout.py "TEMAT"
+```
+
+Skrypt wywołuje NodeHub `/v1/query-fanout` i zapisuje wynik do `data/briefs/[slug]/00_query_fanout.json`.
+
+Output udostępniany dla Kroku 1:
+- `generated_variants` (keyword + type + confidence) → gotowe sub-queries z typami i priorytetami P1/P2/P3
+- `top_titles` → wstępny obraz SERP landscape bez osobnego nodeshub call
+
+**Reguła wznawiania:** Jeśli `00_query_fanout.json` już istnieje → pomiń krok 0, czytaj z pliku.
+
+**Error recovery:** Jeśli NodeHub API niedostępny → pomiń krok 0, Krok 1 działa w trybie LLM-only (generuje sub-queries samodzielnie).
+
 ### Krok 1: Topic Research (topic-researcher)
 
 Przeprowadź pełny research semantyczny tematu:
@@ -80,8 +96,14 @@ Nie musisz sprawdzać `wc -w` — raport jakości generowany automatycznie. Jeś
 Czytaj `data/briefs/[slug]/competitors/_consolidated.md` (zamiast indywidualnych plików) i przeanalizuj treść samodzielnie:
 
 1. **EAV extraction** per konkurent (K1-KN z consolidated) → Entity-Attribute-Value trójki. Czytaj tekst i wyciągaj trójki bezpośrednio — to analiza językowa, nie wymaga narzędzi.
-2. **Klasyfikuj atrybuty** jako UNIQUE / ROOT / RARE (progi: UNIQUE 1-2/N, ROOT 5+/N, RARE 3-4/N)
-3. **Gap Analysis:** porównaj z sub-queries → COVERED / GAP / UNIQUE, priorytety P1-P4
+2. **Zapisz surową EAV Matrix** jako tabelę Markdown w `02_competitor_analysis.md` (kolumny: Atrybut | K1 | K2 | ... | KN) z wartościami ✓ / —
+3. **Klasyfikacja URR (opcja A — skrypt):** Uruchom po zapisaniu EAV Matrix:
+   ```bash
+   python3 .claude/skills/competitor-gap-analyzer/classify_urr.py data/briefs/[slug]/02_competitor_analysis.md
+   ```
+   Wklej output (kolumna `typ_urr`) z powrotem do tabeli EAV Matrix.
+   **Opcja B — LLM:** Jeśli skrypt niedostępny, klasyfikuj ręcznie wg progów: UNIQUE 1-2/N, ROOT 5+/N, RARE 3-4/N
+4. **Gap Analysis:** porównaj z sub-queries → COVERED / GAP / UNIQUE, priorytety P1-P4
 
 **Walidacja po kroku 2:**
 - [ ] Min 7 konkurentów przeanalizowanych (lub fallback na LLM z notą)
@@ -151,6 +173,7 @@ Każdy krok pipeline zapisuje wynik do `data/briefs/[slug]/`:
 
 | Krok | Plik | Zawartość |
 |------|------|-----------|
+| 0 | `00_query_fanout.json` | Warianty keyword z typami, confidence, top SERP titles (NodeHub API) |
 | 1 | `01_topic_research.md` | CSI, ramka semantyczna, sub-queries, terminologia |
 | 2 | `urls.txt` | Lista URLs konkurentów z SERP |
 | 2 | `competitors/*.md` | Treść konkurentów (indywidualne pliki — backup) |
@@ -164,6 +187,7 @@ Każdy krok pipeline zapisuje wynik do `data/briefs/[slug]/`:
 
 Pipeline jest wznawialny — można powtórzyć od dowolnego kroku mając wyniki poprzednich:
 
+- Jeśli `00_query_fanout.json` istnieje → pomiń krok 0, czytaj z pliku
 - Jeśli `01_topic_research.md` istnieje → pomiń krok 1, czytaj z pliku
 - Jeśli `competitors/_consolidated.md` istnieje → pomiń fetch (2.1-2.2), czytaj z pliku i kontynuuj od 2.3
 - Jeśli `02_competitor_analysis.md` istnieje → pomiń krok 2, czytaj z pliku
@@ -185,8 +209,8 @@ Pipeline jest wznawialny — można powtórzyć od dowolnego kroku mając wyniki
 
 | Poziom | Dostępne narzędzia | Jakość |
 |--------|-------------------|--------|
-| **Full** | SERP + Jina + LLM | Najwyższa - realne dane konkurencji |
-| **SERP-only** | SERP + LLM (bez Jina) | Wysoka - tytuły + PAA + Related jako proxy |
+| **Full** | QueryFanout + SERP + Jina + LLM | Najwyższa - realne dane konkurencji + ugruntowane sub-queries |
+| **SERP-only** | SERP + LLM (bez Jina, bez QueryFanout) | Wysoka - tytuły + PAA + Related jako proxy |
 | **LLM-only** | Tylko LLM | Dobra - oparte na wiedzy modelu, bez weryfikacji SERP |
 
 Pipeline automatycznie degraduje do niższego poziomu przy błędach API.

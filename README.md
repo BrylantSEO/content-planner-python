@@ -178,3 +178,4 @@ python3 .claude/skills/skill-creator/scripts/quick_validate.py .claude/skills/<s
 ## Licencja
 
 MIT
+# SEO-OS-DD
