@@ -1,0 +1,267 @@
+2026-02-25 08:54:57 [INFO] ============================================================
+2026-02-25 08:54:57 [INFO] Sitemap Monitor — start
+2026-02-25 08:54:57 [INFO] Czas: 2026-02-25 08:54:57
+2026-02-25 08:54:57 [INFO] ============================================================
+2026-02-25 08:54:57 [INFO] Pobieram sitemap: https://double-digital.pl/article-sitemap.xml
+2026-02-25 08:54:58 [INFO]   Znaleziono 57 URL w article-sitemap.xml
+2026-02-25 08:54:58 [INFO] Pobieram sitemap: https://double-digital.pl/blog-sitemap.xml
+2026-02-25 08:54:58 [INFO]   Znaleziono 275 URL w blog-sitemap.xml
+2026-02-25 08:54:58 [INFO] Łącznie unikalnych URL ze wszystkich sitemap: 332
+2026-02-25 08:54:59 [INFO] W Supabase już istnieje 269 URL
+2026-02-25 08:54:59 [INFO] Nowych URL do dodania: 63
+2026-02-25 08:54:59 [INFO] [1/63]
+2026-02-25 08:54:59 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/
+2026-02-25 08:55:06 [INFO]     Jina: 8000 znaków
+2026-02-25 08:55:06 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/
+2026-02-25 08:55:07 [INFO] [2/63]
+2026-02-25 08:55:07 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-copywriter-robi-kiss/
+2026-02-25 08:55:13 [INFO]     Jina: 8000 znaków
+2026-02-25 08:55:14 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-copywriter-robi-kiss/
+2026-02-25 08:55:15 [INFO] [3/63]
+2026-02-25 08:55:15 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/zanim-zrobisz-strone-upewnij-sie-ze-wiesz-kim-jestes/
+2026-02-25 08:55:21 [INFO]     Jina: 8000 znaków
+2026-02-25 08:55:21 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/zanim-zrobisz-strone-upewnij-sie-ze-wiesz-kim-jestes/
+2026-02-25 08:55:22 [INFO] [4/63]
+2026-02-25 08:55:22 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/seo-ai-kompetencje-ktore-dadza-ci-przewage/
+2026-02-25 08:55:29 [INFO]     Jina: 8000 znaków
+2026-02-25 08:55:30 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/seo-ai-kompetencje-ktore-dadza-ci-przewage/
+2026-02-25 08:55:31 [INFO] [5/63]
+2026-02-25 08:55:31 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/co-sprawia-ze-tresci-sa-viralowe-i-dlaczego-to-zlosc/
+2026-02-25 08:55:37 [INFO]     Jina: 7582 znaków
+2026-02-25 08:55:37 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/co-sprawia-ze-tresci-sa-viralowe-i-dlaczego-to-zlosc/
+2026-02-25 08:55:38 [INFO] [6/63]
+2026-02-25 08:55:38 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/wielkie-marki-wielkie-bledy/
+2026-02-25 08:55:43 [INFO]     Jina: 6024 znaków
+2026-02-25 08:55:44 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/wielkie-marki-wielkie-bledy/
+2026-02-25 08:55:45 [INFO] [7/63]
+2026-02-25 08:55:45 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/ten-post-zbiera-dane/
+2026-02-25 08:55:51 [INFO]     Jina: 8000 znaków
+2026-02-25 08:55:52 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/ten-post-zbiera-dane/
+2026-02-25 08:55:53 [INFO] [8/63]
+2026-02-25 08:55:53 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/kiedy-beda-efekty-seo-czyli-jak-nie-dac-sie-nabrac-na-obietnice-bez-pokrycia/
+2026-02-25 08:55:59 [INFO]     Jina: 8000 znaków
+2026-02-25 08:55:59 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/kiedy-beda-efekty-seo-czyli-jak-nie-dac-sie-nabrac-na-obietnice-bez-pokrycia/
+2026-02-25 08:56:00 [INFO] [9/63]
+2026-02-25 08:56:00 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/5-narzedzi-ai-ktore-naprawde-robia-robote/
+2026-02-25 08:56:07 [INFO]     Jina: 8000 znaków
+2026-02-25 08:56:07 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/5-narzedzi-ai-ktore-naprawde-robia-robote/
+2026-02-25 08:56:08 [INFO] [10/63]
+2026-02-25 08:56:08 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/czujesz-ze-agencja-cos-kreci-sprawdz-ja-tymi-12-pytaniami/
+2026-02-25 08:56:14 [INFO]     Jina: 8000 znaków
+2026-02-25 08:56:15 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/czujesz-ze-agencja-cos-kreci-sprawdz-ja-tymi-12-pytaniami/
+2026-02-25 08:56:16 [INFO] [11/63]
+2026-02-25 08:56:16 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/twoj-zegarek-wie-ze-jestes-w-stresie-i-mowi-o-tym-reklamodawcom/
+2026-02-25 08:56:21 [INFO]     Jina: 8000 znaków
+2026-02-25 08:56:22 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/twoj-zegarek-wie-ze-jestes-w-stresie-i-mowi-o-tym-reklamodawcom/
+2026-02-25 08:56:23 [INFO] [12/63]
+2026-02-25 08:56:23 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/czy-lepiej-byc-coke-czy-pepsi/
+2026-02-25 08:56:29 [INFO]     Jina: 8000 znaków
+2026-02-25 08:56:30 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/czy-lepiej-byc-coke-czy-pepsi/
+2026-02-25 08:56:31 [INFO] [13/63]
+2026-02-25 08:56:31 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/na-to-sie-zgodziles-nawet-jesli-nie-pamietasz/
+2026-02-25 08:56:38 [INFO]     Jina: 8000 znaków
+2026-02-25 08:56:38 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/na-to-sie-zgodziles-nawet-jesli-nie-pamietasz/
+2026-02-25 08:56:39 [INFO] [14/63]
+2026-02-25 08:56:39 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/senior-sprzedaje-stazysta-realizuje-patologia-ktora-kosztuje-klientow-miliony/
+2026-02-25 08:56:45 [INFO]     Jina: 8000 znaków
+2026-02-25 08:56:46 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/senior-sprzedaje-stazysta-realizuje-patologia-ktora-kosztuje-klientow-miliony/
+2026-02-25 08:56:47 [INFO] [15/63]
+2026-02-25 08:56:47 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/nie-rob-storytellingu-rob-storyselling/
+2026-02-25 08:56:56 [INFO]     Jina: 8000 znaków
+2026-02-25 08:56:56 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/nie-rob-storytellingu-rob-storyselling/
+2026-02-25 08:56:57 [INFO] [16/63]
+2026-02-25 08:56:57 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/001-prowizji-przetarg-w-ktorym-wszyscy-przegrywaja/
+2026-02-25 08:57:03 [INFO]     Jina: 8000 znaków
+2026-02-25 08:57:03 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/001-prowizji-przetarg-w-ktorym-wszyscy-przegrywaja/
+2026-02-25 08:57:04 [INFO] [17/63]
+2026-02-25 08:57:04 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/ciemna-strona-jasnych-przyciskow-o-wzorcach-ux-ktore-wciagaja-bez-pytania/
+2026-02-25 08:57:10 [INFO]     Jina: 8000 znaków
+2026-02-25 08:57:11 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/ciemna-strona-jasnych-przyciskow-o-wzorcach-ux-ktore-wciagaja-bez-pytania/
+2026-02-25 08:57:12 [INFO] [18/63]
+2026-02-25 08:57:12 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/great-jeans-czy-great-genes-american-eagle-sydney-sweeney-i-skandal-ktory-sprzedaje/
+2026-02-25 08:57:18 [INFO]     Jina: 8000 znaków
+2026-02-25 08:57:19 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/great-jeans-czy-great-genes-american-eagle-sydney-sweeney-i-skandal-ktory-sprzedaje/
+2026-02-25 08:57:20 [INFO] [19/63]
+2026-02-25 08:57:20 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/cena-kontra-zaufanie-jak-allegro-wygrywa-z-temu-w-walce-o-polskiego-klienta/
+2026-02-25 08:57:25 [INFO]     Jina: 8000 znaków
+2026-02-25 08:57:26 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/cena-kontra-zaufanie-jak-allegro-wygrywa-z-temu-w-walce-o-polskiego-klienta/
+2026-02-25 08:57:27 [INFO] [20/63]
+2026-02-25 08:57:27 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/czapka-kryzys-i-marketing-lekcja-z-us-open/
+2026-02-25 08:57:33 [INFO]     Jina: 8000 znaków
+2026-02-25 08:57:33 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/czapka-kryzys-i-marketing-lekcja-z-us-open/
+2026-02-25 08:57:34 [INFO] [21/63]
+2026-02-25 08:57:34 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/najwieksze-marketingowe-sciemy-w-ktore-wierzymy/
+2026-02-25 08:57:40 [INFO]     Jina: 8000 znaków
+2026-02-25 08:57:40 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/najwieksze-marketingowe-sciemy-w-ktore-wierzymy/
+2026-02-25 08:57:42 [INFO] [22/63]
+2026-02-25 08:57:42 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/reklama-ktora-cie-podsluchuje/
+2026-02-25 08:57:49 [INFO]     Jina: 8000 znaków
+2026-02-25 08:57:49 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/reklama-ktora-cie-podsluchuje/
+2026-02-25 08:57:50 [INFO] [23/63]
+2026-02-25 08:57:50 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/pol-sekundy-prawdy-dlaczego-reklama-musi-dzialac-szybciej-niz-myslisz/
+2026-02-25 08:57:57 [INFO]     Jina: 8000 znaków
+2026-02-25 08:57:57 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/pol-sekundy-prawdy-dlaczego-reklama-musi-dzialac-szybciej-niz-myslisz/
+2026-02-25 08:57:58 [INFO] [24/63]
+2026-02-25 08:57:58 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/czy-algorytmy-wiedza-o-tobie-wiecej-niz-rodzina/
+2026-02-25 08:58:06 [INFO]     Jina: 8000 znaków
+2026-02-25 08:58:07 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/czy-algorytmy-wiedza-o-tobie-wiecej-niz-rodzina/
+2026-02-25 08:58:08 [INFO] [25/63]
+2026-02-25 08:58:08 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/subskrypcje-ktore-zjadaja-twoj-portfel/
+2026-02-25 08:58:14 [INFO]     Jina: 8000 znaków
+2026-02-25 08:58:15 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/subskrypcje-ktore-zjadaja-twoj-portfel/
+2026-02-25 08:58:16 [INFO] [26/63]
+2026-02-25 08:58:16 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/zgoda-tak-ale-na-co/
+2026-02-25 08:58:21 [INFO]     Jina: 8000 znaków
+2026-02-25 08:58:21 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/zgoda-tak-ale-na-co/
+2026-02-25 08:58:22 [INFO] [27/63]
+2026-02-25 08:58:22 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/masz-mniej-uwagi-niz-zlota-rybka-marki-to-wiedza/
+2026-02-25 08:58:31 [INFO]     Jina: 8000 znaków
+2026-02-25 08:58:32 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/masz-mniej-uwagi-niz-zlota-rybka-marki-to-wiedza/
+2026-02-25 08:58:33 [INFO] [28/63]
+2026-02-25 08:58:33 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/e-commerce-w-polsce-2025-rynek-dojrzaly-gra-o-lojalnosc/
+2026-02-25 08:58:38 [INFO]     Jina: 8000 znaków
+2026-02-25 08:58:39 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/e-commerce-w-polsce-2025-rynek-dojrzaly-gra-o-lojalnosc/
+2026-02-25 08:58:40 [INFO] [29/63]
+2026-02-25 08:58:40 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/efekt-niedostepnosci-czyli-jak-marki-sprzedaja-przez-brak/
+2026-02-25 08:58:45 [INFO]     Jina: 8000 znaków
+2026-02-25 08:58:46 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/efekt-niedostepnosci-czyli-jak-marki-sprzedaja-przez-brak/
+2026-02-25 08:58:47 [INFO] [30/63]
+2026-02-25 08:58:47 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-algorytmy-biora-cie-zakladnika/
+2026-02-25 08:58:52 [INFO]     Jina: 8000 znaków
+2026-02-25 08:58:53 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-algorytmy-biora-cie-zakladnika/
+2026-02-25 08:58:54 [INFO] [31/63]
+2026-02-25 08:58:54 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/co-to-jest-google-ai-overview-kompletny-przewodnik-dla-seo-i-marketerow/
+2026-02-25 08:59:00 [INFO]     Jina: 8000 znaków
+2026-02-25 08:59:00 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/co-to-jest-google-ai-overview-kompletny-przewodnik-dla-seo-i-marketerow/
+2026-02-25 08:59:01 [INFO] [32/63]
+2026-02-25 08:59:01 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-twoje-klikniecia-to-waluta-ktorej-nie-kontrolujesz/
+2026-02-25 08:59:13 [INFO]     Jina: 8000 znaków
+2026-02-25 08:59:14 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-twoje-klikniecia-to-waluta-ktorej-nie-kontrolujesz/
+2026-02-25 08:59:15 [INFO] [33/63]
+2026-02-25 08:59:15 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/jak-optymalizowac-pod-google-ai-overview/
+2026-02-25 08:59:25 [INFO]     Jina: 8000 znaków
+2026-02-25 08:59:26 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/jak-optymalizowac-pod-google-ai-overview/
+2026-02-25 08:59:27 [INFO] [34/63]
+2026-02-25 08:59:27 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/podstawy-seo/
+2026-02-25 08:59:33 [INFO]     Jina: 8000 znaków
+2026-02-25 08:59:34 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/podstawy-seo/
+2026-02-25 08:59:35 [INFO] [35/63]
+2026-02-25 08:59:35 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/zasiegi-mediow-spolecznosciowych-w-polsce-w-2025-roku/
+2026-02-25 08:59:41 [INFO]     Jina: 8000 znaków
+2026-02-25 08:59:41 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/zasiegi-mediow-spolecznosciowych-w-polsce-w-2025-roku/
+2026-02-25 08:59:42 [INFO] [36/63]
+2026-02-25 08:59:42 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-tak-wiele-agencji-udaje-strategow/
+2026-02-25 08:59:50 [INFO]     Jina: 8000 znaków
+2026-02-25 08:59:51 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-tak-wiele-agencji-udaje-strategow/
+2026-02-25 08:59:52 [INFO] [37/63]
+2026-02-25 08:59:52 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/darmowy-audyt-prawda-o-marketingowej-przynecie/
+2026-02-25 08:59:58 [INFO]     Jina: 8000 znaków
+2026-02-25 08:59:58 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/darmowy-audyt-prawda-o-marketingowej-przynecie/
+2026-02-25 08:59:59 [INFO] [38/63]
+2026-02-25 08:59:59 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-placisz-za-raporty-a-nie-za-wyniki/
+2026-02-25 09:00:07 [INFO]     Jina: 8000 znaków
+2026-02-25 09:00:07 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-placisz-za-raporty-a-nie-za-wyniki/
+2026-02-25 09:00:08 [INFO] [39/63]
+2026-02-25 09:00:08 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-wiekszosc-firm-zaczyna-przygotowania-do-black-week-wtedy-gdy-jest-juz-za-pozno/
+2026-02-25 09:00:14 [INFO]     Jina: 8000 znaków
+2026-02-25 09:00:14 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-wiekszosc-firm-zaczyna-przygotowania-do-black-week-wtedy-gdy-jest-juz-za-pozno/
+2026-02-25 09:00:15 [INFO] [40/63]
+2026-02-25 09:00:15 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/ctrlgrow-wraca-do-katowic/
+2026-02-25 09:00:22 [INFO]     Jina: 8000 znaków
+2026-02-25 09:00:22 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/ctrlgrow-wraca-do-katowic/
+2026-02-25 09:00:23 [INFO] [41/63]
+2026-02-25 09:00:23 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/marketing-2026-prognozy-oparte-na-danych-z-2025/
+2026-02-25 09:00:30 [INFO]     Jina: 8000 znaków
+2026-02-25 09:00:31 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/marketing-2026-prognozy-oparte-na-danych-z-2025/
+2026-02-25 09:00:32 [INFO] [42/63]
+2026-02-25 09:00:32 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-analityka-staje-sie-wazniejsza-niz-kreacja/
+2026-02-25 09:00:37 [INFO]     Jina: 8000 znaków
+2026-02-25 09:00:38 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-analityka-staje-sie-wazniejsza-niz-kreacja/
+2026-02-25 09:00:39 [INFO] [43/63]
+2026-02-25 09:00:39 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-firmy-ignoruja-najwazniejsze-14-dni-w-roku/
+2026-02-25 09:00:46 [INFO]     Jina: 8000 znaków
+2026-02-25 09:00:47 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-firmy-ignoruja-najwazniejsze-14-dni-w-roku/
+2026-02-25 09:00:48 [INFO] [44/63]
+2026-02-25 09:00:48 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-80-budzetu-reklamowego-pracuje-dla-algorytmu-nie-dla-twojego-biznesu/
+2026-02-25 09:00:54 [INFO]     Jina: 8000 znaków
+2026-02-25 09:00:55 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-80-budzetu-reklamowego-pracuje-dla-algorytmu-nie-dla-twojego-biznesu/
+2026-02-25 09:00:56 [INFO] [45/63]
+2026-02-25 09:00:56 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/platformy-reklamowe-tworza-iluzje-skutecznosci-pokazujac-wyniki-ktore-nie-odzwierciedlaja-realnej-sprzedazy-poznaj-mechanizmy-algorytmicznego-greenwashingu-i-sprawdz-jak-wyglada-prawdziwa-efektywn/
+2026-02-25 09:01:02 [INFO]     Jina: 8000 znaków
+2026-02-25 09:01:03 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/platformy-reklamowe-tworza-iluzje-skutecznosci-pokazujac-wyniki-ktore-nie-odzwierciedlaja-realnej-sprzedazy-poznaj-mechanizmy-algorytmicznego-greenwashingu-i-sprawdz-jak-wyglada-prawdziwa-efektywn/
+2026-02-25 09:01:04 [INFO] [46/63]
+2026-02-25 09:01:04 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-agencje-boja-sie-powiedziec-klientowi-ten-biznes-nie-nadaje-sie-do-skalowania/
+2026-02-25 09:01:11 [INFO]     Jina: 8000 znaków
+2026-02-25 09:01:12 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-agencje-boja-sie-powiedziec-klientowi-ten-biznes-nie-nadaje-sie-do-skalowania/
+2026-02-25 09:01:13 [INFO] [47/63]
+2026-02-25 09:01:13 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/google-ads-w-2026-co-dziala-a-co-juz-nie/
+2026-02-25 09:01:20 [INFO]     Jina: 8000 znaków
+2026-02-25 09:01:21 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/google-ads-w-2026-co-dziala-a-co-juz-nie/
+2026-02-25 09:01:22 [INFO] [48/63]
+2026-02-25 09:01:22 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/feedve-alternatywa-dla-google-css-ktora-daje-realna-kontrole-nad-wynikami/
+2026-02-25 09:01:27 [INFO]     Jina: 8000 znaków
+2026-02-25 09:01:28 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/feedve-alternatywa-dla-google-css-ktora-daje-realna-kontrole-nad-wynikami/
+2026-02-25 09:01:29 [INFO] [49/63]
+2026-02-25 09:01:29 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-ufasz-recenzjom-ktore-sa-fejkiem/
+2026-02-25 09:01:34 [INFO]     Jina: 8000 znaków
+2026-02-25 09:01:35 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-ufasz-recenzjom-ktore-sa-fejkiem/
+2026-02-25 09:01:36 [INFO] [50/63]
+2026-02-25 09:01:36 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/roas-1000-w-prezentacji-0-zysku-w-firmie/
+2026-02-25 09:01:41 [INFO]     Jina: 8000 znaków
+2026-02-25 09:01:42 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/roas-1000-w-prezentacji-0-zysku-w-firmie/
+2026-02-25 09:01:43 [INFO] [51/63]
+2026-02-25 09:01:43 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/performance-marketing-bez-strategii-to-loteria-oto-jak-przestac-przepalac-budzet/
+2026-02-25 09:01:48 [INFO]     Jina: 8000 znaków
+2026-02-25 09:01:49 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/performance-marketing-bez-strategii-to-loteria-oto-jak-przestac-przepalac-budzet/
+2026-02-25 09:01:50 [INFO] [52/63]
+2026-02-25 09:01:50 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/strategia-marketingowa-w-2026-dlaczego-80-firm-przepala-budzet-i-jak-tego-uniknac/
+2026-02-25 09:01:55 [INFO]     Jina: 8000 znaków
+2026-02-25 09:01:56 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/strategia-marketingowa-w-2026-dlaczego-80-firm-przepala-budzet-i-jak-tego-uniknac/
+2026-02-25 09:01:57 [INFO] [53/63]
+2026-02-25 09:01:57 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/mobile-trends-awards/
+2026-02-25 09:02:04 [INFO]     Jina: 8000 znaków
+2026-02-25 09:02:05 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/mobile-trends-awards/
+2026-02-25 09:02:06 [INFO] [54/63]
+2026-02-25 09:02:06 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/ai-nie-naprawi-zlej-strategii-przyspieszy-jej-porazke/
+2026-02-25 09:02:11 [INFO]     Jina: 8000 znaków
+2026-02-25 09:02:12 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/ai-nie-naprawi-zlej-strategii-przyspieszy-jej-porazke/
+2026-02-25 09:02:13 [INFO] [55/63]
+2026-02-25 09:02:13 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/sonnet-4-6-czy-gemini-3-1-pro-ktory-jest-lepszy-pod-seo/
+2026-02-25 09:02:17 [INFO]     Jina: 7651 znaków
+2026-02-25 09:02:18 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/sonnet-4-6-czy-gemini-3-1-pro-ktory-jest-lepszy-pod-seo/
+2026-02-25 09:02:19 [INFO] [56/63]
+2026-02-25 09:02:19 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/dlaczego-twoje-artykuly-nie-rankuja-sekret-idealnego-content-briefu-seo-bonusowy-skrypt/
+2026-02-25 09:02:24 [INFO]     Jina: 8000 znaków
+2026-02-25 09:02:25 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/dlaczego-twoje-artykuly-nie-rankuja-sekret-idealnego-content-briefu-seo-bonusowy-skrypt/
+2026-02-25 09:02:26 [INFO] [57/63]
+2026-02-25 09:02:26 [INFO]   Przetwarzam: https://double-digital.pl/artykuly/base44-tworzenie-stron-i-aplikacji-bez-kodu-jak-dziala-i-kiedy-warto/
+2026-02-25 09:02:31 [INFO]     Jina: 8000 znaków
+2026-02-25 09:02:32 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/artykuly/base44-tworzenie-stron-i-aplikacji-bez-kodu-jak-dziala-i-kiedy-warto/
+2026-02-25 09:02:33 [INFO] [58/63]
+2026-02-25 09:02:33 [INFO]   Przetwarzam: https://double-digital.pl/blog/podstawy-seo-rola-meta-tagow/
+2026-02-25 09:02:38 [INFO]     Jina: 8000 znaków
+2026-02-25 09:02:39 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/blog/podstawy-seo-rola-meta-tagow/
+2026-02-25 09:02:40 [INFO] [59/63]
+2026-02-25 09:02:40 [INFO]   Przetwarzam: https://double-digital.pl/blog/reklama-na-youtube-kompletny-poradnik-dla-poczatkujacych/
+2026-02-25 09:02:45 [INFO]     Jina: 8000 znaków
+2026-02-25 09:02:45 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/blog/reklama-na-youtube-kompletny-poradnik-dla-poczatkujacych/
+2026-02-25 09:02:46 [INFO] [60/63]
+2026-02-25 09:02:46 [INFO]   Przetwarzam: https://double-digital.pl/blog/seo-dla-hoteli/
+2026-02-25 09:02:52 [INFO]     Jina: 8000 znaków
+2026-02-25 09:02:53 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/blog/seo-dla-hoteli/
+2026-02-25 09:02:54 [INFO] [61/63]
+2026-02-25 09:02:54 [INFO]   Przetwarzam: https://double-digital.pl/blog/pozycjonowanie-sklepu-internetowego/
+2026-02-25 09:03:03 [INFO]     Jina: 8000 znaków
+2026-02-25 09:03:03 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/blog/pozycjonowanie-sklepu-internetowego/
+2026-02-25 09:03:04 [INFO] [62/63]
+2026-02-25 09:03:04 [INFO]   Przetwarzam: https://double-digital.pl/blog/google-ads-dla-hoteli/
+2026-02-25 09:03:12 [INFO]     Jina: 8000 znaków
+2026-02-25 09:03:13 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/blog/google-ads-dla-hoteli/
+2026-02-25 09:03:14 [INFO] [63/63]
+2026-02-25 09:03:14 [INFO]   Przetwarzam: https://double-digital.pl/blog/remarketing-youtube-ads/
+2026-02-25 09:03:20 [INFO]     Jina: 8000 znaków
+2026-02-25 09:03:20 [WARNING]     HTTP 404 — pomijam: https://double-digital.pl/blog/remarketing-youtube-ads/
+2026-02-25 09:03:20 [INFO] ============================================================
+2026-02-25 09:03:20 [INFO] Gotowe! Dodano: 0 | Błędy: 63 | Pominięto (już były): 269
+2026-02-25 09:03:20 [INFO] ============================================================
+2026-02-25 09:03:20 [INFO] Podsumowanie zapisano: data/logs/last_run.json

@@ -39,6 +39,30 @@ Output udostępniany dla Kroku 1:
 
 **Error recovery:** Jeśli NodeHub API niedostępny → pomiń krok 0, Krok 1 działa w trybie LLM-only (generuje sub-queries samodzielnie).
 
+### Krok 0.5: Analiza kanibalizacji i internal linking (Supabase)
+
+1. Wygeneruj embedding tematu:
+   ```bash
+   python3 query_embedding.py "TEMAT"
+   ```
+2. Wykonaj wynikowy SQL przez `mcp__supabase__execute_sql`
+3. Zanotuj wyniki:
+   - Similarity > 0.90 → **RYZYKO KANIBALIZACJI** — dodaj ostrzeżenie do briefu
+   - Similarity 0.75–0.90 → propozycje **internal linkingu** (anchor text + sekcja)
+   - Similarity < 0.75 → opcjonalne linki kontekstowe
+4. Zapisz wyniki do `data/briefs/[slug]/00_supabase_links.md` — użyj w Kroku 4 (brief)
+
+**Reguła wznawiania:** Jeśli `00_supabase_links.md` już istnieje → pomiń krok 0.5, czytaj z pliku.
+
+**Error recovery:** Jeśli `query_embedding.py` lub Supabase MCP niedostępny → fallback na URL ILIKE proxy:
+```sql
+SELECT url, 1 - (vector <=> (
+  SELECT vector FROM blog_vectors_double
+  WHERE url ILIKE '%KEYWORD_1%' OR url ILIKE '%KEYWORD_2%'
+  LIMIT 1
+)) AS similarity FROM blog_vectors_double ORDER BY similarity DESC LIMIT 10;
+```
+
 ### Krok 1: Topic Research (topic-researcher)
 
 Przeprowadź pełny research semantyczny tematu:
@@ -174,6 +198,7 @@ Każdy krok pipeline zapisuje wynik do `data/briefs/[slug]/`:
 | Krok | Plik | Zawartość |
 |------|------|-----------|
 | 0 | `00_query_fanout.json` | Warianty keyword z typami, confidence, top SERP titles (NodeHub API) |
+| 0.5 | `00_supabase_links.md` | Analiza kanibalizacji + propozycje internal linkingu (Supabase cosine similarity) |
 | 1 | `01_topic_research.md` | CSI, ramka semantyczna, sub-queries, terminologia |
 | 2 | `urls.txt` | Lista URLs konkurentów z SERP |
 | 2 | `competitors/*.md` | Treść konkurentów (indywidualne pliki — backup) |
@@ -188,6 +213,7 @@ Każdy krok pipeline zapisuje wynik do `data/briefs/[slug]/`:
 Pipeline jest wznawialny — można powtórzyć od dowolnego kroku mając wyniki poprzednich:
 
 - Jeśli `00_query_fanout.json` istnieje → pomiń krok 0, czytaj z pliku
+- Jeśli `00_supabase_links.md` istnieje → pomiń krok 0.5, czytaj z pliku
 - Jeśli `01_topic_research.md` istnieje → pomiń krok 1, czytaj z pliku
 - Jeśli `competitors/_consolidated.md` istnieje → pomiń fetch (2.1-2.2), czytaj z pliku i kontynuuj od 2.3
 - Jeśli `02_competitor_analysis.md` istnieje → pomiń krok 2, czytaj z pliku

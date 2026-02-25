@@ -1,0 +1,20 @@
+# Quality Report
+# Generated: 2026-02-25 08:04:45
+# Directory: data/briefs/remarketing_youtube_ads/competitors
+
+Status    Words  URL
+-------- ------  --------------------------------------------------
+OK         2195  https://fabrykamarketingu.pl/czytelnia/remarketing-video-jak-wykorzystac-polaczenie-youtube-ads-i-google-ads/
+OK         1633  https://support.google.com/google-ads/answer/2545661?hl=en
+OK         1887  https://www.marcinwsol.pl/blog/timeline/remarketing-filmow-stworzonych-przez-innych-tworcow-youtube/
+OK         1174  https://strategiczni.pl/baza-wiedzy-google-ads/co-umozliwia-remarketing-wideo-na-youtube
+OK         3840  https://beeffective.pl/blog/jak-ustawic-remarketing-w-youtube/
+OK         2952  https://linxdigital.com/blog/youtube-remarketing-ads-how-to-retarget-on-youtube
+OK         3257  https://www.sempire.pl/remarketing-google-ads.html
+OK          476  https://kompan.pl/co-to-jest/remarketing-wideo/
+
+# Summary
+OK:    8
+SKIP:  0 (< 200 words)
+ERROR: 0
+Total words (OK only): 17414

@@ -9,15 +9,32 @@ Wykonaj **w tej kolejności** przed każdym content briefem (ręcznie lub przez 
 Narzędzie: `mcp__supabase__execute_sql`
 Tabela: `blog_vectors_double` (projekt: `wbxrvveebxscbmxshkyc`)
 
+### Metoda A: Query Embedding (zalecana)
+
+1. Wygeneruj embedding tematu artykułu:
+   ```bash
+   python3 query_embedding.py "TEMAT ARTYKUŁU"
+   ```
+   Skrypt używa Gemini `gemini-embedding-001` z `taskType: RETRIEVAL_QUERY` (asymmetric search — lepsze dopasowanie query→document niż proxy przez URL keyword).
+
+   > **UWAGA:** Wymaga zgodności modelu embeddingów w bazie. Jeśli baza zawiera wektory z `text-embedding-004` (deprecated), trzeba najpierw przebudować embeddingi: `python3 sitemap_monitor.py --rebuild` (TODO).
+
+2. Skopiuj wygenerowany SQL i wykonaj przez `mcp__supabase__execute_sql`.
+
+### Metoda B: Fallback (URL keyword proxy)
+
+Jeśli `query_embedding.py` niedostępny, użyj multi-keyword OR na URL:
 ```sql
--- Znajdź podobne wpisy przez cosine similarity (proxy przez URL keyword)
 SELECT url, 1 - (vector <=> (
-  SELECT vector FROM blog_vectors_double WHERE url ILIKE '%SLOWO_KLUCZ%' LIMIT 1
+  SELECT vector FROM blog_vectors_double
+  WHERE url ILIKE '%KEYWORD_1%' OR url ILIKE '%KEYWORD_2%'
+  LIMIT 1
 )) AS similarity
 FROM blog_vectors_double
 ORDER BY similarity DESC
 LIMIT 10;
 ```
+> **Uwaga:** Metoda B jest mniej dokładna — opiera się na obecności słów kluczowych w URL, co nie zawsze odzwierciedla temat artykułu.
 
 ### Interpretacja similarity
 

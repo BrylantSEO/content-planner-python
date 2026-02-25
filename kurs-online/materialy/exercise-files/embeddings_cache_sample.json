@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "description": "Przykładowe cache embeddingów Gemini text-embedding-004 (768-wymiarowe). Użyj w ćwiczeniach Modułu 3 bez potrzeby wywoływania API. Rzeczywiste wartości zostały skrócone dla czytelności — w produkcji każdy wektor ma 768 wartości.",
+    "model": "text-embedding-004",
+    "dimensions": 768,
+    "task_type": "RETRIEVAL_DOCUMENT",
+    "generated": "2025-01-15",
+    "note": "DEMO — wartości częściowe. Pełne embeddingi generuj przez: python3 upload_to_supabase.py --test"
+  },
+  "https://double-digital.pl/blog/google-ads-dla-ecommerce": {
+    "url": "https://double-digital.pl/blog/google-ads-dla-ecommerce",
+    "text_preview": "Google Ads dla e-commerce — jak zwiększyć ROAS kampanii...",
+    "embedding_preview": [0.0312, -0.0891, 0.1203, 0.0567, -0.0234, 0.0789, -0.0456, 0.1102, -0.0678, 0.0934, 0.0123, -0.0567, 0.0891, -0.0234, 0.0456, -0.0789, 0.1102, -0.0678, 0.0934, 0.0123],
+    "dimensions_shown": 20,
+    "dimensions_total": 768
+  },
+  "https://double-digital.pl/blog/seo-ai-overview": {
+    "url": "https://double-digital.pl/blog/seo-ai-overview",
+    "text_preview": "SEO w erze AI Overview — jak dostosować strategię do nowych wyników Google...",
+    "embedding_preview": [0.0891, -0.0312, 0.0567, 0.1203, -0.0789, 0.0234, -0.0934, 0.0456, -0.1102, 0.0678, -0.0123, 0.0567, -0.0891, 0.0234, -0.0456, 0.0789, -0.1102, 0.0678, -0.0934, -0.0123],
+    "dimensions_shown": 20,
+    "dimensions_total": 768
+  },
+  "https://double-digital.pl/blog/facebook-ads-leadgen": {
+    "url": "https://double-digital.pl/blog/facebook-ads-leadgen",
+    "text_preview": "Facebook Ads dla leadgen B2B — strategie pozyskiwania leadów przez Meta...",
+    "embedding_preview": [0.0234, 0.0678, -0.1102, 0.0312, -0.0456, 0.0934, -0.0789, 0.0567, -0.0123, 0.0891, 0.0312, -0.0678, 0.1102, -0.0312, 0.0456, -0.0934, 0.0789, -0.0567, 0.0123, -0.0891],
+    "dimensions_shown": 20,
+    "dimensions_total": 768
+  },
+  "https://double-digital.pl/blog/ga4-implementacja": {
+    "url": "https://double-digital.pl/blog/ga4-implementacja",
+    "text_preview": "GA4 implementacja krok po kroku — migracja z Universal Analytics...",
+    "embedding_preview": [0.0456, -0.0934, 0.0789, -0.0567, 0.0123, -0.0891, 0.0312, -0.0678, 0.1102, -0.0312, 0.0456, -0.0934, 0.0789, -0.0567, 0.0123, -0.0891, 0.0312, -0.0678, 0.1102, -0.0312],
+    "dimensions_shown": 20,
+    "dimensions_total": 768
+  },
+  "https://double-digital.pl/blog/jak-wybrac-agencje-marketingowa": {
+    "url": "https://double-digital.pl/blog/jak-wybrac-agencje-marketingowa",
+    "text_preview": "Jak wybrać agencję marketingową — 7 pytań które musisz zadać...",
+    "embedding_preview": [0.0789, -0.0123, 0.0891, -0.0312, 0.0678, -0.1102, 0.0567, -0.0456, 0.0934, -0.0234, 0.0789, -0.0123, 0.0891, -0.0312, 0.0678, -0.1102, 0.0567, -0.0456, 0.0934, -0.0234],
+    "dimensions_shown": 20,
+    "dimensions_total": 768
+  },
+  "_similarity_examples": {
+    "description": "Przykłady cosine similarity między powyższymi artykułami",
+    "pairs": [
+      {
+        "url_a": "google-ads-dla-ecommerce",
+        "url_b": "facebook-ads-leadgen",
+        "similarity": 0.72,
+        "interpretation": "Oba o kampaniach płatnych — możliwy internal link (0.50–0.75)"
+      },
+      {
+        "url_a": "google-ads-dla-ecommerce",
+        "url_b": "seo-ai-overview",
+        "similarity": 0.48,
+        "interpretation": "Luźne powiązanie — oba o marketingu cyfrowym"
+      },
+      {
+        "url_a": "seo-ai-overview",
+        "url_b": "jak-wybrac-agencje-marketingowa",
+        "similarity": 0.81,
+        "interpretation": "Idealny internal link — oba o doborze strategii SEO/marketingowej (0.75–0.90)"
+      }
+    ]
+  }
+}

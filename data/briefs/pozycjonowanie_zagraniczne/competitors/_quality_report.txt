@@ -1,0 +1,22 @@
+# Quality Report
+# Generated: 2026-02-25 10:43:03
+# Directory: data/briefs/pozycjonowanie_zagraniczne/competitors
+
+Status    Words  URL
+-------- ------  --------------------------------------------------
+OK         8082  https://widoczni.com/pozycjonowanie-zagraniczne/
+OK         1038  https://octamedia.pl/blog/pozycjonowanie-zagraniczne/
+SKIP          8  https://verseo.pl/oferta/pozycjonowanie/pozycjonowanie-zagraniczne/
+OK         4090  https://widzialni.pl/pozycjonowanie-zagranicznych-stron/
+OK         3331  https://non.agency/
+OK       144242  https://pikseo.pl/pozycjonowanie-miedzynarodowe/
+OK         2111  https://www.artefakt.pl/pozycjonowanie-zagraniczne/
+OK         3786  https://www.sunrisesystem.pl/pozycjonowanie-stron/zagraniczne/
+OK         2614  https://semahead.agency/oferta/seo/pozycjonowanie-zagraniczne/
+OK         1271  https://trafficpeaks.pl/pozycjonowanie-stron/pozycjonowanie-zagraniczne/
+
+# Summary
+OK:    9
+SKIP:  1 (< 200 words)
+ERROR: 0
+Total words (OK only): 170565

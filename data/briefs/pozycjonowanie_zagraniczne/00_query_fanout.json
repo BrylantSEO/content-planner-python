@@ -1,0 +1,120 @@
+{
+  "seed_keyword": "pozycjonowanie zagraniczne",
+  "generated_variants": [
+    {
+      "keyword": "międzynarodowe SEO",
+      "type": "related",
+      "confidence": 0.95
+    },
+    {
+      "keyword": "jak pozycjonować stronę za granicą",
+      "type": "reformulation",
+      "confidence": 0.92
+    },
+    {
+      "keyword": "SEO dla rynków zagranicznych",
+      "type": "specification",
+      "confidence": 0.9
+    },
+    {
+      "keyword": "skuteczne pozycjonowanie zagraniczne",
+      "type": "implicit",
+      "confidence": 0.93
+    },
+    {
+      "keyword": "pozycjonowanie stron w USA",
+      "type": "entity_expanded",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "pozycjonowanie stron w Niemczech",
+      "type": "entity_expanded",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "pozycjonowanie stron we Francji",
+      "type": "entity_expanded",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "pozycjonowanie stron w Wielkiej Brytanii",
+      "type": "entity_expanded",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "pozycjonowanie zagraniczne cennik",
+      "type": "follow_up",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "agencja SEO pozycjonowanie zagraniczne",
+      "type": "implicit",
+      "confidence": 0.91
+    },
+    {
+      "keyword": "strategia SEO dla rynków zagranicznych",
+      "type": "specification",
+      "confidence": 0.89
+    },
+    {
+      "keyword": "optymalizacja SEO dla różnych krajów",
+      "type": "reformulation",
+      "confidence": 0.87
+    },
+    {
+      "keyword": "pozycjonowanie zagraniczne vs krajowe",
+      "type": "comparative",
+      "confidence": 0.86
+    },
+    {
+      "keyword": "narzędzia do pozycjonowania zagranicznego",
+      "type": "follow_up",
+      "confidence": 0.84
+    },
+    {
+      "keyword": "pozycjonowanie zagraniczne dla e-commerce",
+      "type": "specification",
+      "confidence": 0.89
+    },
+    {
+      "keyword": "jak zacząć pozycjonowanie zagraniczne",
+      "type": "follow_up",
+      "confidence": 0.9
+    },
+    {
+      "keyword": "pozycjonowanie zagraniczne case studies",
+      "type": "follow_up",
+      "confidence": 0.87
+    },
+    {
+      "keyword": "pozycjonowanie zagraniczne dla małych firm",
+      "type": "specification",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "pozycjonowanie zagraniczne w języku angielskim",
+      "type": "specification",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "pozycjonowanie zagraniczne w języku niemieckim",
+      "type": "specification",
+      "confidence": 0.85
+    }
+  ],
+  "total_generated": 20,
+  "metadata": {
+    "generation_time_ms": 22324,
+    "mode": "standard",
+    "serp_queries_executed": 1,
+    "unique_questions_found": 0,
+    "generated_variants_count": 20
+  },
+  "top_titles": [
+    "Pozycjonowanie zagraniczne - międzynarodowe SEO",
+    "Pozycjonowanie zagraniczne - skuteczne SEO ...",
+    "NON.agency: Pozycjonowanie Zagraniczne i Optymalizacja AI",
+    "Pozycjonowanie zagraniczne, czyli jak skutecznie ...",
+    "Pozycjonowanie zagraniczne - międzynarodowe SEO (UK ..."
+  ]
+}

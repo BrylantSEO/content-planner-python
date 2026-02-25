@@ -1,0 +1,842 @@
+2026-02-25 09:25:02 [INFO] ============================================================
+2026-02-25 09:25:02 [INFO] Rebuild Embeddings — DRY RUN
+2026-02-25 09:25:02 [INFO] Model: gemini-embedding-001 (RETRIEVAL_DOCUMENT)
+2026-02-25 09:25:02 [INFO] ============================================================
+2026-02-25 09:25:03 [INFO] Pobrano 270 rekordów z bazy
+2026-02-25 09:25:03 [INFO] Ograniczono do 3 rekordów
+2026-02-25 09:25:03 [INFO] [1/3] https://double-digital.pl/blog/
+2026-02-25 09:25:03 [INFO]   [DRY RUN] Pominięto
+2026-02-25 09:25:03 [INFO] [2/3] https://double-digital.pl/blog/jak-optymalizowac-reklamy-na-facebooku/
+2026-02-25 09:25:03 [INFO]   [DRY RUN] Pominięto
+2026-02-25 09:25:03 [INFO] [3/3] https://double-digital.pl/blog/audyt-techniczny-strony-i-eliminacja-bledow-ktore-szkodza-twojemu-seo/
+2026-02-25 09:25:03 [INFO]   [DRY RUN] Pominięto
+2026-02-25 09:25:03 [INFO] ============================================================
+2026-02-25 09:25:03 [INFO] Gotowe! Zaktualizowano: 0 | Błędy: 0
+2026-02-25 09:25:03 [INFO] ============================================================
+2026-02-25 09:25:14 [INFO] ============================================================
+2026-02-25 09:25:14 [INFO] Rebuild Embeddings — LIVE
+2026-02-25 09:25:14 [INFO] Model: gemini-embedding-001 (RETRIEVAL_DOCUMENT)
+2026-02-25 09:25:14 [INFO] ============================================================
+2026-02-25 09:25:15 [INFO] Pobrano 270 rekordów z bazy
+2026-02-25 09:25:15 [INFO] Ograniczono do 1 rekordów
+2026-02-25 09:25:15 [INFO] [1/1] https://double-digital.pl/blog/
+2026-02-25 09:25:26 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:25:28 [INFO]   UPDATE OK (id=1)
+2026-02-25 09:25:28 [INFO] ============================================================
+2026-02-25 09:25:28 [INFO] Gotowe! Zaktualizowano: 1 | Błędy: 0
+2026-02-25 09:25:28 [INFO] ============================================================
+2026-02-25 09:25:35 [INFO] ============================================================
+2026-02-25 09:25:35 [INFO] Rebuild Embeddings — LIVE
+2026-02-25 09:25:35 [INFO] Model: gemini-embedding-001 (RETRIEVAL_DOCUMENT)
+2026-02-25 09:25:35 [INFO] ============================================================
+2026-02-25 09:25:35 [INFO] Pobrano 270 rekordów z bazy
+2026-02-25 09:25:35 [INFO] [1/270] https://double-digital.pl/blog/
+2026-02-25 09:25:38 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:25:39 [INFO]   UPDATE OK (id=1)
+2026-02-25 09:25:39 [INFO] [2/270] https://double-digital.pl/blog/jak-optymalizowac-reklamy-na-facebooku/
+2026-02-25 09:25:47 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:25:48 [INFO]   UPDATE OK (id=2)
+2026-02-25 09:25:48 [INFO] [3/270] https://double-digital.pl/blog/audyt-techniczny-strony-i-eliminacja-bledow-ktore-szkodza-twojemu-seo/
+2026-02-25 09:25:59 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:25:59 [INFO]   UPDATE OK (id=3)
+2026-02-25 09:25:59 [INFO] [4/270] https://double-digital.pl/blog/rebranding-czym-jest-i-co-dzieki-niemu-zyskujesz/
+2026-02-25 09:26:07 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:26:08 [INFO]   UPDATE OK (id=4)
+2026-02-25 09:26:08 [INFO] [5/270] https://double-digital.pl/blog/czym-jest-storytelling-i-jak-go-wykorzystac-w-marketingu/
+2026-02-25 09:26:16 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:26:18 [INFO]   UPDATE OK (id=5)
+2026-02-25 09:26:18 [INFO] [6/270] https://double-digital.pl/blog/tworzysz-aplikacje-musisz-wiedziec-o-tych-5-rzeczach/
+2026-02-25 09:26:26 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:26:26 [INFO]   UPDATE OK (id=6)
+2026-02-25 09:26:26 [INFO] [7/270] https://double-digital.pl/blog/tiktok-ads/
+2026-02-25 09:26:35 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:26:36 [INFO]   UPDATE OK (id=7)
+2026-02-25 09:26:36 [INFO] [8/270] https://double-digital.pl/blog/jak-tworzyc-infografiki-ktore-angazuja-uzytkownikow/
+2026-02-25 09:26:43 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:26:44 [INFO]   UPDATE OK (id=8)
+2026-02-25 09:26:44 [INFO] [9/270] https://double-digital.pl/blog/ai-w-seo-czas-na-dominacje-a-nie-adaptacje/
+2026-02-25 09:26:52 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:26:54 [INFO]   UPDATE OK (id=9)
+2026-02-25 09:26:54 [INFO] [10/270] https://double-digital.pl/blog/niszowe-wyszukiwarki-czy-platna-promocja-poza-google-ma-sens/
+2026-02-25 09:27:03 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:27:04 [INFO]   UPDATE OK (id=10)
+2026-02-25 09:27:04 [INFO] [11/270] https://double-digital.pl/blog/czy-humanoidalne-roboty-stana-sie-naszymi-codziennymi-towarzyszami-i-pomocnikami/
+2026-02-25 09:27:12 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:27:13 [INFO]   UPDATE OK (id=11)
+2026-02-25 09:27:13 [INFO] [12/270] https://double-digital.pl/blog/jak-tworzyc-tresci-w-oparciu-o-wytyczne/
+2026-02-25 09:27:20 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:27:21 [INFO]   UPDATE OK (id=12)
+2026-02-25 09:27:21 [INFO] [13/270] https://double-digital.pl/blog/zagraniczne-seo-pozycjonowanie-stron-w-wielkiej-brytanii/
+2026-02-25 09:27:29 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:27:29 [INFO]   UPDATE OK (id=13)
+2026-02-25 09:27:29 [INFO] [14/270] https://double-digital.pl/blog/czym-jest-google-meridian/
+2026-02-25 09:27:39 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:27:40 [INFO]   UPDATE OK (id=14)
+2026-02-25 09:27:40 [INFO] [15/270] https://double-digital.pl/blog/deepfake-jak-odroznic-prawde-od-falszu/
+2026-02-25 09:27:47 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:27:48 [INFO]   UPDATE OK (id=15)
+2026-02-25 09:27:48 [INFO] [16/270] https://double-digital.pl/blog/mql-i-sql-co-to-takiego/
+2026-02-25 09:27:57 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:27:57 [INFO]   UPDATE OK (id=16)
+2026-02-25 09:27:57 [INFO] [17/270] https://double-digital.pl/blog/harmonogram-publikacji-w-mediach-spolecznosciowych-dlaczego-warto-planowac-posty-w-social-mediach/
+2026-02-25 09:28:06 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:28:07 [INFO]   UPDATE OK (id=17)
+2026-02-25 09:28:07 [INFO] [18/270] https://double-digital.pl/blog/czym-jest-marketing-szeptany-i-czy-warto-go-robic-w-2025/
+2026-02-25 09:28:14 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:28:15 [INFO]   UPDATE OK (id=18)
+2026-02-25 09:28:15 [INFO] [19/270] https://double-digital.pl/blog/reklamy-platne-na-allegro-czy-warto-reklamowac-sie-na-allegro/
+2026-02-25 09:28:22 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:28:24 [INFO]   UPDATE OK (id=19)
+2026-02-25 09:28:24 [INFO] [20/270] https://double-digital.pl/blog/tlumaczenia-ai-czy-sztuczna-inteligencja-zastapi-tlumaczy/
+2026-02-25 09:28:33 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:28:34 [INFO]   UPDATE OK (id=20)
+2026-02-25 09:28:34 [INFO] [21/270] https://double-digital.pl/blog/meta-ads-co-warto-wiedziec-o-reklamach-meta-w-2025/
+2026-02-25 09:28:42 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:28:42 [INFO]   UPDATE OK (id=21)
+2026-02-25 09:28:42 [INFO] [22/270] https://double-digital.pl/blog/sztuczna-inteligencja-w-medycynie-rewolucja-dzieje-sie-na-naszych-oczach/
+2026-02-25 09:28:50 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:28:51 [INFO]   UPDATE OK (id=22)
+2026-02-25 09:28:51 [INFO] [23/270] https://double-digital.pl/blog/jak-tworzyc-posty-na-media-spolecznosciowe/
+2026-02-25 09:28:58 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:28:59 [INFO]   UPDATE OK (id=23)
+2026-02-25 09:28:59 [INFO] [24/270] https://double-digital.pl/blog/zagraniczne-seo-pozycjonowanie-stron-w-czechach-i-slowacji/
+2026-02-25 09:29:07 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:29:09 [INFO]   UPDATE OK (id=24)
+2026-02-25 09:29:09 [INFO] [25/270] https://double-digital.pl/blog/kluczowe-metryki-i-narzedzia-analityczne-ktore-musisz-znac/
+2026-02-25 09:29:16 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:29:18 [INFO]   UPDATE OK (id=25)
+2026-02-25 09:29:18 [INFO] [26/270] https://double-digital.pl/blog/narzedzia-ktore-pomagaja-automatyzowac-procesy-make/
+2026-02-25 09:29:25 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:29:25 [INFO]   UPDATE OK (id=26)
+2026-02-25 09:29:25 [INFO] [27/270] https://double-digital.pl/blog/jak-technologia-umozliwia-dynamiczne-dostosowanie-przekazu-marketingowego/
+2026-02-25 09:29:35 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:29:36 [INFO]   UPDATE OK (id=27)
+2026-02-25 09:29:36 [INFO] [28/270] https://double-digital.pl/blog/content-repurposing-jak-maksymalnie-wykorzystac-raz-stworzony-content/
+2026-02-25 09:29:47 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:29:49 [INFO]   UPDATE OK (id=28)
+2026-02-25 09:29:49 [INFO] [29/270] https://double-digital.pl/blog/voice-search-seo-jak-zoptymalizowac-tresci-pod-wyszukiwanie-glosowe-i-asystentow-glosowych/
+2026-02-25 09:29:56 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:29:58 [INFO]   UPDATE OK (id=29)
+2026-02-25 09:29:58 [INFO] [30/270] https://double-digital.pl/blog/mikrotargetowanie-i-budowanie-relacji-reklamy-w-lokalnych-spolecznosciach/
+2026-02-25 09:30:04 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:30:06 [INFO]   UPDATE OK (id=30)
+2026-02-25 09:30:06 [INFO] [31/270] https://double-digital.pl/blog/google-gemini-przeglad-mozliwosci-q1-2025/
+2026-02-25 09:30:13 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:30:13 [INFO]   UPDATE OK (id=31)
+2026-02-25 09:30:13 [INFO] [32/270] https://double-digital.pl/blog/cringe-marketing-czym-jest-i-czy-jest-skuteczny/
+2026-02-25 09:30:22 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:30:22 [INFO]   UPDATE OK (id=32)
+2026-02-25 09:30:22 [INFO] [33/270] https://double-digital.pl/blog/specyfika-tworzenia-tresci-dla-klientow-biznesowych/
+2026-02-25 09:30:29 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:30:30 [INFO]   UPDATE OK (id=33)
+2026-02-25 09:30:30 [INFO] [34/270] https://double-digital.pl/blog/jakie-sa-kody-odpowiedzi-http/
+2026-02-25 09:30:39 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:30:41 [INFO]   UPDATE OK (id=34)
+2026-02-25 09:30:41 [INFO] [35/270] https://double-digital.pl/blog/czym-jest-przekaz-marketingowy/
+2026-02-25 09:30:48 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:30:50 [INFO]   UPDATE OK (id=35)
+2026-02-25 09:30:50 [INFO] [36/270] https://double-digital.pl/blog/ux-writing-w-content-marketingu/
+2026-02-25 09:30:57 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:30:59 [INFO]   UPDATE OK (id=36)
+2026-02-25 09:30:59 [INFO] [37/270] https://double-digital.pl/blog/zagraniczne-seo-pozycjonowanie-stron-w-niemczech/
+2026-02-25 09:31:13 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:31:13 [INFO]   UPDATE OK (id=37)
+2026-02-25 09:31:13 [INFO] [38/270] https://double-digital.pl/blog/jak-ai-i-machine-learning-zmieniaja-kampanie-google-ads/
+2026-02-25 09:31:20 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:31:22 [INFO]   UPDATE OK (id=38)
+2026-02-25 09:31:22 [INFO] [39/270] https://double-digital.pl/blog/czym-jest-microsoft-clarity/
+2026-02-25 09:31:29 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:31:31 [INFO]   UPDATE OK (id=39)
+2026-02-25 09:31:31 [INFO] [40/270] https://double-digital.pl/blog/eko-marketing-przyszlosc-marketingu/
+2026-02-25 09:31:39 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:31:39 [INFO]   UPDATE OK (id=40)
+2026-02-25 09:31:39 [INFO] [41/270] https://double-digital.pl/blog/churn-rate-czym-jest-wskaznik-rezygnacji/
+2026-02-25 09:31:47 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:31:48 [INFO]   UPDATE OK (id=41)
+2026-02-25 09:31:48 [INFO] [42/270] https://double-digital.pl/blog/niski-budzet-na-reklamy-jak-zaczac-z-ograniczonym-budzetem/
+2026-02-25 09:31:55 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:31:56 [INFO]   UPDATE OK (id=42)
+2026-02-25 09:31:56 [INFO] [43/270] https://double-digital.pl/blog/czym-jest-rozwiazanie-headless/
+2026-02-25 09:32:03 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:32:04 [INFO]   UPDATE OK (id=43)
+2026-02-25 09:32:04 [INFO] [44/270] https://double-digital.pl/blog/reklamy-platne-a-kwestie-prawne-na-co-trzeba-uwazac/
+2026-02-25 09:32:15 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:32:16 [INFO]   UPDATE OK (id=44)
+2026-02-25 09:32:16 [INFO] [45/270] https://double-digital.pl/blog/na-co-zwrocic-uwage-przy-wyborze-hostingu-dla-strony-internetowej/
+2026-02-25 09:32:24 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:32:25 [INFO]   UPDATE OK (id=45)
+2026-02-25 09:32:25 [INFO] [46/270] https://double-digital.pl/blog/brand-mentions-rodzaje-i-jego-wplyw-na-wizerunek-marki/
+2026-02-25 09:32:31 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:32:32 [INFO]   UPDATE OK (id=46)
+2026-02-25 09:32:32 [INFO] [47/270] https://double-digital.pl/blog/5-rzeczy-o-ktorych-musisz-pamietac-prowadzac-blog/
+2026-02-25 09:32:43 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:32:44 [INFO]   UPDATE OK (id=47)
+2026-02-25 09:32:44 [INFO] [48/270] https://double-digital.pl/blog/linkowanie-zewnetrzne-czy-ma-coraz-mniejszy-wplyw-na-pozycjonowanie/
+2026-02-25 09:32:50 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:32:52 [INFO]   UPDATE OK (id=48)
+2026-02-25 09:32:52 [INFO] [49/270] https://double-digital.pl/blog/czy-banery-reklamowe-nadal-dzialaja/
+2026-02-25 09:33:00 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:33:01 [INFO]   UPDATE OK (id=49)
+2026-02-25 09:33:01 [INFO] [50/270] https://double-digital.pl/blog/jak-komputery-kwantowe-zmienia-swiat/
+2026-02-25 09:33:11 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:33:12 [INFO]   UPDATE OK (id=50)
+2026-02-25 09:33:12 [INFO] [51/270] https://double-digital.pl/blog/czemu-sztuczna-inteligencja-halucynuje-i-jak-temu-przeciwdzialac/
+2026-02-25 09:33:19 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:33:20 [INFO]   UPDATE OK (id=51)
+2026-02-25 09:33:20 [INFO] [52/270] https://double-digital.pl/blog/czym-jest-sezonowy-content-i-jak-mozna-go-wykorzystac/
+2026-02-25 09:33:28 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:33:30 [INFO]   UPDATE OK (id=52)
+2026-02-25 09:33:30 [INFO] [53/270] https://double-digital.pl/blog/czym-sa-kampanie-demand-gen-w-google-ads/
+2026-02-25 09:33:37 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:33:38 [INFO]   UPDATE OK (id=53)
+2026-02-25 09:33:38 [INFO] [54/270] https://double-digital.pl/blog/konstrukcja-adresow-url-w-jaki-sposob-tworzyc-przyjazne-adresy-url/
+2026-02-25 09:33:46 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:33:48 [INFO]   UPDATE OK (id=54)
+2026-02-25 09:33:48 [INFO] [55/270] https://double-digital.pl/blog/rozwiazania-no-code-i-low-code-czym-sa/
+2026-02-25 09:33:54 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:33:54 [INFO]   UPDATE OK (id=55)
+2026-02-25 09:33:54 [INFO] [56/270] https://double-digital.pl/blog/sledzenie-ruchu-ai-dlaczego-powinienes-zaczac-mierzyc-ruch-z-ai/
+2026-02-25 09:34:00 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:34:00 [INFO]   UPDATE OK (id=56)
+2026-02-25 09:34:00 [INFO] [57/270] https://double-digital.pl/blog/neuromarketing-czym-jest-i-jak-wplywa-na-decyzje-zakupowe/
+2026-02-25 09:34:09 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:34:10 [INFO]   UPDATE OK (id=57)
+2026-02-25 09:34:10 [INFO] [58/270] https://double-digital.pl/blog/integracja-microsoft-clarity-i-google-ads/
+2026-02-25 09:34:20 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:34:22 [INFO]   UPDATE OK (id=58)
+2026-02-25 09:34:22 [INFO] [59/270] https://double-digital.pl/blog/porzucone-koszyki-czym-sa-i-w-jaki-sposob-je-optymalizowac/
+2026-02-25 09:34:29 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:34:30 [INFO]   UPDATE OK (id=59)
+2026-02-25 09:34:30 [INFO] [60/270] https://double-digital.pl/blog/deepseek-czym-jest-i-dlaczego-zyskuje-na-popularnosci/
+2026-02-25 09:34:40 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:34:42 [INFO]   UPDATE OK (id=60)
+2026-02-25 09:34:42 [INFO] [61/270] https://double-digital.pl/blog/czym-sa-wyszukiwarki-ai/
+2026-02-25 09:34:48 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:34:49 [INFO]   UPDATE OK (id=61)
+2026-02-25 09:34:49 [INFO] [62/270] https://double-digital.pl/blog/czym-jest-luka-informacyjna-czyli-jak-zainteresowac-uzytkownika/
+2026-02-25 09:34:55 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:34:56 [INFO]   UPDATE OK (id=62)
+2026-02-25 09:34:56 [INFO] [63/270] https://double-digital.pl/blog/zmiany-w-performance-max-w-2025-roku/
+2026-02-25 09:35:02 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:35:02 [INFO]   UPDATE OK (id=63)
+2026-02-25 09:35:02 [INFO] [64/270] https://double-digital.pl/blog/czym-jest-data-driven-seo-i-w-jaki-sposob-go-wykorzystac/
+2026-02-25 09:35:09 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:35:10 [INFO]   UPDATE OK (id=64)
+2026-02-25 09:35:10 [INFO] [65/270] https://double-digital.pl/blog/programowanie-z-wykorzystaniem-ai-czy-ma-sens/
+2026-02-25 09:35:16 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:35:17 [INFO]   UPDATE OK (id=65)
+2026-02-25 09:35:17 [INFO] [66/270] https://double-digital.pl/blog/bariery-komunikacyjne-definicja-rodzaje-i-przyklady/
+2026-02-25 09:35:23 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:35:23 [INFO]   UPDATE OK (id=66)
+2026-02-25 09:35:23 [INFO] [67/270] https://double-digital.pl/blog/badanie-satysfakcji-klienta-co-to-jest-i-jak-je-przeprowadzic/
+2026-02-25 09:35:32 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:35:33 [INFO]   UPDATE OK (id=67)
+2026-02-25 09:35:33 [INFO] [68/270] https://double-digital.pl/blog/bazy-mailingowe-czym-sa-ile-kosztuja-i-czy-warto-je-kupowac/
+2026-02-25 09:35:39 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:35:40 [INFO]   UPDATE OK (id=68)
+2026-02-25 09:35:40 [INFO] [69/270] https://double-digital.pl/blog/analiza-rynku-jak-poprawnie-ja-przeprowadzic/
+2026-02-25 09:35:48 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:35:48 [INFO]   UPDATE OK (id=69)
+2026-02-25 09:35:48 [INFO] [70/270] https://double-digital.pl/blog/strategia-inwestycyjna-czym-jest-i-jak-ja-stworzyc/
+2026-02-25 09:35:55 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:35:56 [INFO]   UPDATE OK (id=70)
+2026-02-25 09:35:56 [INFO] [71/270] https://double-digital.pl/blog/wirtualny-asystent-kim-jest-i-czym-sie-zajmuje/
+2026-02-25 09:36:03 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:36:03 [INFO]   UPDATE OK (id=71)
+2026-02-25 09:36:03 [INFO] [72/270] https://double-digital.pl/blog/strategia-korporacyjna-co-to-jest-i-jak-ja-stworzyc/
+2026-02-25 09:36:10 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:36:11 [INFO]   UPDATE OK (id=72)
+2026-02-25 09:36:11 [INFO] [73/270] https://double-digital.pl/blog/strategia-konkurencyjna-czym-jest-i-jak-ja-stworzyc/
+2026-02-25 09:36:18 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:36:19 [INFO]   UPDATE OK (id=73)
+2026-02-25 09:36:19 [INFO] [74/270] https://double-digital.pl/blog/wizerunek-firmy-czym-jest-i-jak-go-stworzyc/
+2026-02-25 09:36:26 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:36:27 [INFO]   UPDATE OK (id=74)
+2026-02-25 09:36:27 [INFO] [75/270] https://double-digital.pl/blog/wizja-firmy-czym-jest-i-jak-ja-stworzyc/
+2026-02-25 09:36:35 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:36:36 [INFO]   UPDATE OK (id=75)
+2026-02-25 09:36:36 [INFO] [76/270] https://double-digital.pl/blog/linkedin-co-to-jest-i-jak-z-niego-efektywnie-korzystac/
+2026-02-25 09:36:46 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:36:48 [INFO]   UPDATE OK (id=76)
+2026-02-25 09:36:48 [INFO] [77/270] https://double-digital.pl/blog/marketing-skoncentrowany-czym-jest/
+2026-02-25 09:36:55 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:36:56 [INFO]   UPDATE OK (id=77)
+2026-02-25 09:36:56 [INFO] [78/270] https://double-digital.pl/blog/marketing-strategiczny-co-to-jest-i-na-czym-polega/
+2026-02-25 09:37:03 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:37:05 [INFO]   UPDATE OK (id=78)
+2026-02-25 09:37:05 [INFO] [79/270] https://double-digital.pl/blog/marketing-szeptany-czym-jest-i-jak-go-wlasciwie-uzywac/
+2026-02-25 09:37:14 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:37:16 [INFO]   UPDATE OK (id=79)
+2026-02-25 09:37:16 [INFO] [80/270] https://double-digital.pl/blog/marketing-terytorialny-czym-jest-przyklady/
+2026-02-25 09:37:23 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:37:24 [INFO]   UPDATE OK (id=80)
+2026-02-25 09:37:24 [INFO] [81/270] https://double-digital.pl/blog/strategia-biznesowa-co-to-jest-i-jak-ja-stworzyc/
+2026-02-25 09:37:32 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:37:33 [INFO]   UPDATE OK (id=81)
+2026-02-25 09:37:33 [INFO] [82/270] https://double-digital.pl/blog/strategia-blekitnego-oceanu-czym-jest/
+2026-02-25 09:37:41 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:37:41 [INFO]   UPDATE OK (id=82)
+2026-02-25 09:37:41 [INFO] [83/270] https://double-digital.pl/blog/strategia-finansowa-co-to-jest-i-jak-ja-stworzyc/
+2026-02-25 09:37:48 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:37:49 [INFO]   UPDATE OK (id=83)
+2026-02-25 09:37:49 [INFO] [84/270] https://double-digital.pl/blog/marketing-spoleczny-czym-jest-i-jaka-pelni-role/
+2026-02-25 09:37:56 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:37:57 [INFO]   UPDATE OK (id=84)
+2026-02-25 09:37:57 [INFO] [85/270] https://double-digital.pl/blog/marketing-zintegrowany-co-to-jest-i-jak-dziala/
+2026-02-25 09:38:06 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:38:06 [INFO]   UPDATE OK (id=85)
+2026-02-25 09:38:06 [INFO] [86/270] https://double-digital.pl/blog/live-commerce-czym-jest-i-jak-zaczac/
+2026-02-25 09:38:14 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:38:16 [INFO]   UPDATE OK (id=86)
+2026-02-25 09:38:16 [INFO] [87/270] https://double-digital.pl/blog/akcje-charytatywne-czym-sa-i-dlaczego-warto-je-wspierac/
+2026-02-25 09:38:23 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:38:24 [INFO]   UPDATE OK (id=87)
+2026-02-25 09:38:24 [INFO] [88/270] https://double-digital.pl/blog/analiza-makroekonomiczna-co-to-jest-i-jak-ja-przeprowadzic/
+2026-02-25 09:38:31 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:38:32 [INFO]   UPDATE OK (id=88)
+2026-02-25 09:38:32 [INFO] [89/270] https://double-digital.pl/blog/api-co-to-jest-i-jak-dziala/
+2026-02-25 09:38:40 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:38:42 [INFO]   UPDATE OK (id=89)
+2026-02-25 09:38:42 [INFO] [90/270] https://double-digital.pl/blog/ar-czym-jest-i-jak-dziala/
+2026-02-25 09:38:49 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:38:51 [INFO]   UPDATE OK (id=90)
+2026-02-25 09:38:51 [INFO] [91/270] https://double-digital.pl/blog/czym-jest-btl/
+2026-02-25 09:38:59 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:39:02 [INFO]   UPDATE OK (id=91)
+2026-02-25 09:39:02 [INFO] [92/270] https://double-digital.pl/blog/cele-roczne-czym-sa-i-jak-je-wyznaczac/
+2026-02-25 09:39:08 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:39:09 [INFO]   UPDATE OK (id=92)
+2026-02-25 09:39:09 [INFO] [93/270] https://double-digital.pl/blog/ipaas-co-to-jest/
+2026-02-25 09:39:16 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:39:17 [INFO]   UPDATE OK (id=93)
+2026-02-25 09:39:17 [INFO] [94/270] https://double-digital.pl/blog/co-to-jest-middleware/
+2026-02-25 09:39:25 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:39:26 [INFO]   UPDATE OK (id=94)
+2026-02-25 09:39:26 [INFO] [95/270] https://double-digital.pl/blog/pagerank-czym-jest-i-jak-go-obliczyc/
+2026-02-25 09:39:34 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:39:34 [INFO]   UPDATE OK (id=95)
+2026-02-25 09:39:34 [INFO] [96/270] https://double-digital.pl/blog/pagespeed-insights-co-to-jest-i-jak-uzywac/
+2026-02-25 09:39:43 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:39:46 [INFO]   UPDATE OK (id=96)
+2026-02-25 09:39:46 [INFO] [97/270] https://double-digital.pl/blog/rentownosc-co-to-jest/
+2026-02-25 09:39:53 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:39:54 [INFO]   UPDATE OK (id=97)
+2026-02-25 09:39:54 [INFO] [98/270] https://double-digital.pl/blog/spekulacje-gieldowe-czym-sa/
+2026-02-25 09:40:02 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:40:03 [INFO]   UPDATE OK (id=98)
+2026-02-25 09:40:03 [INFO] [99/270] https://double-digital.pl/blog/czym-sa-srodki-trwale/
+2026-02-25 09:40:11 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:40:12 [INFO]   UPDATE OK (id=99)
+2026-02-25 09:40:12 [INFO] [100/270] https://double-digital.pl/blog/hashtag-czym-jest-i-jak-go-uzywac-w-marketingu/
+2026-02-25 09:40:19 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:40:21 [INFO]   UPDATE OK (id=100)
+2026-02-25 09:40:21 [INFO] [101/270] https://double-digital.pl/blog/co-to-jest-llm/
+2026-02-25 09:40:28 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:40:30 [INFO]   UPDATE OK (id=101)
+2026-02-25 09:40:30 [INFO] [102/270] https://double-digital.pl/blog/crawler-czym-jest-i-jak-dziala/
+2026-02-25 09:40:37 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:40:37 [INFO]   UPDATE OK (id=102)
+2026-02-25 09:40:37 [INFO] [103/270] https://double-digital.pl/blog/content-plan-co-to-jest-i-jak-go-przygotowac/
+2026-02-25 09:40:45 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:40:46 [INFO]   UPDATE OK (id=103)
+2026-02-25 09:40:46 [INFO] [104/270] https://double-digital.pl/blog/znaczenie-opinii-klientow-w-wizytowce-google-moja-firma/
+2026-02-25 09:40:53 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:40:54 [INFO]   UPDATE OK (id=104)
+2026-02-25 09:40:54 [INFO] [105/270] https://double-digital.pl/blog/dlaczego-twoja-firma-potrzebuje-wizytowki-google-moja-firma/
+2026-02-25 09:41:03 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:41:04 [INFO]   UPDATE OK (id=105)
+2026-02-25 09:41:04 [INFO] [106/270] https://double-digital.pl/blog/co-to-jest-m-commerce-mobile-commerce/
+2026-02-25 09:41:14 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:41:15 [INFO]   UPDATE OK (id=106)
+2026-02-25 09:41:15 [INFO] [107/270] https://double-digital.pl/blog/analiza-wynikow-kampanii-reklamowych-kluczowe-wskazniki-i-jak-je-interpretowac/
+2026-02-25 09:41:25 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:41:26 [INFO]   UPDATE OK (id=107)
+2026-02-25 09:41:26 [INFO] [108/270] https://double-digital.pl/blog/kreatywne-formaty-reklamowe-zwiekszajace-zaangazowanie-w-meta-ads/
+2026-02-25 09:41:33 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:41:34 [INFO]   UPDATE OK (id=108)
+2026-02-25 09:41:34 [INFO] [109/270] https://double-digital.pl/blog/co-to-jest-przekierowanie-301/
+2026-02-25 09:41:44 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:41:46 [INFO]   UPDATE OK (id=109)
+2026-02-25 09:41:46 [INFO] [110/270] https://double-digital.pl/blog/linki-dofollow-i-nofollow-wszystko-co-musisz-o-nich-wiedziec/
+2026-02-25 09:41:58 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:42:00 [INFO]   UPDATE OK (id=110)
+2026-02-25 09:42:00 [INFO] [111/270] https://double-digital.pl/blog/czym-jest-nawigacja-fasetowa/
+2026-02-25 09:42:08 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:42:09 [INFO]   UPDATE OK (id=111)
+2026-02-25 09:42:09 [INFO] [112/270] https://double-digital.pl/blog/csr-spoleczna-odpowiedzialnosc-biznesu-co-to-jest-i-na-czym-polega/
+2026-02-25 09:42:17 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:42:20 [INFO]   UPDATE OK (id=112)
+2026-02-25 09:42:20 [INFO] [113/270] https://double-digital.pl/blog/crm-definicja-korzysci-przyklady/
+2026-02-25 09:42:27 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:42:28 [INFO]   UPDATE OK (id=113)
+2026-02-25 09:42:28 [INFO] [114/270] https://double-digital.pl/blog/cold-mailing-co-to-jest-i-jak-robic-to-dobrze/
+2026-02-25 09:42:36 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:42:37 [INFO]   UPDATE OK (id=114)
+2026-02-25 09:42:37 [INFO] [115/270] https://double-digital.pl/blog/billboard-reklamowy-co-to-jest-i-ile-kosztuje/
+2026-02-25 09:42:46 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:42:47 [INFO]   UPDATE OK (id=115)
+2026-02-25 09:42:47 [INFO] [116/270] https://double-digital.pl/blog/analiza-pest-czym-jest-i-do-czego-sluzy/
+2026-02-25 09:42:54 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:42:55 [INFO]   UPDATE OK (id=116)
+2026-02-25 09:42:55 [INFO] [117/270] https://double-digital.pl/blog/jak-reklamowac-gabinet-stomatologiczny-w-internecie/
+2026-02-25 09:43:02 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:43:04 [INFO]   UPDATE OK (id=117)
+2026-02-25 09:43:04 [INFO] [118/270] https://double-digital.pl/blog/jak-reklamowac-hurtownie-elektryczna-w-internecie/
+2026-02-25 09:43:14 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:43:16 [INFO]   UPDATE OK (id=118)
+2026-02-25 09:43:16 [INFO] [119/270] https://double-digital.pl/blog/jak-wykorzystac-rekomendacje-produktow-w-e-commerce/
+2026-02-25 09:43:22 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:43:24 [INFO]   UPDATE OK (id=119)
+2026-02-25 09:43:24 [INFO] [120/270] https://double-digital.pl/blog/jak-reklamowac-szkolenia-w-internecie/
+2026-02-25 09:43:33 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:43:36 [INFO]   UPDATE OK (id=120)
+2026-02-25 09:43:36 [INFO] [121/270] https://double-digital.pl/blog/jak-reklamowac-sklep-ogrodniczy-w-internecie/
+2026-02-25 09:43:43 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:43:45 [INFO]   UPDATE OK (id=121)
+2026-02-25 09:43:45 [INFO] [122/270] https://double-digital.pl/blog/jak-reklamowac-warsztat-samochodowy-w-internecie/
+2026-02-25 09:43:52 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:43:53 [INFO]   UPDATE OK (id=122)
+2026-02-25 09:43:53 [INFO] [123/270] https://double-digital.pl/blog/jak-przygotowac-strategie-kampanii-google-ads/
+2026-02-25 09:44:01 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:44:02 [INFO]   UPDATE OK (id=123)
+2026-02-25 09:44:02 [INFO] [124/270] https://double-digital.pl/blog/wynik-jakosci-slow-kluczowych-jak-uzyskac-wynik-10-10/
+2026-02-25 09:44:09 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:44:09 [INFO]   UPDATE OK (id=124)
+2026-02-25 09:44:09 [INFO] [125/270] https://double-digital.pl/blog/czym-jest-seo-semantyczne-i-do-czego-sie-je-stosuje/
+2026-02-25 09:44:17 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:44:18 [INFO]   UPDATE OK (id=125)
+2026-02-25 09:44:18 [INFO] [126/270] https://double-digital.pl/blog/lokalni-przewodnicy-czy-sa-przydatni-w-seo/
+2026-02-25 09:44:25 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:44:26 [INFO]   UPDATE OK (id=126)
+2026-02-25 09:44:26 [INFO] [127/270] https://double-digital.pl/blog/slowa-kluczowe-jak-sprawdzic-ich-liczbe-wyszukiwan/
+2026-02-25 09:44:34 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:44:35 [INFO]   UPDATE OK (id=127)
+2026-02-25 09:44:35 [INFO] [128/270] https://double-digital.pl/blog/linki-z-wikipedii-czy-maja-duzy-wplyw-na-seo/
+2026-02-25 09:44:43 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:44:44 [INFO]   UPDATE OK (id=128)
+2026-02-25 09:44:44 [INFO] [129/270] https://double-digital.pl/blog/jak-pisac-wartosciowe-tresci-pod-seo/
+2026-02-25 09:44:51 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:44:52 [INFO]   UPDATE OK (id=129)
+2026-02-25 09:44:52 [INFO] [130/270] https://double-digital.pl/blog/jak-prawidlowo-zoptymalizowac-tresci-pod-seo/
+2026-02-25 09:44:59 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:45:00 [INFO]   UPDATE OK (id=130)
+2026-02-25 09:45:00 [INFO] [131/270] https://double-digital.pl/blog/podstawy-seo-jak-dziala-wyszukiwarka/
+2026-02-25 09:45:08 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:45:09 [INFO]   UPDATE OK (id=131)
+2026-02-25 09:45:09 [INFO] [132/270] https://double-digital.pl/blog/czym-jest-software-house/
+2026-02-25 09:45:17 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:45:17 [INFO]   UPDATE OK (id=132)
+2026-02-25 09:45:17 [INFO] [133/270] https://double-digital.pl/blog/adwokat-reklama-sekrety-skutecznej-promocji-w-swiecie-prawa/
+2026-02-25 09:45:25 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:45:25 [INFO]   UPDATE OK (id=133)
+2026-02-25 09:45:25 [INFO] [134/270] https://double-digital.pl/blog/usp-produktu-co-to-jest/
+2026-02-25 09:45:34 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:45:36 [INFO]   UPDATE OK (id=134)
+2026-02-25 09:45:36 [INFO] [135/270] https://double-digital.pl/blog/kpi-co-to-jest/
+2026-02-25 09:45:43 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:45:43 [INFO]   UPDATE OK (id=135)
+2026-02-25 09:45:43 [INFO] [136/270] https://double-digital.pl/blog/co-to-jest-customer-journey-i-jak-wykorzystac-w-biznesie/
+2026-02-25 09:45:52 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:45:53 [INFO]   UPDATE OK (id=136)
+2026-02-25 09:45:53 [INFO] [137/270] https://double-digital.pl/blog/jakie-sa-narzedzia-marketingowe/
+2026-02-25 09:46:01 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:46:02 [INFO]   UPDATE OK (id=137)
+2026-02-25 09:46:02 [INFO] [138/270] https://double-digital.pl/blog/na-czym-polega-marketing-wielopoziomowy/
+2026-02-25 09:46:07 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:46:08 [INFO]   UPDATE OK (id=138)
+2026-02-25 09:46:08 [INFO] [139/270] https://double-digital.pl/blog/co-to-jest-doubleclick/
+2026-02-25 09:46:14 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:46:15 [INFO]   UPDATE OK (id=139)
+2026-02-25 09:46:15 [INFO] [140/270] https://double-digital.pl/blog/co-to-jest-pinterest/
+2026-02-25 09:46:22 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:46:23 [INFO]   UPDATE OK (id=140)
+2026-02-25 09:46:23 [INFO] [141/270] https://double-digital.pl/blog/czym-sie-zajmuje-agencja-marketingowa/
+2026-02-25 09:46:32 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:46:32 [INFO]   UPDATE OK (id=141)
+2026-02-25 09:46:32 [INFO] [142/270] https://double-digital.pl/blog/google-ads-discovery-najwazniejsze-informacje/
+2026-02-25 09:46:46 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:46:48 [INFO]   UPDATE OK (id=142)
+2026-02-25 09:46:48 [INFO] [143/270] https://double-digital.pl/blog/czym-sie-rozni-wspolpraca-freelancerem-i-agencja/
+2026-02-25 09:46:55 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:46:56 [INFO]   UPDATE OK (id=143)
+2026-02-25 09:46:56 [INFO] [144/270] https://double-digital.pl/blog/czym-jest-chatbot/
+2026-02-25 09:47:03 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:47:04 [INFO]   UPDATE OK (id=144)
+2026-02-25 09:47:04 [INFO] [145/270] https://double-digital.pl/blog/plan-marketingowy-przyklad/
+2026-02-25 09:47:11 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:47:11 [INFO]   UPDATE OK (id=145)
+2026-02-25 09:47:11 [INFO] [146/270] https://double-digital.pl/blog/jak-google-merchant-center-pomoze-zwiekszyc-twoja-sprzedaz/
+2026-02-25 09:47:18 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:47:19 [INFO]   UPDATE OK (id=146)
+2026-02-25 09:47:19 [INFO] [147/270] https://double-digital.pl/blog/reklama-fotowoltaiki-jak-generowac-jakosciowe-leady/
+2026-02-25 09:47:26 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:47:27 [INFO]   UPDATE OK (id=147)
+2026-02-25 09:47:27 [INFO] [148/270] https://double-digital.pl/blog/jak-reklamowac-hotel/
+2026-02-25 09:47:36 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:47:36 [INFO]   UPDATE OK (id=148)
+2026-02-25 09:47:36 [INFO] [149/270] https://double-digital.pl/blog/reklama-firmy-budowlanej-co-powinienes-wiedziec/
+2026-02-25 09:47:51 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:47:52 [INFO]   UPDATE OK (id=149)
+2026-02-25 09:47:52 [INFO] [150/270] https://double-digital.pl/blog/reklama-w-google-maps-co-musisz-wiedziec-aby-z-nia-wystartowac/
+2026-02-25 09:47:59 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:48:00 [INFO]   UPDATE OK (id=150)
+2026-02-25 09:48:00 [INFO] [151/270] https://double-digital.pl/blog/co-to-jest-marketing-b2b/
+2026-02-25 09:48:09 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:48:10 [INFO]   UPDATE OK (id=151)
+2026-02-25 09:48:10 [INFO] [152/270] https://double-digital.pl/blog/generowanie-leadow-b2b-jak-generowac-jakosciowe-leady/
+2026-02-25 09:48:16 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:48:17 [INFO]   UPDATE OK (id=152)
+2026-02-25 09:48:17 [INFO] [153/270] https://double-digital.pl/blog/jak-zwiekszyc-zysk-promujac-aplikacje-mobilna/
+2026-02-25 09:48:24 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:48:26 [INFO]   UPDATE OK (id=153)
+2026-02-25 09:48:26 [INFO] [154/270] https://double-digital.pl/blog/marketing-farmaceutyczny-jak-dziala-w-kanalach-digital/
+2026-02-25 09:48:33 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:48:34 [INFO]   UPDATE OK (id=154)
+2026-02-25 09:48:34 [INFO] [155/270] https://double-digital.pl/blog/czym-jest-analiza-heurystyczna-nielsena/
+2026-02-25 09:48:41 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:48:42 [INFO]   UPDATE OK (id=155)
+2026-02-25 09:48:42 [INFO] [156/270] https://double-digital.pl/blog/reklama-produktow-leczniczych-czyli-jak-robic-marketing-w-branzy-medycznej/
+2026-02-25 09:48:48 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:48:49 [INFO]   UPDATE OK (id=156)
+2026-02-25 09:48:49 [INFO] [157/270] https://double-digital.pl/blog/czym-sie-zajmuje-agencja-performance/
+2026-02-25 09:48:56 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:48:57 [INFO]   UPDATE OK (id=157)
+2026-02-25 09:48:57 [INFO] [158/270] https://double-digital.pl/blog/linki-sponsorowane-co-to-jest/
+2026-02-25 09:49:03 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:49:04 [INFO]   UPDATE OK (id=158)
+2026-02-25 09:49:04 [INFO] [159/270] https://double-digital.pl/blog/digital-marketing-dla-organizacji-non-profit/
+2026-02-25 09:49:10 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:49:11 [INFO]   UPDATE OK (id=159)
+2026-02-25 09:49:11 [INFO] [160/270] https://double-digital.pl/blog/jak-zalozyc-konto-google-ads/
+2026-02-25 09:49:21 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:49:24 [INFO]   UPDATE OK (id=160)
+2026-02-25 09:49:24 [INFO] [161/270] https://double-digital.pl/blog/co-to-jest-udzial-w-wyswietleniach/
+2026-02-25 09:49:31 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:49:32 [INFO]   UPDATE OK (id=161)
+2026-02-25 09:49:32 [INFO] [162/270] https://double-digital.pl/blog/wszystko-o-rozszerzeniach-w-google-ads/
+2026-02-25 09:49:39 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:49:40 [INFO]   UPDATE OK (id=162)
+2026-02-25 09:49:40 [INFO] [163/270] https://double-digital.pl/blog/12-porad-optymalizacji-google-ads/
+2026-02-25 09:49:48 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:49:49 [INFO]   UPDATE OK (id=163)
+2026-02-25 09:49:49 [INFO] [164/270] https://double-digital.pl/blog/jak-skutecznie-korzystac-z-narzedzia-rekomendacje-google-ads/
+2026-02-25 09:49:57 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:49:58 [INFO]   UPDATE OK (id=164)
+2026-02-25 09:49:58 [INFO] [165/270] https://double-digital.pl/blog/co-to-jest-i-kto-moze-skorzystac-z-google-ad-grants/
+2026-02-25 09:50:05 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:50:06 [INFO]   UPDATE OK (id=165)
+2026-02-25 09:50:06 [INFO] [166/270] https://double-digital.pl/blog/optymalizacja-konwersji-w-kampaniach-google-ads/
+2026-02-25 09:50:17 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:50:18 [INFO]   UPDATE OK (id=166)
+2026-02-25 09:50:18 [INFO] [167/270] https://double-digital.pl/blog/8-najwiekszych-bledow-popelnianych-w-reklamach-na-facebooku/
+2026-02-25 09:50:27 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:50:27 [INFO]   UPDATE OK (id=167)
+2026-02-25 09:50:27 [INFO] [168/270] https://double-digital.pl/blog/istota-slow-kluczowych-w-kampaniach-internetowych/
+2026-02-25 09:50:34 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:50:35 [INFO]   UPDATE OK (id=168)
+2026-02-25 09:50:35 [INFO] [169/270] https://double-digital.pl/blog/google-ads-ukrywa-wyszukiwane-hasla-rozwiazanie/
+2026-02-25 09:50:47 [WARNING]   HTTP 503 — pominięto
+2026-02-25 09:50:47 [INFO] [170/270] https://double-digital.pl/blog/czy-reklamy-na-urzadzeniach-mobilnych-to-przyszlosc/
+2026-02-25 09:50:54 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:50:55 [INFO]   UPDATE OK (id=170)
+2026-02-25 09:50:55 [INFO] [171/270] https://double-digital.pl/blog/jak-wejsc-na-rynki-zagraniczne-dzieki-ppc/
+2026-02-25 09:51:04 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:51:05 [INFO]   UPDATE OK (id=171)
+2026-02-25 09:51:05 [INFO] [172/270] https://double-digital.pl/blog/czym-jest-podcast-i-gdzie-go-sluchac/
+2026-02-25 09:51:15 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:51:16 [INFO]   UPDATE OK (id=172)
+2026-02-25 09:51:16 [INFO] [173/270] https://double-digital.pl/blog/jak-wykorzystac-instagram-do-rozwoju-marki/
+2026-02-25 09:51:23 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:51:24 [INFO]   UPDATE OK (id=173)
+2026-02-25 09:51:24 [INFO] [174/270] https://double-digital.pl/blog/jak-sledzic-kampanie-w-google-analytics/
+2026-02-25 09:51:31 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:51:31 [INFO]   UPDATE OK (id=174)
+2026-02-25 09:51:31 [INFO] [175/270] https://double-digital.pl/blog/jak-poprawnie-przeprowadzic-audyt-konta-google-ads/
+2026-02-25 09:51:38 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:51:39 [INFO]   UPDATE OK (id=175)
+2026-02-25 09:51:39 [INFO] [176/270] https://double-digital.pl/blog/koszt-google-ads-ile-kosztuje-kampania-w-google/
+2026-02-25 09:51:46 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:51:46 [INFO]   UPDATE OK (id=176)
+2026-02-25 09:51:46 [INFO] [177/270] https://double-digital.pl/blog/co-to-jest-i-dla-kogo-jest-marketing-automation/
+2026-02-25 09:51:53 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:51:54 [INFO]   UPDATE OK (id=177)
+2026-02-25 09:51:54 [INFO] [178/270] https://double-digital.pl/blog/pierwsze-kroki-z-marketingiem-cyfrowym-dla-malych-firm/
+2026-02-25 09:52:02 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:52:03 [INFO]   UPDATE OK (id=178)
+2026-02-25 09:52:03 [INFO] [179/270] https://double-digital.pl/blog/google-ads-czyli-jak-byc-smart-od-samego-poczatku/
+2026-02-25 09:52:10 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:52:10 [INFO]   UPDATE OK (id=179)
+2026-02-25 09:52:10 [INFO] [180/270] https://double-digital.pl/blog/funkcje-planera-slow-kluczowych-google-ads/
+2026-02-25 09:52:17 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:52:18 [INFO]   UPDATE OK (id=180)
+2026-02-25 09:52:18 [INFO] [181/270] https://double-digital.pl/blog/jak-wykorzystac-dynamiczne-wstawianie-slow-kluczowych-w-kampanii-google-ads/
+2026-02-25 09:52:25 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:52:26 [INFO]   UPDATE OK (id=181)
+2026-02-25 09:52:26 [INFO] [182/270] https://double-digital.pl/blog/plik-htaccess-wszystko-co-musisz-o-nim-wiedziec/
+2026-02-25 09:52:33 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:52:34 [INFO]   UPDATE OK (id=182)
+2026-02-25 09:52:34 [INFO] [183/270] https://double-digital.pl/blog/szybkosc-ladowania-strony-a-parametry-core-web-vitals/
+2026-02-25 09:52:51 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:52:52 [INFO]   UPDATE OK (id=183)
+2026-02-25 09:52:52 [INFO] [184/270] https://double-digital.pl/blog/oprogramowanie-saas-czym-jest-i-jak-wplywa-na-pozycjonowanie/
+2026-02-25 09:53:06 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:53:08 [INFO]   UPDATE OK (id=184)
+2026-02-25 09:53:08 [INFO] [185/270] https://double-digital.pl/blog/jak-wykorzystac-ai-w-pozycjonowaniu-stron-internetowych/
+2026-02-25 09:53:19 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:53:19 [INFO]   UPDATE OK (id=185)
+2026-02-25 09:53:19 [INFO] [186/270] https://double-digital.pl/blog/krotkie-tresci-a-zaangazowanie-uzytkownikow-dlaczego-tak-lubimy-krotkie-formy/
+2026-02-25 09:53:28 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:53:29 [INFO]   UPDATE OK (id=186)
+2026-02-25 09:53:29 [INFO] [187/270] https://double-digital.pl/blog/czym-jest-generatywna-sztuczna-inteligencja/
+2026-02-25 09:53:37 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:53:39 [INFO]   UPDATE OK (id=187)
+2026-02-25 09:53:39 [INFO] [188/270] https://double-digital.pl/blog/wyszukiwarka-perplexity-comet-czy-to-koniec-google-jaki-znamy/
+2026-02-25 09:53:46 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:53:47 [INFO]   UPDATE OK (id=188)
+2026-02-25 09:53:47 [INFO] [189/270] https://double-digital.pl/blog/rekrutacja-na-staz-w-performance-marketingu/
+2026-02-25 09:53:56 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:53:58 [INFO]   UPDATE OK (id=189)
+2026-02-25 09:53:58 [INFO] [190/270] https://double-digital.pl/blog/rekrutacja-na-stanowisko-specjalistka-ta-ds-administracji-i-finansow/
+2026-02-25 09:54:06 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:54:09 [INFO]   UPDATE OK (id=190)
+2026-02-25 09:54:09 [INFO] [191/270] https://double-digital.pl/blog/rekrutacja-na-stanowisko-performance-marketing-specialist/
+2026-02-25 09:54:15 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:54:16 [INFO]   UPDATE OK (id=191)
+2026-02-25 09:54:16 [INFO] [192/270] https://double-digital.pl/blog/podsumowanie-aktualizacji-seo-w-2025-styczen-czerwiec/
+2026-02-25 09:54:24 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:54:25 [INFO]   UPDATE OK (id=192)
+2026-02-25 09:54:25 [INFO] [193/270] https://double-digital.pl/blog/w-jaki-sposob-zwiekszyc-swoja-produktywnosc/
+2026-02-25 09:54:33 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:54:35 [INFO]   UPDATE OK (id=193)
+2026-02-25 09:54:35 [INFO] [194/270] https://double-digital.pl/blog/tiktok-shop-co-musisz-wiedziec-o-tej-usludze/
+2026-02-25 09:54:41 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:54:42 [INFO]   UPDATE OK (id=194)
+2026-02-25 09:54:42 [INFO] [195/270] https://double-digital.pl/blog/czym-jest-deep-search-w-google-gemini/
+2026-02-25 09:54:52 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:54:54 [INFO]   UPDATE OK (id=195)
+2026-02-25 09:54:54 [INFO] [196/270] https://double-digital.pl/blog/czym-jest-grafika-wektorowa/
+2026-02-25 09:55:02 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:55:02 [INFO]   UPDATE OK (id=196)
+2026-02-25 09:55:02 [INFO] [197/270] https://double-digital.pl/blog/double-digital-partnerem-cookieyes-skutecznosc-i-zgodnosc-w-jednym/
+2026-02-25 09:55:10 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:55:13 [INFO]   UPDATE OK (id=197)
+2026-02-25 09:55:13 [INFO] [198/270] https://double-digital.pl/blog/podstawy-seo-najwazniejsze-czynniki-rankingowe/
+2026-02-25 09:55:24 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:55:26 [INFO]   UPDATE OK (id=198)
+2026-02-25 09:55:26 [INFO] [199/270] https://double-digital.pl/blog/podstawy-seo-jak-tworzyc-skuteczne-naglowki-h1-h2-h3/
+2026-02-25 09:55:33 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:55:34 [INFO]   UPDATE OK (id=199)
+2026-02-25 09:55:34 [INFO] [200/270] https://double-digital.pl/blog/rekrutacja-na-stanowisko-customer-success-manager/
+2026-02-25 09:55:43 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:55:44 [INFO]   UPDATE OK (id=200)
+2026-02-25 09:55:44 [INFO] [201/270] https://double-digital.pl/blog/black-friday-co-to-jest-i-kiedy-wypada/
+2026-02-25 09:55:53 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:55:54 [INFO]   UPDATE OK (id=201)
+2026-02-25 09:55:54 [INFO] [202/270] https://double-digital.pl/blog/porownanie-meta-ads-vs-google-ads-7-kluczowych-roznic-i-przewodnik-po-roi/
+2026-02-25 09:56:02 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:56:03 [INFO]   UPDATE OK (id=202)
+2026-02-25 09:56:03 [INFO] [203/270] https://double-digital.pl/blog/dlaczego-twoj-sklep-ma-ruch-ale-nie-sprzedaje-5-bledow-w-google-merchant-center-ktore-zabijaja-twoj-roas/
+2026-02-25 09:56:11 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:56:12 [INFO]   UPDATE OK (id=203)
+2026-02-25 09:56:12 [INFO] [204/270] https://double-digital.pl/blog/twoje-reklamy-b2b-sciagaja-studentow-zamiast-prezesow-jak-zatamowac-wyciek-budzetu/
+2026-02-25 09:56:16 [WARNING]   HTTP 503 — pominięto
+2026-02-25 09:56:16 [INFO] [205/270] https://double-digital.pl/blog/jak-skonfigurowac-meta-business-manager-kompletny-przewodnik-krok-po-kroku/
+2026-02-25 09:56:22 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:56:23 [INFO]   UPDATE OK (id=205)
+2026-02-25 09:56:23 [INFO] [206/270] https://double-digital.pl/blog/nawigacja-fasetowa-w-seo-kompletny-przewodnik-dla-sklepow-internetowych/
+2026-02-25 09:56:43 [WARNING]   HTTP 503 — pominięto
+2026-02-25 09:56:43 [INFO] [207/270] https://double-digital.pl/blog/optymalizacja-produktow-w-sklepie-pod-seo-kompletny-przewodnik/
+2026-02-25 09:56:50 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:56:50 [INFO]   UPDATE OK (id=207)
+2026-02-25 09:56:50 [INFO] [208/270] https://double-digital.pl/blog/optymalizacja-stron-kategorii-kompletny-przewodnik-jak-zwiekszyc-seo-i-konwersje/
+2026-02-25 09:56:57 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:56:58 [INFO]   UPDATE OK (id=208)
+2026-02-25 09:56:58 [INFO] [209/270] https://double-digital.pl/blog/recenzje-i-opinie-ugc-jako-filar-seo-e-commerce/
+2026-02-25 09:57:05 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:57:05 [INFO]   UPDATE OK (id=209)
+2026-02-25 09:57:05 [INFO] [210/270] https://double-digital.pl/blog/keyword-research-w-e-commerce-metodologia-metryki-i-pomiar-roi/
+2026-02-25 09:57:12 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:57:12 [INFO]   UPDATE OK (id=210)
+2026-02-25 09:57:12 [INFO] [211/270] https://double-digital.pl/blog/czym-sa-repozytoria-kodu-i-do-czego-sluza/
+2026-02-25 09:57:25 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:57:26 [INFO]   UPDATE OK (id=211)
+2026-02-25 09:57:26 [INFO] [212/270] https://double-digital.pl/blog/jakie-narzedzie-do-tworzenia-wideo-ai/
+2026-02-25 09:57:33 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:57:34 [INFO]   UPDATE OK (id=212)
+2026-02-25 09:57:34 [INFO] [213/270] https://double-digital.pl/blog/brand-lift-w-google-ads-i-meta-ads-twarde-dane-zamiast-wrozenia-z-fusow/
+2026-02-25 09:57:42 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:57:42 [INFO]   UPDATE OK (id=213)
+2026-02-25 09:57:42 [INFO] [214/270] https://double-digital.pl/blog/jak-utworzyc-konto-meta-ads-przewodnik-krok-po-kroku-2026/
+2026-02-25 09:57:53 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:57:54 [INFO]   UPDATE OK (id=214)
+2026-02-25 09:57:54 [INFO] [215/270] https://double-digital.pl/blog/jak-polaczyc-facebook-page-z-instagramem-w-ads-manager/
+2026-02-25 09:58:00 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:58:01 [INFO]   UPDATE OK (id=215)
+2026-02-25 09:58:01 [INFO] [216/270] https://double-digital.pl/blog/jak-zainstalowac-pixel-facebooka-meta-pixel/
+2026-02-25 09:58:16 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:58:17 [INFO]   UPDATE OK (id=216)
+2026-02-25 09:58:17 [INFO] [217/270] https://double-digital.pl/blog/zdarzenia-standardowe-i-niestandardowe-w-facebook-ads/
+2026-02-25 09:58:23 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:58:24 [INFO]   UPDATE OK (id=217)
+2026-02-25 09:58:24 [INFO] [218/270] https://double-digital.pl/blog/reklamy-na-facebooku-a-rodo/
+2026-02-25 09:58:30 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:58:31 [INFO]   UPDATE OK (id=218)
+2026-02-25 09:58:31 [INFO] [219/270] https://double-digital.pl/blog/struktura-kampanii-meta-ads/
+2026-02-25 09:58:38 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:58:39 [INFO]   UPDATE OK (id=219)
+2026-02-25 09:58:39 [INFO] [220/270] https://double-digital.pl/blog/meta-conversions-api-capi/
+2026-02-25 09:58:46 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:58:46 [INFO]   UPDATE OK (id=220)
+2026-02-25 09:58:46 [INFO] [221/270] https://double-digital.pl/blog/niestandardowe-grupy-odbiorcow-facebook-ads/
+2026-02-25 09:58:52 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:58:53 [INFO]   UPDATE OK (id=221)
+2026-02-25 09:58:53 [INFO] [222/270] https://double-digital.pl/blog/reklama-firmy-budowlanej/
+2026-02-25 09:59:00 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:59:01 [INFO]   UPDATE OK (id=222)
+2026-02-25 09:59:01 [INFO] [223/270] https://double-digital.pl/blog/cele-kampanii-meta-ads/
+2026-02-25 09:59:08 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:59:09 [INFO]   UPDATE OK (id=223)
+2026-02-25 09:59:09 [INFO] [224/270] https://double-digital.pl/blog/umiejscowienia-meta-ads/
+2026-02-25 09:59:15 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:59:16 [INFO]   UPDATE OK (id=224)
+2026-02-25 09:59:16 [INFO] [225/270] https://double-digital.pl/blog/ile-kosztuje-reklama-na-instagramie/
+2026-02-25 09:59:23 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:59:23 [INFO]   UPDATE OK (id=225)
+2026-02-25 09:59:23 [INFO] [226/270] https://double-digital.pl/blog/reklama-na-instagramie-krok-po-kroku/
+2026-02-25 09:59:32 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:59:33 [INFO]   UPDATE OK (id=226)
+2026-02-25 09:59:33 [INFO] [227/270] https://double-digital.pl/blog/jak-skutecznie-zarzadzac-budzetem-meta-ads/
+2026-02-25 09:59:39 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:59:40 [INFO]   UPDATE OK (id=227)
+2026-02-25 09:59:40 [INFO] [228/270] https://double-digital.pl/blog/jak-pisac-reklamy-na-facebooka/
+2026-02-25 09:59:48 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:59:49 [INFO]   UPDATE OK (id=228)
+2026-02-25 09:59:49 [INFO] [229/270] https://double-digital.pl/blog/google-ads-co-to-jest/
+2026-02-25 09:59:55 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 09:59:55 [INFO]   UPDATE OK (id=229)
+2026-02-25 09:59:55 [INFO] [230/270] https://double-digital.pl/blog/targetowanie-facebook-ads/
+2026-02-25 10:00:02 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:00:02 [INFO]   UPDATE OK (id=230)
+2026-02-25 10:00:02 [INFO] [231/270] https://double-digital.pl/blog/jak-zalozyc-konto-w-google-ads/
+2026-02-25 10:00:09 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:00:10 [INFO]   UPDATE OK (id=231)
+2026-02-25 10:00:10 [INFO] [232/270] https://double-digital.pl/blog/moje-opinie-google/
+2026-02-25 10:00:16 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:00:16 [INFO]   UPDATE OK (id=232)
+2026-02-25 10:00:16 [INFO] [233/270] https://double-digital.pl/blog/google-ads-dla-malych-firm/
+2026-02-25 10:00:23 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:00:24 [INFO]   UPDATE OK (id=233)
+2026-02-25 10:00:24 [INFO] [234/270] https://double-digital.pl/blog/lookalike-audience-co-to-jest/
+2026-02-25 10:00:30 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:00:31 [INFO]   UPDATE OK (id=234)
+2026-02-25 10:00:31 [INFO] [235/270] https://double-digital.pl/blog/aukcje-google-ads-auction-insights/
+2026-02-25 10:00:38 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:00:39 [INFO]   UPDATE OK (id=235)
+2026-02-25 10:00:39 [INFO] [236/270] https://double-digital.pl/blog/wykluczenia-w-meta-ads/
+2026-02-25 10:00:49 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:00:51 [INFO]   UPDATE OK (id=236)
+2026-02-25 10:00:51 [INFO] [237/270] https://double-digital.pl/blog/najwazniejsze-metryki-meta-ads/
+2026-02-25 10:00:58 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:00:59 [INFO]   UPDATE OK (id=237)
+2026-02-25 10:00:59 [INFO] [238/270] https://double-digital.pl/blog/google-ads-wskaznik-jakosci-kompletny-przewodnik/
+2026-02-25 10:01:06 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:01:07 [INFO]   UPDATE OK (id=238)
+2026-02-25 10:01:07 [INFO] [239/270] https://double-digital.pl/blog/testy-a-b-w-meta-ads/
+2026-02-25 10:01:14 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:01:16 [INFO]   UPDATE OK (id=239)
+2026-02-25 10:01:16 [INFO] [240/270] https://double-digital.pl/blog/ile-kosztuje-reklama-w-google-ads/
+2026-02-25 10:01:23 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:01:24 [INFO]   UPDATE OK (id=240)
+2026-02-25 10:01:24 [INFO] [241/270] https://double-digital.pl/blog/podstawy-seo-co-to-jest-seo-kompletny-przewodnik/
+2026-02-25 10:01:32 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:01:33 [INFO]   UPDATE OK (id=241)
+2026-02-25 10:01:33 [INFO] [242/270] https://double-digital.pl/blog/reklama-w-google-maps/
+2026-02-25 10:01:40 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:01:42 [INFO]   UPDATE OK (id=242)
+2026-02-25 10:01:42 [INFO] [243/270] https://double-digital.pl/blog/strategie-licytacji-w-meta-ads/
+2026-02-25 10:01:49 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:01:50 [INFO]   UPDATE OK (id=243)
+2026-02-25 10:01:50 [INFO] [244/270] https://double-digital.pl/blog/struktura-konta-google-ads-kampanie-i-grupy-reklam/
+2026-02-25 10:01:56 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:01:57 [INFO]   UPDATE OK (id=244)
+2026-02-25 10:01:57 [INFO] [245/270] https://double-digital.pl/blog/google-ads-keywords-intent/
+2026-02-25 10:02:03 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:02:05 [INFO]   UPDATE OK (id=245)
+2026-02-25 10:02:05 [INFO] [246/270] https://double-digital.pl/blog/jak-stworzyc-reklame-wideo-w-meta-ads/
+2026-02-25 10:02:12 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:02:14 [INFO]   UPDATE OK (id=246)
+2026-02-25 10:02:14 [INFO] [247/270] https://double-digital.pl/blog/agencja-performance-marketing-poradnik/
+2026-02-25 10:02:21 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:02:22 [INFO]   UPDATE OK (id=247)
+2026-02-25 10:02:22 [INFO] [248/270] https://double-digital.pl/blog/czym-jest-growth-marketing/
+2026-02-25 10:02:29 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:02:30 [INFO]   UPDATE OK (id=248)
+2026-02-25 10:02:30 [INFO] [249/270] https://double-digital.pl/blog/reklama-firmy-transportowej/
+2026-02-25 10:02:36 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:02:37 [INFO]   UPDATE OK (id=249)
+2026-02-25 10:02:37 [INFO] [250/270] https://double-digital.pl/blog/reklama-biura-rachunkowego/
+2026-02-25 10:02:45 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:02:46 [INFO]   UPDATE OK (id=250)
+2026-02-25 10:02:46 [INFO] [251/270] https://double-digital.pl/blog/czym-jest-jezyk-korzysci/
+2026-02-25 10:02:53 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:02:54 [INFO]   UPDATE OK (id=251)
+2026-02-25 10:02:54 [INFO] [252/270] https://double-digital.pl/blog/jak-reklamowac-gabinet-psychologiczny-w-internecie/
+2026-02-25 10:03:06 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:03:07 [INFO]   UPDATE OK (id=252)
+2026-02-25 10:03:07 [INFO] [253/270] https://double-digital.pl/blog/rodzaje-dopasowania-slow-kluczowych-w-google-ads/
+2026-02-25 10:03:13 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:03:14 [INFO]   UPDATE OK (id=253)
+2026-02-25 10:03:14 [INFO] [254/270] https://double-digital.pl/blog/jak-zalozyc-i-zoptymalizowac-profil-firmy-w-google/
+2026-02-25 10:03:22 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:03:23 [INFO]   UPDATE OK (id=254)
+2026-02-25 10:03:23 [INFO] [255/270] https://double-digital.pl/blog/pozycjonowanie-lokalne-vs-ogolnopolskie/
+2026-02-25 10:03:32 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:03:33 [INFO]   UPDATE OK (id=255)
+2026-02-25 10:03:33 [INFO] [256/270] https://double-digital.pl/blog/nap-seo-co-to-jest/
+2026-02-25 10:03:40 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:03:41 [INFO]   UPDATE OK (id=256)
+2026-02-25 10:03:41 [INFO] [257/270] https://double-digital.pl/blog/local-pack-co-to-jest/
+2026-02-25 10:03:49 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:03:50 [INFO]   UPDATE OK (id=257)
+2026-02-25 10:03:50 [INFO] [258/270] https://double-digital.pl/blog/ile-kosztuje-pozycjonowanie-lokalne/
+2026-02-25 10:03:57 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:03:59 [INFO]   UPDATE OK (id=258)
+2026-02-25 10:03:59 [INFO] [259/270] https://double-digital.pl/blog/czym-jest-reklama-w-bing-ads/
+2026-02-25 10:04:06 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:04:07 [INFO]   UPDATE OK (id=259)
+2026-02-25 10:04:07 [INFO] [260/270] https://double-digital.pl/blog/jak-reklamowac-producenta-jachtow-skuteczny-marketing-jachtow-w-2026-roku/
+2026-02-25 10:04:15 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:04:16 [INFO]   UPDATE OK (id=260)
+2026-02-25 10:04:16 [INFO] [261/270] https://double-digital.pl/blog/jak-zdobywac-opinie-google/
+2026-02-25 10:04:23 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:04:24 [INFO]   UPDATE OK (id=261)
+2026-02-25 10:04:24 [INFO] [262/270] https://double-digital.pl/blog/jak-skutecznie-reklamowac-sie-na-instagramie/
+2026-02-25 10:04:31 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:04:32 [INFO]   UPDATE OK (id=262)
+2026-02-25 10:04:32 [INFO] [263/270] https://double-digital.pl/blog/ile-kosztuje-reklama-na-facebooku/
+2026-02-25 10:04:39 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:04:39 [INFO]   UPDATE OK (id=263)
+2026-02-25 10:04:39 [INFO] [264/270] https://double-digital.pl/blog/jak-zrobic-reklame-na-facebooku/
+2026-02-25 10:04:46 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:04:48 [INFO]   UPDATE OK (id=264)
+2026-02-25 10:04:48 [INFO] [265/270] https://double-digital.pl/blog/co-to-jest-meta-ads/
+2026-02-25 10:04:55 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:04:56 [INFO]   UPDATE OK (id=265)
+2026-02-25 10:04:56 [INFO] [266/270] https://double-digital.pl/blog/ile-kosztuje-reklama-na-youtube/
+2026-02-25 10:05:05 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:05:06 [INFO]   UPDATE OK (id=266)
+2026-02-25 10:05:06 [INFO] [267/270] https://double-digital.pl/blog/formaty-reklam-na-youtube/
+2026-02-25 10:05:14 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:05:15 [INFO]   UPDATE OK (id=267)
+2026-02-25 10:05:15 [INFO] [268/270] https://double-digital.pl/blog/jak-ustawic-reklame-na-youtube/
+2026-02-25 10:05:21 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:05:22 [INFO]   UPDATE OK (id=268)
+2026-02-25 10:05:22 [INFO] [269/270] https://double-digital.pl/blog/jak-reklamowac-hotel/
+2026-02-25 10:05:24 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:05:25 [INFO]   UPDATE OK (id=269)
+2026-02-25 10:05:25 [INFO] [270/270] https://double-digital.pl/blog/targetowanie-reklam-youtube-kompletny-przewodnik-konfiguracji/
+2026-02-25 10:05:31 [INFO]   Embedding: 3072 wymiarów
+2026-02-25 10:05:32 [INFO]   UPDATE OK (id=270)
+2026-02-25 10:05:32 [INFO] ============================================================
+2026-02-25 10:05:32 [INFO] Gotowe! Zaktualizowano: 267 | Błędy: 3
+2026-02-25 10:05:32 [INFO] ============================================================
