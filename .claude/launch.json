@@ -8,5 +8,13 @@
       "cwd": "ai-search-pro",
       "port": 5173
     }
+    ,
+    {
+      "name": "offer-generator",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["server.js"],
+      "cwd": "app",
+      "port": 3456
+    }
   ]
 }

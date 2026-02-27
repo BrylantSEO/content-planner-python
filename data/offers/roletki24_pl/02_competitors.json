@@ -1,0 +1,59 @@
+{
+  "competitors": [
+    {
+      "domain": "roletki24.pl",
+      "common_keywords": null,
+      "domain_rank": {
+        "recent_value": 430720,
+        "older_value": 430693,
+        "diff": 27,
+        "percent": 0.0001
+      }
+    },
+    {
+      "domain": "krakok.pl",
+      "common_keywords": 50,
+      "domain_rank": {
+        "recent_value": 144923,
+        "older_value": 144744,
+        "diff": 179,
+        "percent": 0.0012
+      }
+    },
+    {
+      "domain": "producentrolet.pl",
+      "common_keywords": 35,
+      "domain_rank": {
+        "recent_value": 105575,
+        "older_value": 104334,
+        "diff": 1241,
+        "percent": 0.0119
+      }
+    },
+    {
+      "domain": "kosrolet.com.pl",
+      "common_keywords": 32,
+      "domain_rank": {
+        "recent_value": 408347,
+        "older_value": 408244,
+        "diff": 103,
+        "percent": 0.0003
+      }
+    },
+    {
+      "domain": "dekorujemyokna.com.pl",
+      "common_keywords": 25,
+      "domain_rank": {
+        "recent_value": 420769,
+        "older_value": 420713,
+        "diff": 56,
+        "percent": 0.0001
+      }
+    }
+  ],
+  "visibility_gap": {
+    "leader_visibility": 0,
+    "client_visibility": 0,
+    "gap_multiplier": "N/A"
+  }
+}

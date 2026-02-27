@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Offer Generator · Double Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #FE3200;
+    --red-light: #FFF1ED;
+    --yellow: #FFB124;
+    --yellow-light: #FFF8EC;
+    --green: #10B981;
+    --green-light: #ECFDF5;
+    --grey: #F3F4F6;
+    --black: #1A1A1A;
+    --white: #ffffff;
+    --text-muted: #6B7280;
+    --border: #E5E7EB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--grey);
+    color: var(--black);
+    min-height: 100vh;
+  }
+
+  /* --- Header --- */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+  }
+  .logo span { color: var(--red); }
+  .header-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* --- Layout --- */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 24px;
+  }
+
+  /* --- Views --- */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* --- New Analysis Form --- */
+  .form-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .form-card h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .form-card .subtitle {
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    font-size: 15px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: var(--black);
+  }
+
+  input[type="text"], textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  input[type="text"]:focus, textarea:focus {
+    border-color: var(--red);
+  }
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  .form-group { margin-bottom: 20px; }
+  .form-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--red);
+    color: white;
+  }
+  .btn-primary:hover { background: #e02d00; transform: translateY(-1px); }
+  .btn-primary:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+  .btn-secondary {
+    background: var(--grey);
+    color: var(--black);
+  }
+  .btn-secondary:hover { background: #e5e7eb; }
+
+  .btn-sm { padding: 8px 16px; font-size: 13px; }
+
+  /* --- Pipeline Progress --- */
+  .progress-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .progress-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .steps {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+  }
+  .step-dot {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--grey);
+    transition: background 0.4s;
+  }
+  .step-dot.done { background: var(--green); }
+  .step-dot.running { background: var(--yellow); animation: pulse 1.2s ease-in-out infinite; }
+  .step-dot.error { background: var(--red); }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .step-list { list-style: none; }
+  .step-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--grey);
+    font-size: 14px;
+  }
+  .step-item:last-child { border-bottom: none; }
+
+  .step-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .step-icon.pending { background: var(--grey); color: var(--text-muted); }
+  .step-icon.running { background: var(--yellow-light); color: #D97706; }
+  .step-icon.done { background: var(--green-light); color: var(--green); }
+  .step-icon.error { background: var(--red-light); color: var(--red); }
+
+  .step-name { font-weight: 500; }
+  .step-status { margin-left: auto; font-size: 12px; color: var(--text-muted); }
+
+  /* --- Log --- */
+  .log-card {
+    background: var(--black);
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 240px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+  }
+  .log-line {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    color: #9CA3AF;
+    line-height: 1.8;
+  }
+  .log-line.highlight { color: var(--yellow); }
+
+  /* --- Result --- */
+  .result-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+  .tab-btn.active { background: var(--red); color: white; }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .md-preview {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 32px;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 1.7;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  .html-preview {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .html-preview iframe {
+    width: 100%;
+    height: 700px;
+    border: none;
+  }
+  .preview-actions {
+    padding: 12px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+  }
+
+  /* --- Offers list --- */
+  .offer-list { list-style: none; }
+  .offer-item {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  .offer-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+  .offer-domain {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .offer-date {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+  }
+  .badge-done { background: var(--green-light); color: var(--green); }
+  .badge-running { background: var(--yellow-light); color: #D97706; }
+  .badge-error { background: var(--red-light); color: var(--red); }
+  .badge-unknown { background: var(--grey); color: var(--text-muted); }
+
+  .empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+  }
+  .empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+  .empty-state h3 { font-size: 18px; color: var(--black); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><span>DD</span> Offer Generator</div>
+  <div class="header-meta">Double Digital · SEO Pipeline</div>
+</header>
+
+<div class="container">
+
+  <!-- VIEW: Dashboard -->
+  <div id="view-dashboard" class="view active">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+      <h1 style="font-size:24px; font-weight:800;">Oferty</h1>
+      <button class="btn btn-primary" onclick="showView('new')">+ Nowa analiza</button>
+    </div>
+    <ul class="offer-list" id="offer-list"></ul>
+    <div class="empty-state" id="empty-state" style="display:none;">
+      <div class="icon">📊</div>
+      <h3>Brak ofert</h3>
+      <p>Kliknij "Nowa analiza" żeby wygenerować pierwszą ofertę SEO</p>
+    </div>
+  </div>
+
+  <!-- VIEW: New Analysis -->
+  <div id="view-new" class="view">
+    <button class="btn btn-secondary btn-sm" onclick="showView('dashboard')" style="margin-bottom:20px;">← Wróć</button>
+    <div class="form-card">
+      <h1>Nowa analiza SEO</h1>
+      <p class="subtitle">Podaj adres strony klienta. Pipeline automatycznie przeanalizuje widoczność, konkurencję i szanse.</p>
+
+      <form id="analyze-form" onsubmit="startAnalysis(event)">
+        <div class="form-group">
+          <label for="domain">URL domeny</label>
+          <input type="text" id="domain" placeholder="https://example.com" required>
+          <div class="form-hint">np. https://babeeplanet.pl lub roletki24.pl</div>
+        </div>
+
+        <div class="form-group">
+          <label for="context">Dodatkowy kontekst <span style="font-weight:400;color:var(--text-muted);">(opcjonalnie)</span></label>
+          <textarea id="context" placeholder="Np. notatki z rozmowy z klientem, specyficzne problemy które zauważyłeś, branża..."></textarea>
+          <div class="form-hint">Kontekst pomaga LLM lepiej dostosować analizę i ton oferty</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit-btn">
+          🚀 Uruchom analizę
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- VIEW: Pipeline progress -->
+  <div id="view-progress" class="view">
+    <button class="btn btn-secondary btn-sm" onclick="showView('dashboard')" style="margin-bottom:20px;">← Dashboard</button>
+
+    <div class="progress-card">
+      <div class="progress-header">
+        <h2 id="progress-domain">Analiza...</h2>
+        <span class="badge badge-running" id="progress-badge">W toku</span>
+      </div>
+      <div class="steps" id="step-dots"></div>
+      <ul class="step-list" id="step-list"></ul>
+    </div>
+
+    <div class="log-card" id="log-card">
+      <div id="log-lines"></div>
+    </div>
+
+    <!-- Results (shown when done) -->
+    <div id="results-section" style="display:none;">
+      <div class="result-tabs">
+        <button class="tab-btn active" onclick="switchTab('md')">📄 Oferta MD</button>
+        <button class="tab-btn" onclick="switchTab('html')">🌐 Landing Page</button>
+      </div>
+
+      <div id="tab-md" class="tab-content active">
+        <div class="md-preview" id="md-content"></div>
+      </div>
+
+      <div id="tab-html" class="tab-content">
+        <div class="html-preview">
+          <iframe id="html-iframe"></iframe>
+          <div class="preview-actions">
+            <button class="btn btn-secondary btn-sm" onclick="copyHTML()">📋 Kopiuj HTML</button>
+            <a id="lp-link" class="btn btn-primary btn-sm" target="_blank">↗ Otwórz LP</a>
+            <button class="btn btn-secondary btn-sm" onclick="regenerateHTML()">🔄 Regeneruj LP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const STEPS = [
+  { step: 0, name: "Website Intelligence" },
+  { step: 1, name: "Senuto Analysis" },
+  { step: 2, name: "Competitor Intelligence" },
+  { step: 3, name: "Opportunity Analysis" },
+  { step: 4, name: "Content Audit" },
+  { step: 5, name: "Generowanie oferty" },
+  { step: 6, name: "Generowanie LP" },
+];
+
+let currentSlug = null;
+let eventSource = null;
+let stepStates = {};
+
+// --- View management ---
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(`view-${name}`).classList.add('active');
+  if (name === 'dashboard') loadOffers();
+}
+
+// --- Load offers list ---
+async function loadOffers() {
+  const res = await fetch('/api/offers');
+  const offers = await res.json();
+  const list = document.getElementById('offer-list');
+  const empty = document.getElementById('empty-state');
+
+  if (offers.length === 0) {
+    list.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+
+  empty.style.display = 'none';
+  list.innerHTML = offers.map(o => `
+    <li class="offer-item" onclick="openOffer('${o.slug}')">
+      <div>
+        <div class="offer-domain">${o.domain}</div>
+        <div class="offer-date">${o.created_at ? new Date(o.created_at).toLocaleDateString('pl-PL') : ''}</div>
+      </div>
+      <span class="badge badge-${o.status === 'done' ? 'done' : o.status === 'error' ? 'error' : o.status === 'running' ? 'running' : 'unknown'}">${o.status}</span>
+    </li>
+  `).join('');
+}
+
+// --- Open existing offer ---
+async function openOffer(slug) {
+  currentSlug = slug;
+  const res = await fetch(`/api/offers/${slug}`);
+  const data = await res.json();
+
+  document.getElementById('progress-domain').textContent = data.domain;
+
+  if (data.status === 'done') {
+    showCompletedOffer(data);
+  } else if (data.status === 'running') {
+    showView('progress');
+    initProgress(data.domain);
+    connectSSE(slug);
+    // Restore step states from meta
+    if (data.steps) {
+      data.steps.forEach(s => updateStep(s));
+    }
+  } else if (data.status === 'error') {
+    showView('progress');
+    initProgress(data.domain);
+    document.getElementById('progress-badge').className = 'badge badge-error';
+    document.getElementById('progress-badge').textContent = 'Błąd';
+    addLog(data.error || 'Unknown error', true);
+  }
+
+  showView('progress');
+}
+
+function showCompletedOffer(data) {
+  initProgress(data.domain);
+  STEPS.forEach(s => updateStep({ ...s, status: 'done' }));
+  document.getElementById('progress-badge').className = 'badge badge-done';
+  document.getElementById('progress-badge').textContent = 'Gotowe';
+
+  if (data.offer_md) {
+    document.getElementById('md-content').textContent = data.offer_md;
+  }
+  if (data.offer_html) {
+    const iframe = document.getElementById('html-iframe');
+    iframe.srcdoc = data.offer_html;
+    document.getElementById('lp-link').href = `/lp/${data.slug}`;
+  }
+  document.getElementById('results-section').style.display = 'block';
+}
+
+// --- Start new analysis ---
+async function startAnalysis(e) {
+  e.preventDefault();
+  const domain = document.getElementById('domain').value.trim();
+  const context = document.getElementById('context').value.trim();
+
+  document.getElementById('submit-btn').disabled = true;
+  document.getElementById('submit-btn').textContent = '⏳ Uruchamiam...';
+
+  const res = await fetch('/api/analyze', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ domain, context }),
+  });
+  const data = await res.json();
+
+  currentSlug = data.slug;
+  showView('progress');
+  initProgress(domain.replace(/^https?:\/\//, '').replace(/^www\./, ''));
+  connectSSE(data.slug);
+
+  // Reset form
+  document.getElementById('submit-btn').disabled = false;
+  document.getElementById('submit-btn').textContent = '🚀 Uruchom analizę';
+  document.getElementById('domain').value = '';
+  document.getElementById('context').value = '';
+}
+
+// --- Progress UI ---
+function initProgress(domain) {
+  stepStates = {};
+  document.getElementById('progress-domain').textContent = domain;
+  document.getElementById('progress-badge').className = 'badge badge-running';
+  document.getElementById('progress-badge').textContent = 'W toku';
+  document.getElementById('log-lines').innerHTML = '';
+  document.getElementById('results-section').style.display = 'none';
+
+  const dots = document.getElementById('step-dots');
+  dots.innerHTML = STEPS.map((s) => `<div class="step-dot" id="dot-${s.step}"></div>`).join('');
+
+  const list = document.getElementById('step-list');
+  list.innerHTML = STEPS.map(s => `
+    <li class="step-item" id="step-${s.step}">
+      <div class="step-icon pending" id="icon-${s.step}">○</div>
+      <span class="step-name">${s.name}</span>
+      <span class="step-status" id="status-${s.step}">Oczekuje</span>
+    </li>
+  `).join('');
+}
+
+function updateStep(data) {
+  stepStates[data.step] = data.status;
+  const icon = document.getElementById(`icon-${data.step}`);
+  const status = document.getElementById(`status-${data.step}`);
+  const dot = document.getElementById(`dot-${data.step}`);
+
+  if (!icon) return;
+
+  if (data.status === 'running') {
+    icon.className = 'step-icon running';
+    icon.textContent = '◉';
+    status.textContent = 'W toku...';
+    dot.className = 'step-dot running';
+  } else if (data.status === 'done') {
+    icon.className = 'step-icon done';
+    icon.textContent = '✓';
+    status.textContent = 'Gotowe';
+    dot.className = 'step-dot done';
+  } else if (data.status === 'error') {
+    icon.className = 'step-icon error';
+    icon.textContent = '✗';
+    status.textContent = 'Błąd';
+    dot.className = 'step-dot error';
+  }
+}
+
+function addLog(text, highlight = false) {
+  const container = document.getElementById('log-lines');
+  const line = document.createElement('div');
+  line.className = 'log-line' + (highlight ? ' highlight' : '');
+  const time = new Date().toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  line.textContent = `[${time}] ${text}`;
+  container.appendChild(line);
+  document.getElementById('log-card').scrollTop = 999999;
+}
+
+// --- SSE ---
+function connectSSE(slug) {
+  if (eventSource) eventSource.close();
+  eventSource = new EventSource(`/api/offers/${slug}/stream`);
+
+  eventSource.addEventListener('step', (e) => {
+    updateStep(JSON.parse(e.data));
+  });
+
+  eventSource.addEventListener('log', (e) => {
+    addLog(JSON.parse(e.data));
+  });
+
+  eventSource.addEventListener('done', async (e) => {
+    eventSource.close();
+    document.getElementById('progress-badge').className = 'badge badge-done';
+    document.getElementById('progress-badge').textContent = 'Gotowe';
+    addLog('✅ Pipeline zakończony!', true);
+
+    // Load results
+    const res = await fetch(`/api/offers/${slug}`);
+    const data = await res.json();
+    showCompletedOffer(data);
+  });
+
+  eventSource.addEventListener('error', (e) => {
+    if (e.data) {
+      const data = JSON.parse(e.data);
+      addLog(`❌ ${data.message}`, true);
+    }
+    document.getElementById('progress-badge').className = 'badge badge-error';
+    document.getElementById('progress-badge').textContent = 'Błąd';
+  });
+}
+
+// --- Tabs ---
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById(`tab-${tab}`).classList.add('active');
+}
+
+// --- Actions ---
+function copyHTML() {
+  const iframe = document.getElementById('html-iframe');
+  const html = iframe.srcdoc;
+  navigator.clipboard.writeText(html).then(() => alert('HTML skopiowany do schowka!'));
+}
+
+async function regenerateHTML() {
+  if (!currentSlug) return;
+  addLog('Regeneruję landing page...', true);
+  await fetch(`/api/offers/${currentSlug}/generate-html`, { method: 'POST' });
+  const res = await fetch(`/api/offers/${currentSlug}`);
+  const data = await res.json();
+  if (data.offer_html) {
+    document.getElementById('html-iframe').srcdoc = data.offer_html;
+    addLog('✅ LP zregenerowane!', true);
+  }
+}
+
+// --- Init ---
+loadOffers();
+</script>
+</body>
+</html>

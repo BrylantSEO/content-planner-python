@@ -1,0 +1,33 @@
+{
+  "ce": "Topblind (roletki24.pl) is a Polish distributor and retailer of window and door systems, specializing in blinds, shutters, mosquito nets, and related building accessories.",
+  "sc": "Window covering and protection systems niche, targeting both residential and commercial customers in Poland seeking sun protection, privacy solutions, and insect protection for windows and doors.",
+  "csi": "They serve the need for comprehensive window treatment solutions including external shutters, internal blinds, mosquito protection, and building elements like windowsills.",
+  "language": "pl",
+  "country": "PL",
+  "business_model": "B2C",
+  "services": [
+    "External covers (shutters, facade blinds, screen blinds, roller doors)",
+    "Internal covers (material blinds, day-night blinds, Roman blinds, pleats, venetian blinds, curtains)",
+    "Mosquito nets (door, pleated, sliding, frame, roller types)",
+    "Building carpentry (windowsills)",
+    "Windows and doors (internal and external)"
+  ],
+  "blog_active": true,
+  "blog_posts_estimate": 1,
+  "technical_observations": [
+    "Multiple 404 errors on key pages (/o-nas, /uslugi, /oferta) indicating website maintenance issues",
+    "Incomplete phone number display on homepage (+48 73)",
+    "WordPress-based website with functional navigation structure",
+    "Facebook social media presence mentioned",
+    "Professional product categorization with detailed subcategories",
+    "Mobile-responsive design with toggle menu"
+  ],
+  "scraped_pages": [
+    "https://roletki24.pl/",
+    "https://roletki24.pl/o-nas",
+    "https://roletki24.pl/uslugi",
+    "https://roletki24.pl/oferta",
+    "https://roletki24.pl/blog"
+  ],
+  "domain": "roletki24.pl"
+}

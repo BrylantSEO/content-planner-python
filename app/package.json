@@ -1,0 +1,14 @@
+{
+  "name": "seo-offer-generator",
+  "version": "1.0.0",
+  "description": "SEO Offer Generator — Double Digital",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "dotenv": "^16.4.0"
+  }
+}

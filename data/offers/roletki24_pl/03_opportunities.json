@@ -1,0 +1,59 @@
+{
+  "quick_wins": [
+    {
+      "keyword_estimate": "jak opuścić elektryczne rolety zewnętrzne ręcznie",
+      "position_range": "11-20",
+      "difficulty": "low",
+      "volume_estimate": "100-300",
+      "action": "Optimize existing top-performing content with better internal linking, add FAQ section, and improve title tag to include 'awaria' and 'bez prądu' variants"
+    },
+    {
+      "keyword_estimate": "moskitiery plisowane cena",
+      "position_range": "11-15",
+      "difficulty": "low",
+      "volume_estimate": "200-500",
+      "action": "Add pricing information and comparison table to existing product page, optimize for commercial intent keywords"
+    },
+    {
+      "keyword_estimate": "rolety zewnętrzne Grójec montaż",
+      "position_range": "6-10",
+      "difficulty": "low",
+      "volume_estimate": "50-150",
+      "action": "Enhance local page with service area details, customer testimonials, and local installation process information"
+    }
+  ],
+  "content_gaps": [
+    {
+      "topic": "Rolety wewnętrzne przewodnik zakupowy",
+      "covered_by": [
+        "krakok.pl",
+        "producentrolet.pl"
+      ],
+      "volume_estimate": "1000+",
+      "priority": "high"
+    },
+    {
+      "topic": "Żaluzje aluminiowe vs bambusowe porównanie",
+      "covered_by": [
+        "krakok.pl"
+      ],
+      "volume_estimate": "500-800",
+      "priority": "medium"
+    },
+    {
+      "topic": "Automatyczne rolety smart home integracja",
+      "covered_by": [
+        "producentrolet.pl"
+      ],
+      "volume_estimate": "800-1200",
+      "priority": "high"
+    }
+  ],
+  "cannibalization_opportunity": "Consolidate location-based pages (Grójec, Pruszków) into a comprehensive service areas page with city-specific sections to reduce keyword cannibalization and strengthen topical authority",
+  "top_3_opportunity_keywords": [
+    "rolety zewnętrzne ceny",
+    "moskitiery okienne rodzaje",
+    "żaluzje drewniane montaż"
+  ],
+  "serp_intelligence": []
+}
