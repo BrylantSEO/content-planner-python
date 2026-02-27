@@ -1,0 +1,80 @@
+{
+  "seed_keyword": "audyt konta google ads",
+  "generated_variants": [
+    {
+      "keyword": "jak przeprowadzić audyt konta Google Ads",
+      "type": "reformulation",
+      "confidence": 0.9
+    },
+    {
+      "keyword": "cena audytu konta Google Ads",
+      "type": "specification",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "audyt kampanii Google Ads",
+      "type": "related",
+      "confidence": 0.9
+    },
+    {
+      "keyword": "narzędzia do audytu konta Google Ads",
+      "type": "specification",
+      "confidence": 0.8
+    },
+    {
+      "keyword": "co obejmuje audyt Google Ads",
+      "type": "implicit",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "audyt konta Google Ads dla początkujących",
+      "type": "specification",
+      "confidence": 0.75
+    },
+    {
+      "keyword": "optymalizacja konta Google Ads po audycie",
+      "type": "entailment",
+      "confidence": 0.8
+    },
+    {
+      "keyword": "audyt konta Google Ads vs audyt kampanii",
+      "type": "comparative",
+      "confidence": 0.7
+    },
+    {
+      "keyword": "najlepsza agencja audytująca Google Ads",
+      "type": "entity_expanded",
+      "confidence": 0.75
+    },
+    {
+      "keyword": "audyt konta Google Ads krok po kroku",
+      "type": "reformulation",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "korzyści z audytu konta Google Ads",
+      "type": "implicit",
+      "confidence": 0.8
+    },
+    {
+      "keyword": "audyt konta Google Ads checklist",
+      "type": "specification",
+      "confidence": 0.8
+    }
+  ],
+  "total_generated": 12,
+  "metadata": {
+    "generation_time_ms": 9198,
+    "mode": "standard",
+    "serp_queries_executed": 1,
+    "unique_questions_found": 0,
+    "generated_variants_count": 12
+  },
+  "top_titles": [
+    "Audyt Konta Google Ads – Praktyczny Poradnik - Bettersteps",
+    "Audyt konta Google Ads (Adwords) - Hubert Jaworski",
+    "Profesjonalny audyt konta i kampanii Google Ads",
+    "Pełny audyt konta Google Ads - Netplace",
+    "Analiza i audyt konta Google Ads"
+  ]
+}

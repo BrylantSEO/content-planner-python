@@ -55,24 +55,25 @@ Dodaj tagi [CONFIRMED]/[PREDICTED] do sub-queries. Pytania [SERP-ONLY] dodaj do 
 - **Refine Chips** → potencjalne atrybuty do sprawdzenia w EAV Matrix
 - **Filter Sidebar** → kategorie/aspekty CE do uwzględnienia w strukturze
 
-### 2. Ekstrakcja treści (jina-reader)
+### 2. Ekstrakcja treści
 
-Pobierz treść **wszystkich top 10** z organic results (batch mode z auto-konsolidacją):
+Pobierz treść **wszystkich top 10** z organic results.
 
+**Preferowane: BD MCP `scrape_batch`**
+Użyj narzędzia MCP `scrape_batch` z listą URL (max 10) z pliku `urls.txt`.
+Zapisz wynik każdego URL jako `data/briefs/[slug]/competitors/{domain}.md`.
+Zastosuj `clean_content()` i `truncate_content(1500 słów)` na każdym wyniku.
+Wygeneruj `_quality_report.txt` (status OK/SKIP/ERROR + word count) i `_consolidated.md` (treść wszystkich OK konkurentów w jednym pliku).
+
+**Fallback: Jina Reader**
+Jeśli BD MCP niedostępne:
 ```bash
-# Zapisz URLs do pliku (jeden URL per linia)
-# Uruchom batch (parallel fetch + quality report + consolidated output):
 python3 .claude/skills/jina-reader/jina_reader.py --batch urls.txt --output data/briefs/[slug]/competitors/
 ```
 
-Batch automatycznie generuje:
-- `_quality_report.txt` — status OK/SKIP/ERROR + word count per URL
-- `_consolidated.md` — treść wszystkich OK konkurentów w jednym pliku (max 1500 słów/konkurent)
-- Indywidualne pliki `.md` — backup
-
 **Primary input do dalszej analizy:** `_consolidated.md` (czytaj zamiast indywidualnych plików).
 
-Jeśli jina-reader całkowicie niedostępny → poproś użytkownika o wklejenie treści konkurentów.
+Jeśli oba narzędzia niedostępne → poproś użytkownika o wklejenie treści konkurentów.
 
 ### 2b. Walidacja jakości ekstrakcji
 
@@ -167,8 +168,8 @@ Priorytetyzacja gaps:
 | Brak | Fallback |
 |------|----------|
 | nodeshub-search API | Poproś o ręczne URLs lub pomiń SERP |
-| jina-reader / API | Poproś o wklejenie treści konkurentów |
-| Oba narzędzia | Generuj EAV na podstawie wiedzy LLM + sub-queries z topic-researcher |
+| BD MCP / jina-reader | Poproś o wklejenie treści konkurentów |
+| Wszystkie narzędzia scrape | Generuj EAV na podstawie wiedzy LLM + sub-queries z topic-researcher |
 
 ## Wskazówki
 

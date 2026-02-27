@@ -1,0 +1,22 @@
+# Quality Report
+# Generated: 2026-02-26 18:30:56
+# Directory: data/briefs/techniczna_optymalizacja_seo_zagranicznego/competitors
+
+Status    Words  URL
+-------- ------  --------------------------------------------------
+OK         6423  https://widoczni.com/blog/seo-zagraniczne/
+OK         5056  https://www.eactive.pl/pozycjonowanie-stron-oferta/zagraniczne/
+OK         4291  https://delante.pl/pozycjonowanie-zagraniczne/
+OK         2823  https://seospace.pl/pozycjonowanie-zagraniczne/
+OK         1268  https://trafficpeaks.pl/pozycjonowanie-stron/pozycjonowanie-zagraniczne/
+OK         4090  https://widzialni.pl/pozycjonowanie-zagranicznych-stron/
+OK         2108  https://www.artefakt.pl/pozycjonowanie-zagraniczne/
+OK         6636  https://promotraffic.pl/seo-na-rynkach-zagranicznych
+OK         5139  https://cross-border.pl/jak-zaczac/5-najwazniejszych-dzialan-aby-poprawic-pozycje-seo-na-zagranicznym-rynku/
+OK         2663  https://semidea.pl/uslugi/pozycjonowanie-zagraniczne-international-seo/
+
+# Summary
+OK:    10
+SKIP:  0 (< 200 words)
+ERROR: 0
+Total words (OK only): 40497

@@ -529,3 +529,4 @@ Rekomendacja: maks. 5-7 wyświetleń/tydzień na użytkownika. Zbyt częste wyś
 | Meta Conversions API (CAPI) | /blog/meta-conversions-api-capi/ | Tracking konwersji — paralela z GA4 linkingiem | Sekcja "Jak działa remarketing" — połączenie danych GA4 |
 | Najważniejsze metryki Meta Ads | /blog/najwazniejsze-metryki-meta-ads/ | Metryki wideo (CPV, CTR) — porównanie | Sekcja "Wyniki/ROAS" |
 | Błędy w reklamach Facebook | /blog/8-najwiekszych-bledow-popelnianych-w-reklamach-na-facebooku/ | Błędy retargetingu — cross-kanałowy kontekst | FAQ lub sekcja "Najlepsze praktyki" |
+

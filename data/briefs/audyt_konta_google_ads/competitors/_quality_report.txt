@@ -1,0 +1,21 @@
+# Quality Report
+# Generated: 2026-02-27 17:18:42
+# Directory: data/briefs/audyt_konta_google_ads/competitors
+
+Status    Words  URL
+-------- ------  --------------------------------------------------
+OK         2006  https://bettersteps.pl/blog/audyt-konta-google-ads-praktyczny-poradnik
+OK         2427  https://jaworski.digital/audyt-google-ads/
+OK        12461  https://widoczni.com/kampanie-adwords/audyt-google-ads/
+OK         1668  https://netplace.com.pl/sklep/produkt/pelny-audyt-konta-google-ads/
+OK         8166  https://www.mbridge.pl/performance-marketing-sem/audyt-google-ads/
+OK         4748  https://digitalk.pl/uslugi/audyt-google-ads/
+OK         3345  https://www.devagroup.pl/audyt-kampanii-google-ads
+OK         2553  https://semahead.agency/oferta/ppc/audyt-konta-google-ads/
+OK         2338  https://www.artefakt.pl/blog/analityka/audyt-konta-google-ads/
+
+# Summary
+OK:    9
+SKIP:  0 (< 200 words)
+ERROR: 0
+Total words (OK only): 39712

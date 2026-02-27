@@ -1,0 +1,95 @@
+{
+  "seed_keyword": "audyt seo",
+  "generated_variants": [
+    {
+      "keyword": "jak przeprowadzić audyt SEO strony",
+      "type": "reformulation",
+      "confidence": 0.9
+    },
+    {
+      "keyword": "audyt SEO cena",
+      "type": "implicit",
+      "confidence": 0.92
+    },
+    {
+      "keyword": "darmowy audyt SEO",
+      "type": "implicit",
+      "confidence": 0.95
+    },
+    {
+      "keyword": "narzędzia do audytu SEO",
+      "type": "related",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "co zawiera audyt SEO",
+      "type": "implicit",
+      "confidence": 0.89
+    },
+    {
+      "keyword": "audyt SEO dla sklepu internetowego",
+      "type": "specification",
+      "confidence": 0.87
+    },
+    {
+      "keyword": "audyt SEO techniczny",
+      "type": "specification",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "audyt SEO on-page",
+      "type": "specification",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "audyt SEO off-page",
+      "type": "specification",
+      "confidence": 0.87
+    },
+    {
+      "keyword": "audyt SEO vs analiza konkurencji",
+      "type": "comparative",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "jak poprawić wyniki po audycie SEO",
+      "type": "entailment",
+      "confidence": 0.89
+    },
+    {
+      "keyword": "audyt SEO Warszawa",
+      "type": "personalized",
+      "confidence": 0.86
+    },
+    {
+      "keyword": "audyt SEO dla małych firm",
+      "type": "specification",
+      "confidence": 0.87
+    },
+    {
+      "keyword": "raport z audytu SEO",
+      "type": "related",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "audyt SEO dla strony B2B",
+      "type": "specification",
+      "confidence": 0.86
+    }
+  ],
+  "total_generated": 15,
+  "metadata": {
+    "generation_time_ms": 9819,
+    "mode": "standard",
+    "serp_queries_executed": 1,
+    "unique_questions_found": 0,
+    "generated_variants_count": 15
+  },
+  "top_titles": [
+    "Audyt SEO - Popraw swoją pozycję w Google",
+    "KoKompleksowy audyt SEO strony internetowej",
+    "Darmowe audyty SEO - zweryfikuj swój serwis i zoptymalizuj ...",
+    "Darmowy audyt SEO Twojej strony internetowej",
+    "Audyt SEO - Sprawdź swoją stronę internetową - Verseo"
+  ]
+}

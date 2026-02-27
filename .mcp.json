@@ -16,6 +16,16 @@
       "env": {
         "SENUTO_API_KEY": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NDk5NzAsImV4cCI6MTc3NDYwMDkxMiwiaWF0IjoxNzcxOTIyNTEyfQ.C5Z8bj9WgYRkbJBlEVgs020XS9ZayoPHw2vZd194wF0"
       }
+    },
+    "brightdata": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic/mcp-brightdata"
+      ],
+      "env": {
+        "BRIGHTDATA_API_KEY": "93bbbdb7-e609-447a-9e07-c34910fceb57"
+      }
     }
   }
 }

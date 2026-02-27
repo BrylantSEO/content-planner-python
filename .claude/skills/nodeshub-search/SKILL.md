@@ -13,6 +13,9 @@ allowed-tools: Bash(python3 *), Read
 
 Pobieraj wyniki Google Search przez NodeHub API.
 
+> **Alternatywa SERP:** BD MCP `search_engine` (lepsze dla batch queries, async mode).
+> NodeHub wymagany dla: `/v1/query-fanout` (brak odpowiednika w BD).
+
 ## Użycie
 
 ```bash

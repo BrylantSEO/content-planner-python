@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-02-26T09:01:00.763664+00:00",
+  "embedding_model": "gemini-embedding-001",
+  "n_keywords": 372,
+  "cluster_distribution": {
+    "cluster_0": 48,
+    "cluster_1": 89,
+    "cluster_2": 100,
+    "cluster_3": 28,
+    "cluster_4": 28,
+    "cluster_5": 37,
+    "cluster_6": 3,
+    "cluster_7": 7,
+    "cluster_8": 10,
+    "cluster_9": 22
+  },
+  "algorithm": "hierarchical",
+  "k": 10,
+  "silhouette": 0.0812
+}

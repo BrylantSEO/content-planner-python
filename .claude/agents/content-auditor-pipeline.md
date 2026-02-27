@@ -32,6 +32,11 @@ Utwórz katalog roboczy: `data/audits/[slug]/` (slug: lowercase, spacje → unde
 
 ### Krok 0: Pobranie treści artykułu
 
+**Preferowane: BD MCP `scrape_as_markdown`**
+Użyj narzędzia MCP `scrape_as_markdown` z URL artykułu. Zapisz wynik jako `data/audits/[slug]/source.md`.
+
+**Fallback: Jina Reader**
+Jeśli BD MCP niedostępne:
 ```bash
 python3 .claude/skills/jina-reader/jina_reader.py "URL_ARTYKULU" --clean
 ```
@@ -56,6 +61,14 @@ Zapisz top 10 URLs do `data/audits/[slug]/urls.txt`.
 
 #### 1.2 Batch fetch konkurentów
 
+**Preferowane: BD MCP `scrape_batch`**
+Użyj narzędzia MCP `scrape_batch` z listą URL (max 10) z pliku `data/audits/[slug]/urls.txt`.
+Zapisz wynik każdego URL jako `data/audits/[slug]/competitors/{domain}.md`.
+Zastosuj `clean_content()` i `truncate_content(1500 słów)` na każdym wyniku.
+Wygeneruj `_quality_report.txt` i `_consolidated.md`.
+
+**Fallback: Jina Reader**
+Jeśli BD MCP niedostępne:
 ```bash
 python3 .claude/skills/jina-reader/jina_reader.py --batch data/audits/[slug]/urls.txt --output data/audits/[slug]/competitors/
 ```
@@ -217,9 +230,9 @@ Pipeline jest wznawialny — jeśli krok już wykonany, czytaj z pliku:
 
 | Problem | Rozwiązanie |
 |---------|-------------|
-| jina-reader timeout | Poproś o wklejenie treści artykułu, kontynuuj bez URL |
+| BD MCP / jina-reader timeout | Poproś o wklejenie treści artykułu, kontynuuj bez URL |
 | nodeshub-search niedostępny | Pomiń benchmark, przejdź do trybu Content-only |
-| jina-reader batch fails | Poproś o ręczne URLs lub kontynuuj bez benchmarku |
+| BD MCP / jina-reader batch fails | Poproś o ręczne URLs lub kontynuuj bez benchmarku |
 | Za mało konkurentów (<5) | Kontynuuj z notą o obniżonej jakości benchmarku |
 | Brak frazy kluczowej | Tryb Content-only: pomiń krok 1, audytuj bez benchmarku |
 | Zapis pliku failed | Wyświetl wynik w output zamiast zapisu |
@@ -228,8 +241,8 @@ Pipeline jest wznawialny — jeśli krok już wykonany, czytaj z pliku:
 
 | Poziom | Dostępne | Jakość |
 |--------|----------|--------|
-| **Full** | URL + fraza + SERP + Jina | Najwyższa — pełny benchmark |
-| **Content-only** | URL + Jina (bez frazy) | Dobra — bez porównania SERP |
+| **Full** | URL + fraza + SERP + BD MCP/Jina | Najwyższa — pełny benchmark |
+| **Content-only** | URL + BD MCP/Jina (bez frazy) | Dobra — bez porównania SERP |
 | **Quick** | Tekst wklejony | Podstawowa — szybki check |
 | **LLM-only** | SERP/Jina niedostępne | Minimalna — oparte na wiedzy modelu |
 

@@ -1,0 +1,21 @@
+# Quality Report
+# Generated: 2026-02-27 14:32:35
+# Directory: data/briefs/audyt_seo/competitors
+
+Status    Words  URL
+-------- ------  --------------------------------------------------
+OK          502  https://audyt-seo.home.pl/
+OK         3083  https://widzialni.pl/audyty/seo-audyt-strony/
+OK         1921  https://audytyseo.if.pl/
+OK         2024  https://diagnoseo.com/pl/audyt-seo/
+OK         1313  https://www.sunrisesystem.pl/audyt-seo/
+OK         2188  https://audyt.verseo.pl/
+OK         3431  https://www.artefakt.pl/blog/seo/jak-przeprowadzic-audyt-strony-porady/
+OK         1980  https://cyberfolks.pl/audyt-strony/
+OK         4925  https://cyrekdigital.com/pl/baza-wiedzy/audyt-seo/
+
+# Summary
+OK:    9
+SKIP:  0 (< 200 words)
+ERROR: 0
+Total words (OK only): 21367

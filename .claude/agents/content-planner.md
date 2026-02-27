@@ -104,16 +104,19 @@ Z wyniku SERP:
 
 #### 2.2 Batch fetch (parallel + auto-konsolidacja)
 
+**Preferowane: BD MCP `scrape_batch`**
+Użyj narzędzia MCP `scrape_batch` z listą URL (max 10) z pliku `data/briefs/[slug]/urls.txt`.
+Zapisz wynik każdego URL jako `data/briefs/[slug]/competitors/{domain}.md`.
+Zastosuj `clean_content()` i `truncate_content(1500 słów)` na każdym wyniku.
+Wygeneruj `_quality_report.txt` (status OK/SKIP/ERROR + word count) i `_consolidated.md` (treść wszystkich OK konkurentów w jednym pliku).
+
+**Fallback: Jina Reader**
+Jeśli BD MCP niedostępne, użyj:
 ```bash
 python3 .claude/skills/jina-reader/jina_reader.py --batch data/briefs/[slug]/urls.txt --output data/briefs/[slug]/competitors/
 ```
 
-Batch automatycznie generuje:
-- Indywidualne pliki `.md` (backup)
-- `_quality_report.txt` — status OK/SKIP/ERROR + word count
-- `_consolidated.md` — treść wszystkich OK konkurentów w jednym pliku
-
-Nie musisz sprawdzać `wc -w` — raport jakości generowany automatycznie. Jeśli `_quality_report.txt` wykazuje < 7 OK → dodaj notę o obniżonej jakości analizy.
+Jeśli `_quality_report.txt` wykazuje < 7 OK → dodaj notę o obniżonej jakości analizy.
 
 #### 2.3 Analiza z _consolidated.md (zadanie LLM — NIE uruchamiaj skryptów Python)
 
@@ -224,8 +227,8 @@ Pipeline jest wznawialny — można powtórzyć od dowolnego kroku mając wyniki
 | Problem | Rozwiązanie |
 |---------|-------------|
 | nodeshub-search niedostępny | Pomiń SERP, użyj LLM do generowania EAV na podstawie wiedzy + sub-queries |
-| jina-reader timeout/error | Poproś użytkownika o wklejenie treści konkurentów lub kontynuuj bez ekstrakcji |
-| Brak SERP + brak Jina | Pełny LLM-only mode: generuj EAV z wiedzy, URR na podstawie topic-researcher |
+| BD MCP / jina-reader timeout/error | Poproś użytkownika o wklejenie treści konkurentów lub kontynuuj bez ekstrakcji |
+| Brak SERP + brak scrape | Pełny LLM-only mode: generuj EAV z wiedzy, URR na podstawie topic-researcher |
 | Za mało atrybutów (<5) | Rozszerz ramkę semantyczną, dodaj więcej elementów, poszukaj w sub-queries |
 | Brak UNIQUE atrybutu | Zaproponuj angle/perspektywę unikalną dla SC (np. "z perspektywy pacjenta") |
 | Zapis briefu failed | Wyświetl brief w output zamiast zapisu do pliku |
@@ -235,8 +238,8 @@ Pipeline jest wznawialny — można powtórzyć od dowolnego kroku mając wyniki
 
 | Poziom | Dostępne narzędzia | Jakość |
 |--------|-------------------|--------|
-| **Full** | QueryFanout + SERP + Jina + LLM | Najwyższa - realne dane konkurencji + ugruntowane sub-queries |
-| **SERP-only** | SERP + LLM (bez Jina, bez QueryFanout) | Wysoka - tytuły + PAA + Related jako proxy |
+| **Full** | QueryFanout + SERP + BD MCP/Jina + LLM | Najwyższa - realne dane konkurencji + ugruntowane sub-queries |
+| **SERP-only** | SERP + LLM (bez scrape, bez QueryFanout) | Wysoka - tytuły + PAA + Related jako proxy |
 | **LLM-only** | Tylko LLM | Dobra - oparte na wiedzy modelu, bez weryfikacji SERP |
 
 Pipeline automatycznie degraduje do niższego poziomu przy błędach API.

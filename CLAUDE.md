@@ -52,3 +52,11 @@ Czytaj te pliki gdy potrzebujesz szczegółów dla danego zadania:
 | CLI: cluster.py, nodeshub_search.py, jina_reader.py | [`references/python-tools.md`](references/python-tools.md) |
 | Flow pipeline: clustering, content planning, audit | [`references/pipelines.md`](references/pipelines.md) |
 | Słownik: EAV, BLUF, CoR, Query Fanout, CSI, URR | [`references/domain-concepts.md`](references/domain-concepts.md) |
+| **Znane błędy i sprawdzone rozwiązania** | [`memory/known-issues.md`](../.claude/projects/-Users-maciekkulkowski-Downloads-semantic-os-6/memory/known-issues.md) |
+
+### Kiedy sięgnąć po known-issues.md
+
+- Dodajesz URL do `blog_vectors_double` → §5 (kompletny przepis)
+- Piszesz Python skrypt z HTTP requests → §2 (SSL macOS)
+- Używasz Gemini embeddings → §3 (poprawna nazwa modelu)
+- Robisz cosine similarity query przez MCP SQL → §1 (ILIKE proxy)

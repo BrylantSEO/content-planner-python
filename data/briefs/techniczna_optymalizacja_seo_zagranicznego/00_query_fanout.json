@@ -1,0 +1,95 @@
+{
+  "seed_keyword": "techniczna optymalizacja SEO zagranicznego",
+  "generated_variants": [
+    {
+      "keyword": "optymalizacja techniczna SEO dla rynków zagranicznych",
+      "type": "reformulation",
+      "confidence": 0.92
+    },
+    {
+      "keyword": "międzynarodowa optymalizacja techniczna SEO",
+      "type": "related",
+      "confidence": 0.9
+    },
+    {
+      "keyword": "jak poprawić techniczne SEO strony na rynki zagraniczne",
+      "type": "implicit",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "strategia technicznego SEO dla ekspansji zagranicznej",
+      "type": "specification",
+      "confidence": 0.87
+    },
+    {
+      "keyword": "techniczne aspekty SEO dla różnych krajów",
+      "type": "specification",
+      "confidence": 0.86
+    },
+    {
+      "keyword": "optymalizacja techniczna SEO dla Google w innych krajach",
+      "type": "specification",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "najlepsze praktyki technicznego SEO dla rynków zagranicznych",
+      "type": "implicit",
+      "confidence": 0.89
+    },
+    {
+      "keyword": "narzędzia do technicznej optymalizacji SEO zagranicznego",
+      "type": "follow_up",
+      "confidence": 0.84
+    },
+    {
+      "keyword": "techniczne SEO dla stron wielojęzycznych",
+      "type": "specification",
+      "confidence": 0.88
+    },
+    {
+      "keyword": "problemy techniczne SEO w międzynarodowym pozycjonowaniu",
+      "type": "implicit",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "audyt techniczny SEO dla ekspansji międzynarodowej",
+      "type": "follow_up",
+      "confidence": 0.87
+    },
+    {
+      "keyword": "wpływ technicznego SEO na pozycjonowanie zagraniczne",
+      "type": "entailment",
+      "confidence": 0.83
+    },
+    {
+      "keyword": "optymalizacja techniczna SEO dla konkretnych krajów (np. Niemcy, Francja)",
+      "type": "specification",
+      "confidence": 0.89
+    },
+    {
+      "keyword": "techniczne SEO a lokalizacja stron internetowych",
+      "type": "related",
+      "confidence": 0.85
+    },
+    {
+      "keyword": "optymalizacja szybkości ładowania stron zagranicznych",
+      "type": "specification",
+      "confidence": 0.91
+    }
+  ],
+  "total_generated": 15,
+  "metadata": {
+    "generation_time_ms": 10172,
+    "mode": "standard",
+    "serp_queries_executed": 1,
+    "unique_questions_found": 0,
+    "generated_variants_count": 15
+  },
+  "top_titles": [
+    "SEO zagraniczne, czyli jak wypromować stronę globalnie ...",
+    "Pozycjonowanie zagraniczne - Międzynarodowe SEO",
+    "Pozycjonowanie zagraniczne - międzynarodowe SEO",
+    "Pozycjonowanie zagraniczne",
+    "Pozycjonowanie zagraniczne — międzynarodowe SEO"
+  ]
+}

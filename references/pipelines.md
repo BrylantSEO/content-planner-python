@@ -48,8 +48,8 @@ keyword-expander (300+ keywords)
 **Dane wyjściowe:** raport audytowy w `data/audits/<slug>/`
 
 ```
-1. jina-reader                  ← URL → markdown (treść artykułu)
-2. competitor-gap-analyzer       ← benchmark SERP (top 10 konkurentów)
+1. BD MCP scrape_as_markdown     ← URL → markdown (treść artykułu) [fallback: jina-reader]
+2. competitor-gap-analyzer       ← benchmark SERP (top 10 konkurentów, BD scrape_batch)
 3. Merged analysis → scores.md   ← CSI + CoR + Density + SRL + TF-IDF + EEAT
 4. audit-report-generator        ← CQS 0–100 + BEFORE/AFTER + rekomendacje
 ```
@@ -59,6 +59,23 @@ keyword-expander (300+ keywords)
 - `benchmark.md` — dane SERP i EAV konkurencji
 - `source.md` — oryginalna treść
 - `report.md` — finalny raport z CQS, AI Citability Score, Action Plan
+
+---
+
+---
+
+## 4. Źródła danych webowych
+
+| Narzędzie | Zastosowanie | Typ |
+|-----------|-------------|-----|
+| **Bright Data MCP** (`scrape_as_markdown`, `scrape_batch`) | Scraping URL→markdown (primary) | MCP native |
+| **Bright Data MCP** (`search_engine`) | SERP — opcjonalna alternatywa NodeHub dla batch | MCP native |
+| **Jina Reader** (`jina_reader.py`) | Scraping URL→markdown (fallback) | Python script |
+| **NodeHub** (`nodeshub_search.py`, `query_fanout.py`) | SERP + Query Fanout (primary) | Python script |
+| **Gemini API** | Embeddingi tekstowe | Python script |
+
+Priorytet scrape: BD MCP → Jina Reader → poproś użytkownika o wklejenie treści.
+NodeHub wymagany dla `/v1/query-fanout` (BD nie ma odpowiednika).
 
 ---
 
