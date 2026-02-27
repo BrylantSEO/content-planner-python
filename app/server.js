@@ -153,6 +153,134 @@ app.get("/api/offers/:slug/stream", (req, res) => {
   });
 });
 
+// --- API: Send analysis email ---
+app.post("/api/offers/:slug/send-email", async (req, res) => {
+  const { email } = req.body;
+  if (!email) return res.status(400).json({ error: "email is required" });
+
+  const dir = join(DATA_DIR, req.params.slug);
+  if (!existsSync(join(dir, "offer.md"))) return res.status(404).json({ error: "Offer not found" });
+
+  const meta = JSON.parse(readFileSync(join(dir, "meta.json"), "utf-8"));
+  const offerMd = readFileSync(join(dir, "offer.md"), "utf-8");
+
+  // Convert markdown to HTML email
+  const emailHtml = markdownToEmailHtml(offerMd, meta.domain);
+
+  // Try to send via nodemailer (requires SMTP_* env vars)
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+
+  if (smtpHost && smtpUser && smtpPass) {
+    try {
+      const nodemailer = await import("nodemailer");
+      const transporter = nodemailer.default.createTransport({
+        host: smtpHost,
+        port: parseInt(process.env.SMTP_PORT || "587"),
+        secure: process.env.SMTP_SECURE === "true",
+        auth: { user: smtpUser, pass: smtpPass },
+      });
+
+      await transporter.sendMail({
+        from: process.env.SMTP_FROM || smtpUser,
+        to: email,
+        subject: `Analiza SEO: ${meta.domain} — Double Digital`,
+        html: emailHtml,
+      });
+
+      res.json({ success: true, method: "smtp" });
+    } catch (err) {
+      res.status(500).json({ error: `SMTP error: ${err.message}` });
+    }
+  } else {
+    // Fallback: save email HTML and return it for manual sending
+    const emailPath = join(dir, "email.html");
+    writeFileSync(emailPath, emailHtml);
+    res.json({
+      success: true,
+      method: "manual",
+      message: "SMTP not configured. Email HTML saved — use Gmail MCP or copy-paste.",
+      email_html_url: `/api/offers/${req.params.slug}/email-html`,
+    });
+  }
+});
+
+// --- API: Get email HTML preview ---
+app.get("/api/offers/:slug/email-html", (req, res) => {
+  const htmlPath = join(DATA_DIR, req.params.slug, "email.html");
+  if (!existsSync(htmlPath)) {
+    // Generate on-the-fly
+    const dir = join(DATA_DIR, req.params.slug);
+    const meta = JSON.parse(readFileSync(join(dir, "meta.json"), "utf-8"));
+    const offerMd = readFileSync(join(dir, "offer.md"), "utf-8");
+    const html = markdownToEmailHtml(offerMd, meta.domain);
+    res.type("html").send(html);
+    return;
+  }
+  res.type("html").send(readFileSync(htmlPath, "utf-8"));
+});
+
+// Convert offer markdown to professional email HTML
+function markdownToEmailHtml(md, domain) {
+  // Simple markdown → HTML conversion for email
+  let html = md
+    // Headers
+    .replace(/^#### (.+)$/gm, '<h4 style="color:#222;margin:16px 0 8px;">$1</h4>')
+    .replace(/^### (.+)$/gm, '<h3 style="color:#222;font-size:18px;margin:20px 0 10px;">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 style="color:#FE3200;font-size:22px;margin:30px 0 12px;padding-top:20px;border-top:1px solid #eee;">$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1 style="color:#222;font-size:28px;margin-bottom:5px;">$1</h1>')
+    .replace(/^> (.+)$/gm, '<p style="color:#666;font-size:18px;font-style:italic;margin:0 0 20px;">$1</p>')
+    // Bold
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    // Horizontal rules
+    .replace(/^---$/gm, '<hr style="border:none;border-top:1px solid #eee;margin:25px 0;">')
+    // Tables
+    .replace(/^\|(.+)\|$/gm, (match) => {
+      const cells = match.split("|").filter(Boolean).map((c) => c.trim());
+      if (cells.every((c) => /^[-:]+$/.test(c))) return ""; // separator row
+      const isHeader = match.includes("Fraza") || match.includes("Pozycja") || match.includes("Wyszukiwań");
+      const tag = isHeader ? "th" : "td";
+      const style = isHeader
+        ? 'style="background:#f8f8f8;padding:8px 12px;text-align:left;font-size:13px;border-bottom:2px solid #ddd;"'
+        : 'style="padding:8px 12px;border-bottom:1px solid #eee;font-size:13px;"';
+      return `<tr>${cells.map((c) => `<${tag} ${style}>${c.replace("❌", "🔴")}</${tag}>`).join("")}</tr>`;
+    })
+    // Paragraphs
+    .replace(/^(?!<[htp12345roui]|$)(.+)$/gm, '<p style="color:#444;line-height:1.6;margin:8px 0;">$1</p>')
+    // Empty lines
+    .replace(/\n{2,}/g, "\n");
+
+  // Wrap tables
+  html = html.replace(/<tr>/g, (match, offset) => {
+    const before = html.substring(Math.max(0, offset - 100), offset);
+    if (!before.includes("<table")) {
+      return '<table style="width:100%;border-collapse:collapse;margin:15px 0;font-family:monospace;" cellpadding="0" cellspacing="0"><tr>';
+    }
+    return match;
+  });
+  // Close tables (before next h2 or hr)
+  html = html.replace(/<\/tr>\s*(?=<[hp]|<hr|$)/g, "</tr></table>");
+
+  return `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
+<body style="margin:0;padding:0;background:#f5f5f5;font-family:'Segoe UI',Arial,sans-serif;">
+<div style="max-width:700px;margin:20px auto;background:white;border-radius:8px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+  <div style="background:#222;padding:20px 30px;">
+    <img src="https://double-digital.pl/wp-content/uploads/2023/01/dd-logo-white.png" alt="Double Digital" style="height:30px;" onerror="this.outerHTML='<span style=color:white;font-size:20px;font-weight:bold>Double Digital</span>'">
+  </div>
+  <div style="padding:30px;">
+    ${html}
+  </div>
+  <div style="background:#f8f8f8;padding:20px 30px;text-align:center;font-size:12px;color:#999;">
+    Double Digital · kontakt@double-digital.pl · double-digital.pl
+  </div>
+</div>
+</body>
+</html>`;
+}
+
 // --- Serve offer HTML as public LP ---
 app.get("/lp/:slug", (req, res) => {
   const htmlPath = join(DATA_DIR, req.params.slug, "offer.html");

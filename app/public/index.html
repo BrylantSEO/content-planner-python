@@ -375,6 +375,12 @@
           <div class="form-hint">Kontekst pomaga LLM lepiej dostosować analizę i ton oferty</div>
         </div>
 
+        <div class="form-group">
+          <label for="client-email-form">Email klienta <span style="font-weight:400;color:var(--text-muted);">(opcjonalnie)</span></label>
+          <input type="email" id="client-email-form" placeholder="klient@firma.pl" style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;">
+          <div class="form-hint">Po zakończeniu analizy możesz jednym klikiem wysłać wyniki na ten adres</div>
+        </div>
+
         <button type="submit" class="btn btn-primary" id="submit-btn">
           🚀 Uruchom analizę
         </button>
@@ -403,11 +409,29 @@
     <div id="results-section" style="display:none;">
       <div class="result-tabs">
         <button class="tab-btn active" onclick="switchTab('md')">📄 Oferta MD</button>
+        <button class="tab-btn" onclick="switchTab('email')">📧 Wyślij klientowi</button>
         <button class="tab-btn" onclick="switchTab('html')">🌐 Landing Page</button>
       </div>
 
       <div id="tab-md" class="tab-content active">
         <div class="md-preview" id="md-content"></div>
+      </div>
+
+      <div id="tab-email" class="tab-content">
+        <div style="max-width:500px;margin:0 auto;padding:20px;">
+          <h3 style="margin-bottom:12px;">Wyślij analizę do klienta</h3>
+          <p style="color:var(--text-muted);margin-bottom:20px;font-size:14px;">Klient otrzyma profesjonalny email z pełną analizą SEO (tabele, dane, rekomendacje). Bez landing page — tylko treść oferty.</p>
+          <div style="display:flex;gap:10px;margin-bottom:16px;">
+            <input type="email" id="client-email" placeholder="email@klienta.pl" style="flex:1;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14px;">
+            <button class="btn btn-primary" onclick="sendEmail()" id="btn-send-email">📧 Wyślij</button>
+          </div>
+          <div id="email-status" style="display:none;padding:12px;border-radius:8px;font-size:14px;margin-bottom:16px;"></div>
+          <div style="border-top:1px solid var(--border);padding-top:16px;">
+            <p style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">Lub podejrzyj HTML emaila:</p>
+            <button class="btn btn-secondary btn-sm" onclick="previewEmail()">👁 Podgląd emaila</button>
+            <button class="btn btn-secondary btn-sm" onclick="copyEmailHtml()">📋 Kopiuj HTML emaila</button>
+          </div>
+        </div>
       </div>
 
       <div id="tab-html" class="tab-content">
@@ -535,6 +559,13 @@ async function startAnalysis(e) {
   const data = await res.json();
 
   currentSlug = data.slug;
+
+  // Carry email to the send tab
+  const formEmail = document.getElementById('client-email-form').value.trim();
+  if (formEmail) {
+    document.getElementById('client-email').value = formEmail;
+  }
+
   showView('progress');
   initProgress(domain.replace(/^https?:\/\//, '').replace(/^www\./, ''));
   connectSSE(data.slug);
@@ -544,6 +575,7 @@ async function startAnalysis(e) {
   document.getElementById('submit-btn').textContent = '🚀 Uruchom analizę';
   document.getElementById('domain').value = '';
   document.getElementById('context').value = '';
+  document.getElementById('client-email-form').value = '';
 }
 
 // --- Progress UI ---
@@ -664,6 +696,58 @@ async function regenerateHTML() {
     document.getElementById('html-iframe').srcdoc = data.offer_html;
     addLog('✅ LP zregenerowane!', true);
   }
+}
+
+// --- Email functions ---
+async function sendEmail() {
+  const email = document.getElementById('client-email').value.trim();
+  if (!email || !email.includes('@')) {
+    showEmailStatus('Podaj poprawny adres email', 'error');
+    return;
+  }
+  const btn = document.getElementById('btn-send-email');
+  btn.disabled = true;
+  btn.textContent = '⏳ Wysyłam...';
+
+  try {
+    const res = await fetch(`/api/offers/${currentSlug}/send-email`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      if (data.method === 'smtp') {
+        showEmailStatus(`✅ Email wysłany na ${email}!`, 'success');
+      } else {
+        showEmailStatus(`📋 Email HTML przygotowany. SMTP nie skonfigurowany — użyj podglądu poniżej żeby skopiować treść.`, 'warning');
+      }
+    } else {
+      showEmailStatus(`❌ Błąd: ${data.error}`, 'error');
+    }
+  } catch (err) {
+    showEmailStatus(`❌ ${err.message}`, 'error');
+  }
+  btn.disabled = false;
+  btn.textContent = '📧 Wyślij';
+}
+
+function showEmailStatus(msg, type) {
+  const el = document.getElementById('email-status');
+  el.style.display = 'block';
+  el.textContent = msg;
+  el.style.background = type === 'success' ? 'var(--green-light)' : type === 'error' ? 'var(--red-light)' : 'var(--yellow-light)';
+  el.style.color = type === 'success' ? '#065F46' : type === 'error' ? '#991B1B' : '#92400E';
+}
+
+function previewEmail() {
+  window.open(`/api/offers/${currentSlug}/email-html`, '_blank');
+}
+
+async function copyEmailHtml() {
+  const res = await fetch(`/api/offers/${currentSlug}/email-html`);
+  const html = await res.text();
+  navigator.clipboard.writeText(html).then(() => alert('HTML emaila skopiowany!'));
 }
 
 // --- Init ---

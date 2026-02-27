@@ -1,16 +1,6 @@
 {
   "competitors": [
     {
-      "domain": "roletki24.pl",
-      "common_keywords": null,
-      "domain_rank": {
-        "recent_value": 430720,
-        "older_value": 430693,
-        "diff": 27,
-        "percent": 0.0001
-      }
-    },
-    {
       "domain": "krakok.pl",
       "common_keywords": 50,
       "domain_rank": {
@@ -52,8 +42,109 @@
     }
   ],
   "visibility_gap": {
+    "leader_domain": "producentrolet.pl",
     "leader_visibility": 0,
     "client_visibility": 0,
     "gap_multiplier": "N/A"
-  }
+  },
+  "competitor_gap_keywords": [
+    {
+      "keyword": "jak wyprać rolety dzień noc",
+      "volume": 170,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 4,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "roleta dzień noc na okno dachowe",
+      "volume": 110,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 4,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "czyszczenie rolet dzień noc",
+      "volume": 110,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 5,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "plisy okienne warszawa",
+      "volume": 70,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 2,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "plisy na wymiar warszawa",
+      "volume": 40,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 2,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "producent rolet warszawa",
+      "volume": 40,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 1,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "czym czyścić rolety dzień noc",
+      "volume": 30,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 5,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "okno w biurze",
+      "volume": 30,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 10,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "rolety warszawa praga",
+      "volume": 20,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 1,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "montaż moskitiery warszawa",
+      "volume": 20,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 5,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "rolety antywłamaniowe zewnętrzne warszawa",
+      "volume": 10,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 1,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "rolety kasetowe warszawa",
+      "volume": 10,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 10,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "jak zrobić zasłonę na okno dachowe",
+      "volume": 10,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 10,
+      "client_position": "brak"
+    },
+    {
+      "keyword": "praca monter rolet",
+      "volume": 10,
+      "competitor": "producentrolet.pl",
+      "competitor_position": 7,
+      "client_position": "brak"
+    }
+  ]
 }

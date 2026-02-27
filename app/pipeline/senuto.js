@@ -24,9 +24,9 @@ export async function senutoAnalysis(domain, countryId, emit) {
   const date_max = now.toISOString().split("T")[0];
   const date_min = yearAgo.toISOString().split("T")[0];
 
-  emit("log", "6 równoległych zapytań do Senuto API...");
+  emit("log", "7 równoległych zapytań do Senuto API...");
 
-  const [statsRes, historyRes, difficultyRes, searchesRes, urlsRes, cannibRes] =
+  const [statsRes, historyRes, difficultyRes, searchesRes, urlsRes, cannibRes, positionsRes] =
     await Promise.allSettled([
       // [1] Domain Statistics
       fetch(
@@ -65,6 +65,12 @@ export async function senutoAnalysis(domain, countryId, emit) {
         method: "POST", headers,
         body: JSON.stringify({ domain, fetch_mode: "topLevelDomain", country_id: countryId }),
       }).then((r) => r.json()),
+
+      // [7] All keyword positions (up to 100) — raw keyword-level data
+      fetch(`${SENUTO_BASE}/api/visibility_analysis/reports/positions/getData`, {
+        method: "POST", headers,
+        body: JSON.stringify({ domain, fetch_mode: "topLevelDomain", country_id: countryId, limit: 100 }),
+      }).then((r) => r.json()),
     ]);
 
   const safe = (r) => (r.status === "fulfilled" ? r.value : null);
@@ -74,6 +80,7 @@ export async function senutoAnalysis(domain, countryId, emit) {
   const searches = safe(searchesRes);
   const urls = safe(urlsRes);
   const cannib = safe(cannibRes);
+  const positions = safe(positionsRes);
 
   // Check if domain has any data
   if (!stats?.success || !stats?.data?.statistics) {
@@ -117,6 +124,40 @@ export async function senutoAnalysis(domain, countryId, emit) {
     (kw) => kw.statistics?.url?.current !== kw.statistics?.url?.previous
   ).length;
 
+  // Process raw keyword positions into actionable lists
+  const rawKeywords = positions?.success && Array.isArray(positions.data) ? positions.data : [];
+  const allKeywords = rawKeywords.map((kw) => ({
+    keyword: kw.keyword,
+    position: kw.statistics?.position?.current,
+    previous_position: kw.statistics?.position?.previous,
+    diff: kw.statistics?.position?.diff,
+    volume: kw.statistics?.searches?.current || 0,
+    cpc: kw.statistics?.cpc?.current || 0,
+    difficulty: kw.statistics?.difficulty?.current || 0,
+    url: kw.statistics?.url?.current || "",
+    intent: kw.statistics?.intentions?.main_intent || "",
+  })).filter((kw) => kw.position > 0);
+
+  // Table 1: "Nisko wiszące owoce" — positions 11-20, sorted by volume
+  const quickWinKeywords = allKeywords
+    .filter((kw) => kw.position >= 11 && kw.position <= 20)
+    .sort((a, b) => b.volume - a.volume)
+    .slice(0, 10);
+
+  // Table 3: "Frazy tracące pozycje" — diff > 0 means position worsened
+  const decliningKeywords = allKeywords
+    .filter((kw) => kw.diff > 3 && kw.volume >= 20)
+    .sort((a, b) => b.volume - a.volume)
+    .slice(0, 10);
+
+  // High-volume keywords where we rank poorly (>20)
+  const missedHighVolume = allKeywords
+    .filter((kw) => kw.position > 20 && kw.volume >= 100)
+    .sort((a, b) => b.volume - a.volume)
+    .slice(0, 10);
+
+  emit("log", `Frazy: ${allKeywords.length} total | ${quickWinKeywords.length} quick wins (poz 11-20) | ${decliningKeywords.length} spadające`);
+
   const result = {
     snapshot: {
       visibility: { current: s.visibility?.current, previous: s.visibility?.previous, change_pct: s.visibility?.diff },
@@ -132,6 +173,13 @@ export async function senutoAnalysis(domain, countryId, emit) {
     search_distribution: searches?.success && Array.isArray(searches.data) ? searches.data.map((seg) => ({ segment: seg.key, count: seg.top50, visibility_pct: seg.visibility_percent })) : [],
     top_urls: topUrls,
     cannibalization_count: cannibCount,
+    // NEW: raw keyword tables for offer
+    keywords: {
+      all: allKeywords,
+      quick_wins: quickWinKeywords,
+      declining: decliningKeywords,
+      missed_high_volume: missedHighVolume,
+    },
     country_id: countryId,
     analysis_date: date_max,
     mode: "full",
@@ -186,11 +234,74 @@ export async function competitorAnalysis(domain, countryId, senutoData, emit) {
       }))
   );
 
-  const competitors = await Promise.all(statsPromises);
+  const allCompetitors = await Promise.all(statsPromises);
+  // Filter out the analyzed domain itself
+  const competitors = allCompetitors.filter((c) => c.domain !== domain);
 
   const clientVisibility = senutoData?.snapshot?.visibility?.current || 0;
-  const leaderVisibility = Math.max(...competitors.map((c) => c.visibility || 0));
-  const leader = competitors.find((c) => c.visibility === leaderVisibility);
+  // Pick leader: by visibility first, fallback to domain_rank (lower = better)
+  let leader;
+  const withVis = competitors.filter((c) => (c.visibility || 0) > 0);
+  if (withVis.length > 0) {
+    const leaderVisibility = Math.max(...withVis.map((c) => c.visibility));
+    leader = withVis.find((c) => c.visibility === leaderVisibility);
+  } else {
+    // All visibility = 0, pick by best (lowest) domain_rank
+    leader = [...competitors].sort((a, b) => {
+      const ra = a.domain_rank?.recent_value || Infinity;
+      const rb = b.domain_rank?.recent_value || Infinity;
+      return ra - rb;
+    })[0];
+  }
+  const leaderVisibility = leader?.visibility || 0;
+
+  // Fetch top competitor's keyword positions for gap analysis
+  let competitorGapKeywords = [];
+  if (leader) {
+    emit("log", `Pobieranie fraz konkurenta ${leader.domain}...`);
+    try {
+      const compPosRes = await fetch(`${SENUTO_BASE}/api/visibility_analysis/reports/positions/getData`, {
+        method: "POST", headers,
+        body: JSON.stringify({ domain: leader.domain, fetch_mode: "topLevelDomain", country_id: countryId, limit: 100 }),
+      });
+      const compPosData = await compPosRes.json();
+      if (compPosData.success && Array.isArray(compPosData.data)) {
+        const compKeywords = compPosData.data.map((kw) => ({
+          keyword: kw.keyword,
+          position: kw.statistics?.position?.current,
+          volume: kw.statistics?.searches?.current || 0,
+          url: kw.statistics?.url?.current || "",
+        })).filter((kw) => kw.position > 0 && kw.position <= 10);
+
+        // Find keywords where competitor is in top 10 but client is absent or >50
+        const clientKeywordSet = new Set(
+          (senutoData?.keywords?.all || []).map((k) => k.keyword.toLowerCase())
+        );
+        const clientKeywordMap = new Map(
+          (senutoData?.keywords?.all || []).map((k) => [k.keyword.toLowerCase(), k.position])
+        );
+
+        competitorGapKeywords = compKeywords
+          .filter((ck) => {
+            const clientPos = clientKeywordMap.get(ck.keyword.toLowerCase());
+            return !clientPos || clientPos > 50;
+          })
+          .sort((a, b) => b.volume - a.volume)
+          .slice(0, 15)
+          .map((ck) => ({
+            keyword: ck.keyword,
+            volume: ck.volume,
+            competitor: leader.domain,
+            competitor_position: ck.position,
+            client_position: clientKeywordMap.get(ck.keyword.toLowerCase()) || "brak",
+          }));
+
+        emit("log", `${competitorGapKeywords.length} fraz gap (konkurent widoczny, klient nie)`);
+      }
+    } catch (e) {
+      emit("log", `⚠️ Nie udało się pobrać pozycji konkurenta: ${e.message}`);
+    }
+  }
 
   const result = {
     competitors,
@@ -200,6 +311,7 @@ export async function competitorAnalysis(domain, countryId, senutoData, emit) {
       client_visibility: clientVisibility,
       gap_multiplier: clientVisibility > 0 ? (leaderVisibility / clientVisibility).toFixed(1) : "N/A",
     },
+    competitor_gap_keywords: competitorGapKeywords,
   };
 
   emit("step", { step: 2, name: "Competitor Intelligence", status: "done" });

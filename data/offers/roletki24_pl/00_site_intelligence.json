@@ -1,26 +1,34 @@
 {
-  "ce": "Topblind (roletki24.pl) is a Polish distributor and retailer of window and door systems, specializing in blinds, shutters, mosquito nets, and related building accessories.",
-  "sc": "Window covering and protection systems niche, targeting both residential and commercial customers in Poland seeking sun protection, privacy solutions, and insect protection for windows and doors.",
-  "csi": "They serve the need for comprehensive window treatment solutions including external shutters, internal blinds, mosquito protection, and building elements like windowsills.",
+  "ce": "Topblind/Roletki24 is a Polish company specializing in window and door systems, offering blinds, shutters, mosquito nets, and related building joinery products.",
+  "sc": "Window coverings and protection systems industry, serving both residential and commercial markets in Warsaw and surrounding areas with comprehensive interior and exterior window solutions.",
+  "csi": "Provides complete window covering solutions from sun protection to privacy control, including installation and maintenance services for homes and businesses.",
   "language": "pl",
   "country": "PL",
   "business_model": "B2C",
   "services": [
-    "External covers (shutters, facade blinds, screen blinds, roller doors)",
-    "Internal covers (material blinds, day-night blinds, Roman blinds, pleats, venetian blinds, curtains)",
-    "Mosquito nets (door, pleated, sliding, frame, roller types)",
-    "Building carpentry (windowsills)",
-    "Windows and doors (internal and external)"
+    "External shutters and blinds",
+    "Internal blinds and roller shades",
+    "Day-night roller blinds",
+    "Roman blinds",
+    "Pleated blinds (plisy)",
+    "Venetian blinds",
+    "Curtains",
+    "Mosquito nets (various types)",
+    "Window sills",
+    "Facade blinds",
+    "Screen roller blinds",
+    "Rolling gates"
   ],
   "blog_active": true,
-  "blog_posts_estimate": 1,
+  "blog_posts_estimate": 5,
   "technical_observations": [
-    "Multiple 404 errors on key pages (/o-nas, /uslugi, /oferta) indicating website maintenance issues",
-    "Incomplete phone number display on homepage (+48 73)",
-    "WordPress-based website with functional navigation structure",
+    "Website has 404 errors on multiple standard pages (o-nas, uslugi, oferta)",
+    "Logo appears 3 times in navigation suggesting rendering issues",
+    "Incomplete phone number display in contact section",
+    "Website structure indicates WordPress CMS",
     "Facebook social media presence mentioned",
     "Professional product categorization with detailed subcategories",
-    "Mobile-responsive design with toggle menu"
+    "Recent blog activity (October 2025 posts about blind maintenance)"
   ],
   "scraped_pages": [
     "https://roletki24.pl/",

@@ -1,49 +1,110 @@
 /**
- * Step 3: Opportunity Analysis — LLM + optional SERP
+ * Step 3: Opportunity Analysis — data-driven tables + optional SERP enrichment
+ *
+ * KEY CHANGE: Tables are built from real Senuto data, NOT hallucinated by LLM.
+ * LLM is only used for narrative summary and business interpretation.
  */
-import { callLLM } from "./llm.js";
 
 export async function opportunityAnalysis(siteIntel, senutoData, competitorsData, emit) {
   emit("step", { step: 3, name: "Opportunity Analysis", status: "running" });
 
-  emit("log", "Identyfikacja quick wins i content gaps...");
+  emit("log", "Budowanie tabel szans z danych Senuto...");
 
-  const llmPrompt = `You are an SEO strategist. Based on this data, identify opportunities.
+  // Table 1: Quick wins — keywords on positions 11-20, sorted by volume
+  const quickWins = (senutoData?.keywords?.quick_wins || []).map((kw) => ({
+    keyword: kw.keyword,
+    position: kw.position,
+    volume: kw.volume,
+    difficulty: kw.difficulty,
+    url: kw.url,
+    intent: kw.intent,
+  }));
 
-DATA:
-- Business: ${siteIntel.ce || "Unknown"} — ${siteIntel.sc || "Unknown"}
-- Visibility: ${JSON.stringify(senutoData?.snapshot || {})}
-- Top URLs: ${JSON.stringify(senutoData?.top_urls?.slice(0, 5) || [])}
-- Difficulty distribution: ${JSON.stringify(senutoData?.difficulty_distribution || [])}
-- Search distribution: ${JSON.stringify(senutoData?.search_distribution || [])}
-- Cannibalization count: ${senutoData?.cannibalization_count || 0}
-- Competitors: ${JSON.stringify(competitorsData?.competitors?.slice(0, 3)?.map((c) => ({ domain: c.domain, common_kw: c.common_keywords })) || [])}
-- Visibility gap: ${JSON.stringify(competitorsData?.visibility_gap || {})}
+  // Table 2: Competitor gap — competitor in top 10, we're absent
+  const competitorGaps = (competitorsData?.competitor_gap_keywords || []).map((kw) => ({
+    keyword: kw.keyword,
+    volume: kw.volume,
+    competitor: kw.competitor,
+    competitor_position: kw.competitor_position,
+    client_position: kw.client_position,
+  }));
 
-Return JSON with:
-{
-  "quick_wins": [{"keyword_estimate": "...", "position_range": "11-15", "difficulty": "low", "volume_estimate": "500-1000", "action": "..."}],
-  "content_gaps": [{"topic": "...", "covered_by": ["competitor1.pl"], "volume_estimate": "1000+", "priority": "high"}],
-  "cannibalization_opportunity": "..." or null,
-  "top_3_opportunity_keywords": ["kw1", "kw2", "kw3"]
-}`;
+  // Table 3: Declining keywords — losing positions
+  const declining = (senutoData?.keywords?.declining || []).map((kw) => ({
+    keyword: kw.keyword,
+    position: kw.position,
+    previous_position: kw.previous_position,
+    diff: kw.diff,
+    volume: kw.volume,
+    url: kw.url,
+  }));
 
-  const raw = await callLLM(llmPrompt, { json: true });
-  let opportunities = JSON.parse(raw);
+  // Table 4: High-volume keywords where we rank poorly (>20)
+  const missedHighVolume = (senutoData?.keywords?.missed_high_volume || []).map((kw) => ({
+    keyword: kw.keyword,
+    position: kw.position,
+    volume: kw.volume,
+    difficulty: kw.difficulty,
+    url: kw.url,
+  }));
 
-  // Optional: SERP intelligence via NodeHub
+  // Build markdown tables for the offer
+  const tables = {};
+
+  if (quickWins.length > 0) {
+    tables.quick_wins_md = `| Fraza | Pozycja | Wyszukiwań/mies. | Trudność | Twoja strona |\n|-------|---------|------------------|----------|-------------|\n` +
+      quickWins.map((kw) =>
+        `| ${kw.keyword} | ${kw.position} | ${kw.volume} | ${kw.difficulty}/100 | ${shortenUrl(kw.url)} |`
+      ).join("\n");
+  }
+
+  if (competitorGaps.length > 0) {
+    tables.competitor_gaps_md = `| Fraza | Wyszukiwań/mies. | ${competitorGaps[0]?.competitor || "Konkurent"} | Twoja pozycja |\n|-------|------------------|------------|---------------|\n` +
+      competitorGaps.map((kw) =>
+        `| ${kw.keyword} | ${kw.volume} | poz. ${kw.competitor_position} | ${kw.client_position === "brak" ? "❌ brak" : `poz. ${kw.client_position}`} |`
+      ).join("\n");
+  }
+
+  if (declining.length > 0) {
+    tables.declining_md = `| Fraza | Była pozycja | Jest pozycja | Spadek | Wyszukiwań/mies. |\n|-------|-------------|-------------|--------|------------------|\n` +
+      declining.map((kw) =>
+        `| ${kw.keyword} | ${kw.previous_position} | ${kw.position} | ↓${kw.diff} | ${kw.volume} |`
+      ).join("\n");
+  }
+
+  if (missedHighVolume.length > 0) {
+    tables.missed_high_volume_md = `| Fraza | Pozycja | Wyszukiwań/mies. | Trudność |\n|-------|---------|------------------|----------|\n` +
+      missedHighVolume.map((kw) =>
+        `| ${kw.keyword} | ${kw.position} | ${kw.volume} | ${kw.difficulty}/100 |`
+      ).join("\n");
+  }
+
+  // Summary stats
+  const totalQuickWinVolume = quickWins.reduce((sum, kw) => sum + kw.volume, 0);
+  const totalGapVolume = competitorGaps.reduce((sum, kw) => sum + kw.volume, 0);
+
+  emit("log", `Quick wins: ${quickWins.length} fraz (${totalQuickWinVolume} wyszukiwań/mies.)`);
+  emit("log", `Competitor gaps: ${competitorGaps.length} fraz (${totalGapVolume} wyszukiwań/mies.)`);
+  emit("log", `Spadające: ${declining.length} fraz`);
+
+  // Optional: SERP intelligence via NodeHub for top opportunity keywords
+  let serpIntelligence = [];
   const nodesHubKey = process.env.NODESHUB_API_KEY;
-  if (nodesHubKey && opportunities.top_3_opportunity_keywords?.length) {
-    emit("log", "SERP intelligence (NodeHub)...");
-    const serpResults = [];
-    for (const kw of opportunities.top_3_opportunity_keywords.slice(0, 3)) {
+  const topOpportunityKeywords = [
+    ...quickWins.slice(0, 2).map((kw) => kw.keyword),
+    ...competitorGaps.slice(0, 1).map((kw) => kw.keyword),
+  ].slice(0, 3);
+
+  if (nodesHubKey && topOpportunityKeywords.length) {
+    emit("log", "SERP intelligence (NodeHub) dla top 3 fraz...");
+    for (const kw of topOpportunityKeywords) {
       try {
         const serpRes = await fetch(
           `https://api.nodeshub.io/serp?q=${encodeURIComponent(kw)}&gl=pl&hl=pl&api_key=${nodesHubKey}`
         );
         if (serpRes.ok) {
           const data = await serpRes.json();
-          serpResults.push({
+          serpIntelligence.push({
             keyword: kw,
             paa: data.people_also_ask?.map((p) => p.question).slice(0, 5) || [],
             related: data.related_searches?.slice(0, 5) || [],
@@ -51,10 +112,30 @@ Return JSON with:
         }
       } catch { /* skip */ }
     }
-    opportunities.serp_intelligence = serpResults;
   }
 
-  emit("log", `${opportunities.quick_wins?.length || 0} quick wins, ${opportunities.content_gaps?.length || 0} content gaps`);
+  const result = {
+    quick_wins: quickWins,
+    competitor_gaps: competitorGaps,
+    declining: declining,
+    missed_high_volume: missedHighVolume,
+    tables,
+    summary: {
+      quick_win_count: quickWins.length,
+      quick_win_total_volume: totalQuickWinVolume,
+      competitor_gap_count: competitorGaps.length,
+      competitor_gap_total_volume: totalGapVolume,
+      declining_count: declining.length,
+    },
+    serp_intelligence: serpIntelligence,
+    cannibalization_count: senutoData?.cannibalization_count || 0,
+  };
+
   emit("step", { step: 3, name: "Opportunity Analysis", status: "done" });
-  return opportunities;
+  return result;
+}
+
+function shortenUrl(url) {
+  if (!url) return "";
+  return "/" + url.replace(/^https?:\/\//, "").replace(/^[^/]+/, "").replace(/\/$/, "") || "/";
 }

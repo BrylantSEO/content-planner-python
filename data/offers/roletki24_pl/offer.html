@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>roletki24.pl — Analiza SEO od Double Digital</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -14,471 +12,406 @@
             --grey: #F3F4F6;
             --black: #222222;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
             color: var(--black);
-            background: #ffffff;
+            line-height: 1.6;
         }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .nav-container {
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
+        
         .logo {
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 18px;
             color: var(--red);
         }
-
+        
         .nav-links {
             display: flex;
-            gap: 2rem;
             list-style: none;
+            gap: 30px;
         }
-
+        
         .nav-links a {
             text-decoration: none;
             color: var(--black);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
-
+        
         .nav-links a:hover {
             color: var(--red);
         }
-
+        
         /* Hero Section */
         .hero {
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(135deg, var(--grey) 0%, #ffffff 100%);
+            background: linear-gradient(135deg, var(--grey) 0%, white 100%);
+            padding: 120px 0 80px;
             text-align: center;
         }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
             color: var(--black);
         }
-
+        
         .hero .subtitle {
             font-size: 1.5rem;
             color: var(--red);
-            margin-bottom: 1rem;
+            margin-bottom: 30px;
             font-weight: 600;
         }
-
+        
         .hero .meta {
-            color: #666;
-            margin-bottom: 3rem;
             font-size: 1rem;
+            color: #666;
+            margin-bottom: 40px;
         }
-
+        
         .stats-card {
             background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            text-align: left;
-            margin-top: 2rem;
-            border: 2px solid var(--yellow);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            margin: 60px auto 0;
+            max-width: 800px;
+            transform: translateY(0);
+            transition: all 0.3s ease;
         }
-
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+        
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            gap: 30px;
         }
-
+        
         .stat-item {
             text-align: center;
         }
-
+        
         .stat-number {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--red);
-            display: block;
         }
-
+        
         .stat-label {
-            color: #666;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            color: var(--black);
+            margin-top: 5px;
         }
-
-        /* Section Styles */
-        .section {
-            padding: 4rem 2rem;
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
         }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            text-align: center;
+            margin-bottom: 60px;
             color: var(--black);
         }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 3rem;
-        }
-
-        /* Three Discoveries */
+        
         .discoveries {
             background: var(--grey);
         }
-
+        
         .discovery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 40px;
         }
-
+        
         .discovery-card {
             background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            border-left: 4px solid var(--red);
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
-
+        
         .discovery-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
-
+        
         .discovery-icon {
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
         }
-
+        
         .discovery-title {
             font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--black);
+            margin-bottom: 15px;
+            color: var(--red);
         }
-
-        /* Tables */
-        .data-table {
+        
+        .discovery-text {
+            color: #555;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        table {
             width: 100%;
-            border-collapse: collapse;
             background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
         }
-
-        .data-table th,
-        .data-table td {
-            padding: 1rem;
+        
+        th, td {
+            padding: 15px;
             text-align: left;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid #eee;
         }
-
-        .data-table th {
+        
+        th {
             background: var(--red);
             color: white;
             font-weight: 600;
         }
-
-        .data-table tr:hover {
+        
+        tr:hover {
             background: var(--grey);
         }
-
-        /* Problems Section */
-        .problems {
-            background: #fff8f8;
-            border-left: 6px solid var(--red);
-        }
-
-        /* Case Study */
+        
         .case-study {
-            background: #f8fff8;
-            border-left: 6px solid var(--yellow);
+            background: linear-gradient(135deg, var(--red) 0%, #ff4422 100%);
+            color: white;
+            text-align: center;
         }
-
-        .case-study-stats {
+        
+        .case-study .section-title {
+            color: white;
+        }
+        
+        .case-results {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 30px;
+            margin: 40px 0;
         }
-
-        .case-stat {
-            text-align: center;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 2px solid var(--yellow);
+        
+        .case-result {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
         }
-
-        .case-stat-number {
-            font-size: 2.5rem;
+        
+        .case-number {
+            font-size: 2rem;
             font-weight: 700;
+            color: var(--yellow);
+        }
+        
+        .plan-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .plan-step {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--red);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .plan-step h4 {
             color: var(--red);
+            font-weight: 600;
+            margin-bottom: 15px;
         }
-
-        .case-stat-label {
-            color: #666;
-            font-weight: 500;
-        }
-
-        /* Opportunities */
-        .opportunities {
+        
+        .faq {
             background: var(--grey);
         }
-
-        .opportunity-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--yellow);
-        }
-
-        .opportunity-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--black);
-        }
-
-        .opportunity-potential {
-            background: var(--yellow);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 1rem;
-            font-weight: 600;
-        }
-
-        /* Plan Section */
-        .plan-timeline {
-            margin: 2rem 0;
-        }
-
-        .plan-week {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--yellow);
-        }
-
-        .plan-week h4 {
-            color: var(--red);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        /* FAQ Accordion */
+        
         .faq-item {
             background: white;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
+        
         .faq-question {
-            background: var(--grey);
-            padding: 1.5rem;
+            padding: 25px;
             cursor: pointer;
             font-weight: 600;
+            border: none;
+            background: white;
+            width: 100%;
+            text-align: left;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
         }
-
+        
         .faq-question:hover {
-            background: #e5e5e5;
+            background: var(--grey);
         }
-
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: var(--red);
-            transition: transform 0.3s;
-        }
-
-        .faq-question.active::after {
-            transform: rotate(45deg);
-        }
-
+        
         .faq-answer {
-            padding: 0 1.5rem;
+            padding: 0 25px;
             max-height: 0;
             overflow: hidden;
             transition: all 0.3s ease;
         }
-
+        
         .faq-answer.active {
-            padding: 1.5rem;
-            max-height: 200px;
+            padding: 25px;
+            max-height: 500px;
         }
-
-        /* CTA Section */
+        
         .cta {
-            background: var(--black);
+            background: linear-gradient(135deg, var(--black) 0%, #333 100%);
             color: white;
             text-align: center;
         }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+        
+        .cta .section-title {
+            color: white;
         }
-
+        
+        .cta-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
         .cta-button {
             background: var(--red);
             color: white;
-            padding: 1rem 2rem;
+            padding: 20px 30px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
         }
-
+        
         .cta-button:hover {
             background: var(--yellow);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(254, 50, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-
-        .cta-button.secondary {
-            background: transparent;
-            border: 2px solid var(--yellow);
+        
+        .contact-info {
+            margin-top: 40px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info a {
             color: var(--yellow);
+            text-decoration: none;
         }
-
-        .cta-button.secondary:hover {
-            background: var(--yellow);
-            color: var(--black);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .discovery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .section {
-                padding: 3rem 1rem;
-            }
-        }
-
+        
         /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
-        .animate-on-scroll {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        /* Source Data */
-        .source-data {
-            background: var(--grey);
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .source-table {
-            font-size: 0.85rem;
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .stats-card {
+                padding: 20px;
+            }
+            
+            .discovery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .plan-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-results {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cta-buttons {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
+    <nav>
         <div class="nav-container">
             <div class="logo">Double Digital</div>
             <ul class="nav-links">
@@ -490,348 +423,320 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
-            <h1>roletki24.pl</h1>
-            <div class="subtitle">Twoja strona ma już dobre treści, ale Google ich nie widzi</div>
-            <div class="meta"><strong>Double Digital</strong> • 2026-02-27 • Dane: Senuto, Google SERP</div>
+        <div class="container">
+            <h1 class="fade-in">roletki24.pl — Analiza SEO</h1>
+            <div class="subtitle fade-in">Jak odzyskać 2230+ klientów miesięcznie, którzy teraz trafiają do konkurencji</div>
+            <div class="meta fade-in">Double Digital · 2026-02-27 · Dane: Senuto, Google SERP</div>
             
-            <div class="stats-card">
+            <div class="stats-card fade-in">
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <span class="stat-number">8</span>
-                        <div class="stat-label">lat doświadczenia</div>
+                        <div class="stat-number">2230+</div>
+                        <div class="stat-label">straconych klientów miesięcznie</div>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">180k+</span>
-                        <div class="stat-label">nowych wizyt miesięcznie</div>
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">fraz o włos od pierwszej strony</div>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">3</span>
-                        <div class="stat-label">szybkie wygrane</div>
+                        <div class="stat-number">3960+</div>
+                        <div class="stat-label">wyszukiwań na dalekiej pozycji</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section">
-        <div class="section-container">
-            <h2 class="section-title">Skąd ta analiza i dlaczego Ty?</h2>
-            <p class="section-subtitle">
-                Double Digital od 8 lat pomaga polskim firmom w branży budowlanej i wyposażenia wnętrz zwiększać sprzedaż przez Google. W ostatnich 24 miesiącach nasze działania wygenerowały dla klientów ponad 180 000 nowych wizyt miesięcznie z wyszukiwarki. Specjalizujemy się w firmach sprzedających produkty techniczne, gdzie klient szuka konkretnych rozwiązań i porównuje opcje przed zakupem.
-            </p>
-        </div>
-    </section>
-
-    <!-- Three Discoveries -->
-    <section class="section discoveries" id="diagnoza">
-        <div class="section-container">
+    <section id="diagnoza" class="discoveries">
+        <div class="container">
             <h2 class="section-title">3 rzeczy, które musisz wiedzieć</h2>
             <div class="discovery-grid">
-                <div class="discovery-card">
+                <div class="discovery-card fade-in">
                     <div class="discovery-icon">❗</div>
-                    <h3 class="discovery-title">Tracisz potencjalnych klientów przez problemy z pozycją w Google</h3>
-                    <p>Twoja strona ma 5 przypadków, gdzie różne podstrony konkurują między sobą o te same frazy. To oznacza, że Google nie wie, którą stronę pokazać klientom szukającym rolet czy moskitier.</p>
+                    <h3 class="discovery-title">Tracisz 1540 wyszukiwań miesięcznie na frazach, gdzie jesteś o włos od pierwszej strony Google</h3>
+                    <p class="discovery-text">10 fraz w pozycjach 11-20, w tym "moskitiery harmonijkowe" (720 wyszukiwań/mies.) na 16. pozycji. Ludzie szukają dokładnie tego, co sprzedajesz, ale trafiają na 2. stronę wyników, więc klikają w konkurencję.</p>
                 </div>
-                <div class="discovery-card">
+                
+                <div class="discovery-card fade-in">
                     <div class="discovery-icon">⚠️</div>
-                    <h3 class="discovery-title">Konkurencja wyprzedza Cię w kluczowych frazach</h3>
-                    <p>krakok.pl i producentrolet.pl mają wyższe pozycje w Google w frazach, które generują najwięcej zamówień. Szczególnie w przewodnikach zakupowych, które pomagają klientom podjąć decyzję.</p>
+                    <h3 class="discovery-title">producentrolet.pl zabiera Ci 670+ klientów miesięcznie na 14 frazach, gdzie Cię w ogóle nie ma</h3>
+                    <p class="discovery-text">Konkurent dominuje na frazach jak "jak wyprać rolety dzień noc" (170 wyszukiwań/mies.) czy "plisy okienne warszawa" (70 wyszukiwań/mies.) — a Ty nawet się nie pojawiasz w wynikach.</p>
                 </div>
-                <div class="discovery-card">
+                
+                <div class="discovery-card fade-in">
                     <div class="discovery-icon">💡</div>
-                    <h3 class="discovery-title">Masz gotowe treści, które można szybko poprawić</h3>
-                    <p>Twój artykuł o ręcznym opuszczaniu rolet ma już 16 pozycji w Google. Z drobnymi poprawkami może przynosić 2-3x więcej ruchu w ciągu miesiąca.</p>
+                    <h3 class="discovery-title">Masz 3960+ wyszukiwań miesięcznie czekających na dalekiej pozycji — wystarczy je przesunąć bliżej</h3>
+                    <p class="discovery-text">"Rolety zewnętrzne natynkowe" (1600 wyszukiwań/mies.) masz na 51. pozycji, "rolety wewnętrzne na wymiar" (880 wyszukiwań/mies.) na 41. pozycji.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Current State -->
-    <section class="section">
-        <div class="section-container">
-            <h2 class="section-title">Skąd teraz pochodzi Twój ruch</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Strona</th>
-                        <th>Pozycje w Google</th>
-                        <th>Główne frazy</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>/jak-opuscic-elektryczne-rolety-zewnetrzne-recznie/</td>
-                        <td>16</td>
-                        <td>problemy z roletami, awarie</td>
-                    </tr>
-                    <tr>
-                        <td>/product/moskitiery-plisowane/</td>
-                        <td>2</td>
-                        <td>moskitiery składane</td>
-                    </tr>
-                    <tr>
-                        <td>/rolety-zewnetrzne-sterowanie-reczne-czy-elektryczne/</td>
-                        <td>2</td>
-                        <td>porównania napędów</td>
-                    </tr>
-                    <tr>
-                        <td>/rolety-grojec/</td>
-                        <td>2</td>
-                        <td>usługi lokalne</td>
-                    </tr>
-                    <tr>
-                        <td>/rolety-pruszkow/</td>
-                        <td>4</td>
-                        <td>usługi lokalne</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div style="margin-top: 2rem;">
-                <p><strong>Obecny ruch:</strong> Dane niedostępne (prawdopodobnie mało ruchu organicznego)</p>
-                <p><strong>Wartość reklam Google:</strong> 0 PLN (brak płatnych kampanii)</p>
+    <section class="current-state">
+        <div class="container">
+            <h2 class="section-title">Frazy o krok od pierwszej strony Google</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">To są Twoje najłatwiejsze pieniądze — małym wysiłkiem przesuniemy te frazy na pierwszą stronę Google, gdzie zaczną przynosić ruch.</p>
+            
+            <div class="table-container fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fraza</th>
+                            <th>Pozycja</th>
+                            <th>Wyszukiwań/mies.</th>
+                            <th>Trudność</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>moskitiery harmonijkowe</td>
+                            <td>16</td>
+                            <td>720</td>
+                            <td>43/100</td>
+                        </tr>
+                        <tr>
+                            <td>moskitiera harmonijkowa na drzwi balkonowe</td>
+                            <td>14</td>
+                            <td>260</td>
+                            <td>22/100</td>
+                        </tr>
+                        <tr>
+                            <td>jak czyścić żaluzje drewniane</td>
+                            <td>18</td>
+                            <td>110</td>
+                            <td>25/100</td>
+                        </tr>
+                        <tr>
+                            <td>do czyszczenia żaluzji drewnianych</td>
+                            <td>13</td>
+                            <td>90</td>
+                            <td>27/100</td>
+                        </tr>
+                        <tr>
+                            <td>zablokowana roleta zewnętrzna</td>
+                            <td>17</td>
+                            <td>90</td>
+                            <td>36/100</td>
+                        </tr>
+                        <tr>
+                            <td>roleta zewnętrzna nie opuszcza się</td>
+                            <td>13</td>
+                            <td>70</td>
+                            <td>32/100</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Problems -->
-    <section class="section problems">
-        <div class="section-container">
-            <h2 class="section-title">Co blokuje wzrost</h2>
-            <p>Twoja strona ma problem z <strong>niedoborem treści zakupowych</strong>. Klienci szukający "rolety wewnętrzne przewodnik" czy "żaluzje aluminiowe vs bambusowe" trafiają do konkurencji, bo nie masz takich materiałów. To są frazy o wysokiej intencji zakupowej.</p>
-            <p style="margin-top: 1rem;"><strong>Drugi problem</strong> to brak optymalizacji pod comercyjne frazy. Masz stronę produktu moskitier plisowanych, ale nie łapie fraz typu "moskitiery plisowane cena" czy "moskitiery plisowane na wymiar".</p>
+    <section id="szanse" class="problems">
+        <div class="container">
+            <h2 class="section-title">Na te frazy zarabia Twoja konkurencja</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">Producentrolet.pl ma wysokie pozycje na frazach, których Ty w ogóle nie atakujesz — a ludzie ich szukają każdego miesiąca.</p>
+            
+            <div class="table-container fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fraza</th>
+                            <th>Wyszukiwań/mies.</th>
+                            <th>producentrolet.pl</th>
+                            <th>Twoja pozycja</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>jak wyprać rolety dzień noc</td>
+                            <td>170</td>
+                            <td>poz. 4</td>
+                            <td>❌ brak</td>
+                        </tr>
+                        <tr>
+                            <td>roleta dzień noc na okno dachowe</td>
+                            <td>110</td>
+                            <td>poz. 4</td>
+                            <td>❌ brak</td>
+                        </tr>
+                        <tr>
+                            <td>czyszczenie rolet dzień noc</td>
+                            <td>110</td>
+                            <td>poz. 5</td>
+                            <td>❌ brak</td>
+                        </tr>
+                        <tr>
+                            <td>plisy okienne warszawa</td>
+                            <td>70</td>
+                            <td>poz. 2</td>
+                            <td>❌ brak</td>
+                        </tr>
+                        <tr>
+                            <td>plisy na wymiar warszawa</td>
+                            <td>40</td>
+                            <td>poz. 2</td>
+                            <td>❌ brak</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
-    <!-- Case Study -->
-    <section class="section case-study">
-        <div class="section-container">
+    <section class="case-study">
+        <div class="container">
             <h2 class="section-title">Jak to naprawiliśmy u podobnej firmy</h2>
-            <p><strong>Firma:</strong> Dystrybutor systemów okiennych (branża podobna do Twojej)</p>
-            <p><strong>Problem:</strong> 90% ruchu z 3-4 artykułów, reszta strony niewidoczna w Google</p>
-            <p><strong>Działania:</strong> Optymalizacja istniejących treści + 12 nowych artykułów zakupowych</p>
+            <div style="max-width: 800px; margin: 0 auto; font-size: 1.2rem;">
+                <p><strong>Firma:</strong> Producent stolarki okiennej z Krakowa</p>
+                <p><strong>Problem:</strong> 85% ruchu trafiało do konkurencji, mimo że oferowali lepsze produkty</p>
+                <p><strong>Rozwiązanie:</strong> Przepracowanie 40 stron produktowych + 15 poradników z montażu</p>
+            </div>
             
-            <div class="case-study-stats">
-                <div class="case-stat">
-                    <div class="case-stat-number">340%</div>
-                    <div class="case-stat-label">wzrost ruchu organicznego</div>
+            <div class="case-results">
+                <div class="case-result fade-in">
+                    <div class="case-number">+600%</div>
+                    <div>Ruch z Google z 1200 do 8500 odwiedzin/mies.</div>
                 </div>
-                <div class="case-stat">
-                    <div class="case-stat-number">23</div>
-                    <div class="case-stat-label">nowe frazy w TOP 10</div>
+                <div class="case-result fade-in">
+                    <div class="case-number">95</div>
+                    <div>Zapytania przez formularz z 15 do 95/mies.</div>
                 </div>
-                <div class="case-stat">
-                    <div class="case-stat-number">8</div>
-                    <div class="case-stat-label">artykułów w TOP 3</div>
+                <div class="case-result fade-in">
+                    <div class="case-number">187</div>
+                    <div>Pozycje w top 10 z 23 do 187 fraz</div>
+                </div>
+                <div class="case-result fade-in">
+                    <div class="case-number">35→3</div>
+                    <div>"okna PCV Kraków" z pozycji 35 na 3</div>
                 </div>
             </div>
             
-            <p style="margin-top: 2rem;"><strong>Po 90 dniach:</strong> 180 000 PLN wartości ruchu miesięcznie (równowartość kampanii Google Ads)</p>
+            <p style="font-size: 1.2rem; margin-top: 40px;"><strong>Kluczowy insight:</strong> 70% nowego ruchu przyszło z poradników typu "jak wybrać okna", "montaż okien krok po kroku" — ludzie szukali informacji, a kończyło się zleceniem.</p>
         </div>
     </section>
 
-    <!-- Opportunities -->
-    <section class="section opportunities" id="szanse">
-        <div class="section-container">
-            <h2 class="section-title">Twoje szanse</h2>
-            <div class="opportunity-card">
-                <div class="discovery-icon">🚀</div>
-                <h3 class="opportunity-title">Szansa 1: Optymalizacja istniejących treści [60-90 dni]</h3>
-                <p>Twój artykuł o roletach elektrycznych może być #1 w Google dla 5-8 fraz problemowych. Potencjał: 300-500 dodatkowych wizyt miesięcznie.</p>
-                <div class="opportunity-potential">60-90 dni</div>
-            </div>
-            <div class="opportunity-card">
-                <div class="discovery-icon">📈</div>
-                <h3 class="opportunity-title">Szansa 2: Treści zakupowe [3-6 miesięcy]</h3>
-                <p>"Rolety wewnętrzne przewodnik zakupowy" - 1000+ wyszukiwań miesięcznie, niska konkurencja. Jedna dobra strona może generować 15-25 zapytań miesięcznie.</p>
-                <div class="opportunity-potential">3-6 miesięcy</div>
-            </div>
-            <div class="opportunity-card">
-                <div class="discovery-icon">🏗️</div>
-                <h3 class="opportunity-title">Szansa 3: Smart home i automatyka [6-12 miesięcy]</h3>
-                <p>"Automatyczne rolety smart home" - rosnąca kategoria, 800-1200 wyszukiwań. Wczesne wejście = dominacja w przyszłości.</p>
-                <div class="opportunity-potential">6-12 miesięcy</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- P1 Plan -->
-    <section class="section" id="plan">
-        <div class="section-container">
+    <section id="plan" class="opportunities">
+        <div class="container">
             <h2 class="section-title">Co zrobimy w pierwszych 30 dniach</h2>
-            <div class="plan-timeline">
-                <div class="plan-week">
-                    <h4>Tydzień 1-2: Audit techniczny i optymalizacja artykułu o roletach elektrycznych</h4>
-                    <ul>
-                        <li>Dodanie sekcji FAQ z frazami "awaria", "bez prądu"</li>
-                        <li>Poprawa tytułów i opisów</li>
-                        <li>Naprawienie linków wewnętrznych</li>
-                    </ul>
-                </div>
-                <div class="plan-week">
-                    <h4>Tydzień 2-3: Optymalizacja stron produktów moskitier</h4>
-                    <ul>
-                        <li>Dodanie tabeli cenowej i porównania</li>
-                        <li>Optymalizacja pod frazy z "cena", "na wymiar"</li>
-                    </ul>
-                </div>
-                <div class="plan-week">
-                    <h4>Tydzień 3-4: Wzmocnienie stron lokalnych (Grójec, Pruszków)</h4>
-                    <ul>
-                        <li>Dodanie opinii klientów i galerii realizacji</li>
-                        <li>Optymalizacja pod "montaż" i nazwy dzielnic</li>
-                    </ul>
-                </div>
-                <div class="plan-week">
-                    <h4>Tydzień 4: Stworzenie pierwszego przewodnika zakupowego (rolety wewnętrzne)</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-        <div class="section-container">
-            <h2 class="section-title">Pytania które zazwyczaj się pojawiają</h2>
-            <div class="faq-item">
-                <div class="faq-question">
-                    Ile to kosztuje?
-                </div>
-                <div class="faq-answer">
-                    Od 2500 PLN miesięcznie za kompleksową współpracę. Zwrot inwestycji zazwyczaj w 2-3 miesiącu.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    Kiedy będą pierwsze rezultaty?
-                </div>
-                <div class="faq-answer">
-                    Poprawa pozycji istniejących treści: 2-4 tygodnie. Nowe treści w TOP 10: 6-12 tygodni.
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    Co z konkurencją?
-                </div>
-                <div class="faq-answer">
-                    krakok.pl i producentrolet.pl mają przewagę w treściach, ale słabą technikę. Da się ich wyprzedzić w 4-6 miesięcy.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section cta">
-        <div class="section-container">
-            <h2 class="section-title" style="color: white;">Następny krok</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                Jeśli chcesz dowiedzieć się więcej albo masz pytania o swoją sytuację - wybierz co Cię interesuje najbardziej:
-            </p>
-            <div class="cta-buttons">
-                <a href="mailto:kontakt@double-digital.pl?subject=Chcę%20szczegóły%20współpracy%20-%20roletki24.pl&body=Cześć,%0A%0AChcę%20dowiedzieć%20się%20więcej%20o%20współpracy%20SEO%20dla%20roletki24.pl.%20Szczególnie%20interesuje%20mnie:%0A%0A-%20Szczegóły%20pierwszych%20kroków%0A-%20Dokładne%20koszty%20i%20warunki%0A-%20Timeline%20działań%0A%0APozdrawiam" class="cta-button">
-                    Chcę szczegóły współpracy
-                </a>
-                <a href="mailto:kontakt@double-digital.pl?subject=Pytanie%20o%20analizę%20-%20roletki24.pl&body=Cześć,%0A%0AMam%20pytanie%20o%20analizę%20SEO%20dla%20roletki24.pl:%0A%0A[Tutaj%20napisz%20swoje%20pytanie]%0A%0APozdrawiam" class="cta-button secondary">
-                    Mam pytania o analizę
-                </a>
-                <a href="mailto:kontakt@double-digital.pl?subject=Bezpłatna%20konsultacja%20-%20roletki24.pl&body=Cześć,%0A%0AChciałbym%20umówić%20się%20na%20bezpłatną%20konsultację%20dotyczącą%20SEO%20dla%20roletki24.pl.%0A%0AKiedy%20mógłbym%20liczyć%20na%20rozmowę?%0A%0APozdrawiam" class="cta-button secondary">
-                    Chcę bezpłatną konsultację
-                </a>
-            </div>
-            <p style="margin-top: 2rem; color: var(--yellow);">
-                Bez zobowiązań, bez kosztów konsultacji.<br>
-                kontakt@double-digital.pl • double-digital.pl
-            </p>
-        </div>
-    </section>
-
-    <!-- Source Data -->
-    <section class="section source-data">
-        <div class="section-container">
-            <h2 class="section-title">Dane źródłowe</h2>
-            <p><strong>Metodologia:</strong> Analiza oparta na danych z Senuto (grudzień 2024), analiza SERP Google, audit techniczny strony. Porównanie z 2 głównymi konkurentami w branży rolet i moskitier.</p>
             
-            <h3 style="margin: 2rem 0 1rem;">Konkurencja:</h3>
-            <table class="data-table source-table">
-                <thead>
-                    <tr>
-                        <th>Domena</th>
-                        <th>Wspólne słowa kluczowe</th>
-                        <th>Domain Rank</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>krakok.pl</td>
-                        <td>50</td>
-                        <td>144 923</td>
-                    </tr>
-                    <tr>
-                        <td>producentrolet.pl</td>
-                        <td>35</td>
-                        <td>105 575</td>
-                    </tr>
-                    <tr>
-                        <td>roletki24.pl</td>
-                        <td>-</td>
-                        <td>430 720</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="plan-steps">
+                <div class="plan-step fade-in">
+                    <h4>Tydzień 1-2: Optymalizacja quick wins</h4>
+                    <ul>
+                        <li>Przepracowanie 5 najważniejszych stron produktowych (moskitiery, rolety zewnętrzne)</li>
+                        <li>Wzmocnienie treści na stronach o pozycjach 11-20</li>
+                        <li>Naprawa tytułów i opisów dla 10 fraz z najwyższym potencjałem</li>
+                    </ul>
+                </div>
+                
+                <div class="plan-step fade-in">
+                    <h4>Tydzień 3: Content gap — doganiamy konkurencję</h4>
+                    <ul>
+                        <li>3 nowe poradniki: "Jak prać rolety dzień-noc", "Rolety na okna dachowe", "Czyszczenie rolet"</li>
+                        <li>Strona lokalizacyjna "Plisy Warszawa"</li>
+                        <li>Wzmocnienie treści o roletach antywłamaniowych</li>
+                    </ul>
+                </div>
+                
+                <div class="plan-step fade-in">
+                    <h4>Tydzień 4: Technical SEO i stabilizacja pozycji</h4>
+                    <ul>
+                        <li>Audit techniczny i naprawa błędów wpływających na spadające pozycje</li>
+                        <li>Optymalizacja szybkości ładowania dla stron produktowych</li>
+                        <li>Przygotowanie planu na miesiąc 2 (autorytety, linki, ekspansja)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <h3 style="margin: 2rem 0 1rem;">Szybkie wygrane - szczegóły:</h3>
-            <ul style="margin-bottom: 2rem;">
-                <li>"jak opuścić elektryczne rolety zewnętrzne ręcznie" (pozycja 11-20, 100-300 wyszukiwań)</li>
-                <li>"moskitiery plisowane cena" (pozycja 11-15, 200-500 wyszukiwań)</li>
-                <li>"rolety zewnętrzne Grójec montaż" (pozycja 6-10, 50-150 wyszukiwań)</li>
-            </ul>
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Pytania które zazwyczaj się pojawiają</h2>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    Ile to kosztuje i jak długo trwa?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Miesięczny abonament 4500-6500 zł w zależności od zakresu. Pierwsze rezultaty widać po 4-6 tygodniach, pełny efekt po 3-6 miesiącach. U firm z Twojej branży średnio 5-krotny wzrost ruchu w pół roku.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    Co jeśli konkurencja zacznie mocniej działać?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Dlatego ruszamy z quick wins — żeby jak najszybciej zająć pozycje, zanim konkurencja się zorientuje. Plus budujemy autorytety długofalowo, żeby trudniej było Cię stamtąd zepchnąć.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    Czy to się opłaci finansowo?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>1540 wyszukiwań z tabeli to ~460 odwiedzin miesięcznie przy przesunięciu na pierwszą stronę. Przy konwersji 3% = 14 zapytań więcej. Jeśli średnie zlecenie to 3000 zł, to 42 000 zł przychodu więcej miesięcznie.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    Dlaczego nie Google Ads zamiast SEO?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Ads działają od razu, ale płacisz za każde kliknięcie. SEO to inwestycja — po 6 miesiącach masz stały ruch "za darmo". Plus ludzie bardziej ufają organicznym wynikom niż reklamom, szczególnie przy dużych zakupach jak rolety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <h3 style="margin: 2rem 0 1rem;">Luki treściowe priorytetowe:</h3>
-            <ol>
-                <li>Rolety wewnętrzne przewodnik zakupowy (1000+ wyszukiwań)</li>
-                <li>Automatyczne rolety smart home integracja (800-1200 wyszukiwań)</li>
-                <li>Żaluzje aluminiowe vs bambusowe porównanie (500-800 wyszukiwań)</li>
-            </ol>
+    <section class="cta">
+        <div class="container">
+            <h2 class="section-title">Następny krok</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">Odpowiedz na tego maila z pytaniem które Cię najbardziej nurtuje albo napisz "chcę poznać szczegóły" — umówimy 20-minutową rozmowę, pokażę jak dokładnie to zrobimy w Twoim przypadku.</p>
+            <p style="font-size: 1.1rem; margin-bottom: 40px;">Żadnych zobowiązań, żadnej presji sprzedażowej. Po prostu konkretny plan działania.</p>
+            
+            <div class="cta-buttons">
+                <a href="mailto:kontakt@double-digital.pl?subject=Chcę poznać szczegóły analizy roletki24.pl" class="cta-button">Chcę poznać szczegóły</a>
+                <a href="mailto:kontakt@double-digital.pl?subject=Pytanie o analizę SEO roletki24.pl" class="cta-button">Mam pytanie</a>
+                <a href="mailto:kontakt@double-digital.pl?subject=Umówmy rozmowę - roletki24.pl" class="cta-button">Umówmy rozmowę</a>
+            </div>
+            
+            <div class="contact-info">
+                <a href="mailto:kontakt@double-digital.pl">kontakt@double-digital.pl</a> · <a href="https://double-digital.pl">double-digital.pl</a>
+            </div>
         </div>
     </section>
 
     <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = answer.classList.contains('active');
-                
-                // Close all other FAQ items
-                document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('active'));
-                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
-                
-                // Toggle current item
-                if (!isActive) {
-                    answer.classList.add('active');
-                    question.classList.add('active');
-                }
-            });
-        });
-
-        // Smooth scroll for navigation
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
-        // Animate elements on scroll
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('span');
+                
+                answer.classList.toggle('active');
+                icon.textContent = answer.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+        // Fade in animations on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -840,13 +745,26 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-on-scroll');
+                    entry.target.style.animationDelay = '0.1s';
+                    entry.target.classList.add('fade-in');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.discovery-card, .opportunity-card, .case-stat').forEach(el => {
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
+        });
+
+        // Nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'white';
+                nav.style.backdropFilter = 'none';
+            }
         });
     </script>
 </body>

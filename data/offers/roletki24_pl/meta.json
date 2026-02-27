@@ -3,7 +3,7 @@
   "domain": "roletki24.pl",
   "status": "done",
   "context": null,
-  "created_at": "2026-02-27T21:24:45.341Z",
+  "created_at": "2026-02-27T22:24:41.722Z",
   "steps": [
     {
       "step": 0,
@@ -43,5 +43,5 @@
   ],
   "has_md": true,
   "has_html": true,
-  "completed_at": "2026-02-27T21:28:26.874Z"
+  "completed_at": "2026-02-27T22:28:30.373Z"
 }

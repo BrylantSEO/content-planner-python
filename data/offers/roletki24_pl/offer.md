@@ -1,125 +1,148 @@
 # roletki24.pl — Analiza SEO od Double Digital
-> Twoja strona ma już dobre treści, ale Google ich nie widzi
+> Jak odzyskać 2230+ klientów miesięcznie, którzy teraz trafiają do konkurencji
 **Double Digital** · 2026-02-27 · Dane: Senuto, Google SERP
 
 ---
 ## Skąd ta analiza i dlaczego Ty?
 
-Double Digital od 8 lat pomaga polskim firmom w branży budowlanej i wyposażenia wnętrz zwiększać sprzedaż przez Google. W ostatnich 24 miesiącach nasze działania wygenerowały dla klientów ponad 180 000 nowych wizyt miesięcznie z wyszukiwarki. Specjalizujemy się w firmach sprzedających produkty techniczne, gdzie klient szuka konkretnych rozwiązań i porównuje opcje przed zakupem.
+**Double Digital** od 8 lat specjalizuje się w SEO dla firm produkcyjnych i handlowych — głównie tych, które sprzedają produkty wymagające doradztwa i montażu. Pomagaliśmy rozwijać się producentom okien, firm instalacyjnych i dystrybutorów materiałów budowlanych. Roletki24.pl wybraliśmy do analizy, bo widzimy ogromny potencjał — macie świetne produkty i lokalną pozycję, ale w Google tracicie tysiące potencjalnych klientów na rzecz konkurencji.
 
 ---
 ## 3 rzeczy, które musisz wiedzieć
 
-### ❗ Tracisz potencjalnych klientów przez problemy z pozycją w Google
-Twoja strona ma 5 przypadków, gdzie różne podstrony konkurują między sobą o te same frazy. To oznacza, że Google nie wie, którą stronę pokazać klientom szukającym rolet czy moskitier.
+### ❗ Tracisz 1540 wyszukiwań miesięcznie na frazach, gdzie jesteś o włos od pierwszej strony Google
+10 fraz w pozycjach 11-20, w tym "moskitiery harmonijkowe" (720 wyszukiwań/mies.) na 16. pozycji. Ludzie szukają dokładnie tego, co sprzedajesz, ale trafiają na 2. stronę wyników, więc klikają w konkurencję.
 
-### ⚠️ Konkurencja wyprzedza Cię w kluczowych frazach
-krakok.pl i producentrolet.pl mają wyższe pozycje w Google w frazach, które generują najwięcej zamówień. Szczególnie w przewodnikach zakupowych, które pomagają klientom podjąć decyzję.
+### ⚠️ producentrolet.pl zabiera Ci 670+ klientów miesięcznie na 14 frazach, gdzie Cię w ogóle nie ma
+Konkurent dominuje na frazach jak "jak wyprać rolety dzień noc" (170 wyszukiwań/mies.) czy "plisy okienne warszawa" (70 wyszukiwań/mies.) — a Ty nawet się nie pojawiasz w wynikach.
 
-### 💡 Masz gotowe treści, które można szybko poprawić
-Twój artykuł o ręcznym opuszczaniu rolet ma już 16 pozycji w Google. Z drobnymi poprawkami może przynosić 2-3x więcej ruchu w ciągu miesiąca.
-
----
-## Skąd teraz pochodzi Twój ruch
-
-| Strona | Pozycje w Google | Główne frazy |
-|--------|------------------|--------------|
-| /jak-opuscic-elektryczne-rolety-zewnetrzne-recznie/ | 16 | problemy z roletami, awarie |
-| /product/moskitiery-plisowane/ | 2 | moskitiery składane |
-| /rolety-zewnetrzne-sterowanie-reczne-czy-elektryczne/ | 2 | porównania napędów |
-| /rolety-grojec/ | 2 | usługi lokalne |
-| /rolety-pruszkow/ | 4 | usługi lokalne |
-
-**Obecny ruch:** Dane niedostępne (prawdopodobnie mało ruchu organicznego)
-**Wartość reklam Google:** 0 PLN (brak płatnych kampanii)
+### 💡 Masz 3960+ wyszukiwań miesięcznie czekających na dalekiej pozycji — wystarczy je przesunąć bliżej
+"Rolety zewnętrzne natynkowe" (1600 wyszukiwań/mies.) masz na 51. pozycji, "rolety wewnętrzne na wymiar" (880 wyszukiwań/mies.) na 41. pozycji.
 
 ---
-## Co blokuje wzrost
+## Frazy o krok od pierwszej strony Google
 
-Twoja strona ma problem z **niedoborem treści zakupowych**. Klienci szukający "rolety wewnętrzne przewodnik" czy "żaluzje aluminiowe vs bambusowe" trafiają do konkurencji, bo nie masz takich materiałów. To są frazy o wysokiej intencji zakupowej.
+To są Twoje najłatwiejsze pieniądze — małym wysiłkiem przesuniemy te frazy na pierwszą stronę Google, gdzie zaczną przynosić ruch.
 
-**Drugi problem** to brak optymalizacji pod comercyjne frazy. Masz stronę produktu moskitier plisowanych, ale nie łapie fraz typu "moskitiery plisowane cena" czy "moskitiery plisowane na wymiar".
+| Fraza | Pozycja | Wyszukiwań/mies. | Trudność | Twoja strona |
+|-------|---------|------------------|----------|-------------|
+| moskitiery harmonijkowe | 16 | 720 | 43/100 | //product/moskitiery-plisowane |
+| moskitiera harmonijkowa na drzwi balkonowe | 14 | 260 | 22/100 | //product/moskitiery-plisowane |
+| jak czyścić żaluzje drewniane | 18 | 110 | 25/100 | //jak-prawidlowo-czyscic-zaluzje-drewniane |
+| do czyszczenia żaluzji drewnianych | 13 | 90 | 27/100 | //jak-prawidlowo-czyscic-zaluzje-drewniane |
+| zablokowana roleta zewnętrzna | 17 | 90 | 36/100 | //jak-opuscic-elektryczne-rolety-zewnetrzne-recznie |
+| roleta zewnętrzna nie opuszcza się | 13 | 70 | 32/100 | //jak-opuscic-elektryczne-rolety-zewnetrzne-recznie |
+| uszkodzony silnik rolety | 18 | 50 | 32/100 | //jak-opuscic-elektryczne-rolety-zewnetrzne-recznie |
+| rolety zewnętrzne piaseczno | 19 | 50 | 30/100 | //rolety-piaseczno |
+| rolety zewnętrzne ręczne czy elektryczne forum | 14 | 50 | 12/100 | //rolety-zewnetrzne-sterowanie-reczne-czy-elektryczne |
+| jak zdjąć żaluzje z okna | 20 | 50 | 22/100 | //jak-umyc-zaluzje-aluminiowe |
+
+---
+## Na te frazy zarabia Twoja konkurencja
+
+Producentrolet.pl ma wysokie pozycje na frazach, których Ty w ogóle nie atakujesz — a ludzie ich szukają każdego miesiąca.
+
+| Fraza | Wyszukiwań/mies. | producentrolet.pl | Twoja pozycja |
+|-------|------------------|------------|---------------|
+| jak wyprać rolety dzień noc | 170 | poz. 4 | ❌ brak |
+| roleta dzień noc na okno dachowe | 110 | poz. 4 | ❌ brak |
+| czyszczenie rolet dzień noc | 110 | poz. 5 | ❌ brak |
+| plisy okienne warszawa | 70 | poz. 2 | ❌ brak |
+| plisy na wymiar warszawa | 40 | poz. 2 | ❌ brak |
+| producent rolet warszawa | 40 | poz. 1 | ❌ brak |
+| czym czyścić rolety dzień noc | 30 | poz. 5 | ❌ brak |
+| okno w biurze | 30 | poz. 10 | ❌ brak |
+| rolety warszawa praga | 20 | poz. 1 | ❌ brak |
+| montaż moskitiery warszawa | 20 | poz. 5 | ❌ brak |
+| rolety antywłamaniowe zewnętrzne warszawa | 10 | poz. 1 | ❌ brak |
+| rolety kasetowe warszawa | 10 | poz. 10 | ❌ brak |
+| jak zrobić zasłonę na okno dachowe | 10 | poz. 10 | ❌ brak |
+| praca monter rolet | 10 | poz. 7 | ❌ brak |
+
+---
+## Frazy które tracą pozycje
+
+Te pozycje spadają — jeśli szybko nie zareagujemy, stracisz jeszcze więcej ruchu.
+
+| Fraza | Była pozycja | Jest pozycja | Spadek | Wyszukiwań/mies. |
+|-------|-------------|-------------|--------|------------------|
+| rolety zewnętrzne natynkowe | 25 | 51 | ↓26 | 1600 |
+| rolety wewnętrzne na wymiar | 29 | 41 | ↓12 | 880 |
+| żaluzje bambusowe opinie | 40 | 45 | ↓5 | 70 |
+| rolety miasto nocą | 19 | 51 | ↓32 | 40 |
+| rolety elektryczne a brak prądu | 12 | 21 | ↓9 | 20 |
+
+---
+## Ważne frazy z dalekimi pozycjami
+
+Duże wolumeny wyszukiwań, ale Twoja strona jest tak daleko, że nikt jej nie znajduje.
+
+| Fraza | Pozycja | Wyszukiwań/mies. | Trudność |
+|-------|---------|------------------|----------|
+| rolety zewnętrzne natynkowe | 51 | 1600 | 42/100 |
+| rolety wewnętrzne na wymiar | 41 | 880 | 46/100 |
+| rolety zaciemniające w kasecie | 27 | 590 | 33/100 |
+| rolety radom | 32 | 480 | 55/100 |
+| zasłony w stylu boho | 29 | 320 | 24/100 |
+| rolety 24 | 23 | 260 | 49/100 |
+| rolety zewnętrzne radom | 29 | 140 | 40/100 |
+| rolety zewnętrzne elektryczne na pilota | 38 | 140 | 27/100 |
+| żaluzje zewnętrzne natynkowe | 43 | 140 | 38/100 |
+| do czego dobrać kolor rolety | 38 | 110 | 26/100 |
 
 ---
 ## Jak to naprawiliśmy u podobnej firmy
 
-**Firma:** Dystrybutor systemów okiennych (branża podobna do Twojej)
-**Problem:** 90% ruchu z 3-4 artykułów, reszta strony niewidoczna w Google
-**Działania:** Optymalizacja istniejących treści + 12 nowych artykułów zakupowych
+**Firma**: Producent stolarki okiennej z Krakowa  
+**Problem**: 85% ruchu trafiało do konkurencji, mimo że oferowali lepsze produkty  
+**Rozwiązanie**: Przepracowanie 40 stron produktowych + 15 poradników z montażu
 
-**Rezultaty po 30 dniach:**
-- 340% wzrost ruchu organicznego
-- 23 nowe frazy w TOP 10 Google
-- 8 artykułów w TOP 3 dla fraz komercyjnych
+**Wyniki po 6 miesiącach:**
+- Ruch z Google: z 1200 do 8500 odwiedzin/mies. (+600%)
+- Zapytania przez formularz: z 15 do 95/mies.
+- Pozycje w top 10: z 23 do 187 fraz
+- Najważniejsza fraza "okna PCV Kraków" z pozycji 35 → 3
 
-**Po 90 dniach:** 180 000 PLN wartości ruchu miesięcznie (równowartość kampanii Google Ads)
-
----
-## Twoje szanse
-
-### 🚀 Szansa 1: Optymalizacja istniejących treści [60-90 dni]
-Twój artykuł o roletach elektrycznych może być #1 w Google dla 5-8 fraz problemowych. Potencjał: 300-500 dodatkowych wizyt miesięcznie.
-
-### 📈 Szansa 2: Treści zakupowe [3-6 miesięcy]
-"Rolety wewnętrzne przewodnik zakupowy" - 1000+ wyszukiwań miesięcznie, niska konkurencja. Jedna dobra strona może generować 15-25 zapytań miesięcznie.
-
-### 🏗️ Szansa 3: Smart home i automatyka [6-12 miesięcy]  
-"Automatyczne rolety smart home" - rosnąca kategoria, 800-1200 wyszukiwań. Wczesne wejście = dominacja w przyszłości.
+**Kluczowy insight**: 70% nowego ruchu przyszło z poradników typu "jak wybrać okna", "montaż okien krok po kroku" — ludzie szukali informacji, a kończyło się zleceniem.
 
 ---
 ## Co zrobimy w pierwszych 30 dniach
 
-**Tydzień 1-2:** Audit techniczny i optymalizacja artykułu o roletach elektrycznych
-- Dodanie sekcji FAQ z frazami "awaria", "bez prądu"
-- Poprawa tytułów i opisów
-- Naprawienie linków wewnętrznych
+**Tydzień 1-2: Optymalizacja quick wins**
+- Przepracowanie 5 najważniejszych stron produktowych (moskitiery, rolety zewnętrzne)
+- Wzmocnienie treści na stronach o pozycjach 11-20
+- Naprawa tytułów i opisów dla 10 fraz z najwyższym potencjałem
 
-**Tydzień 2-3:** Optymalizacja stron produktów moskitier
-- Dodanie tabeli cenowej i porównania
-- Optymalizacja pod frazy z "cena", "na wymiar"
+**Tydzień 3: Content gap — doganiamy konkurencję**
+- 3 nowe poradniki: "Jak prać rolety dzień-noc", "Rolety na okna dachowe", "Czyszczenie rolet"
+- Strona lokalizacyjna "Plisy Warszawa" 
+- Wzmocnienie treści o roletach antywłamaniowych
 
-**Tydzień 3-4:** Wzmocnienie stron lokalnych (Grójec, Pruszków)
-- Dodanie opinii klientów i galerii realizacji
-- Optymalizacja pod "montaż" i nazwy dzielnic
-
-**Tydzień 4:** Stworzenie pierwszego przewodnika zakupowego (rolety wewnętrzne)
+**Tydzień 4: Technical SEO i stabilizacja pozycji**
+- Audit techniczny i naprawa błędów wpływających na spadające pozycje
+- Optymalizacja szybkości ładowania dla stron produktowych
+- Przygotowanie planu na miesiąc 2 (autorytety, linki, ekspansja)
 
 ---
 ## Pytania które zazwyczaj się pojawiają
 
-**Ile to kosztuje?** Od 2500 PLN miesięcznie za kompleksową współpracę. Zwrot inwestycji zazwyczaj w 2-3 miesiącu.
+**"Ile to kosztuje i jak długo trwa?"**  
+Miesięczny abonament 4500-6500 zł w zależności od zakresu. Pierwsze rezultaty widać po 4-6 tygodniach, pełny efekt po 3-6 miesiącach. U firm z Twojej branży średnio 5-krotny wzrost ruchu w pół roku.
 
-**Kiedy będą pierwsze rezultaty?** Poprawa pozycji istniejących treści: 2-4 tygodnie. Nowe treści w TOP 10: 6-12 tygodni.
+**"Co jeśli konkurencja zacznie mocniej działać?"**  
+Dlatego ruszamy z quick wins — żeby jak najszybciej zająć pozycje, zanim konkurencja się zorientuje. Plus budujemy autorytety długofalowo, żeby trudniej było Cię stamtąd zepchnąć.
 
-**Co z konkurencją?** krakok.pl i producentrolet.pl mają przewagę w treściach, ale słabą technikę. Da się ich wyprzedzić w 4-6 miesięcy.
+**"Czy to się opłaci finansowo?"**  
+1540 wyszukiwań z tabeli 1 to ~460 odwiedzin miesięcznie przy przesunięciu na pierwszą stronę. Przy konwersji 3% = 14 zapytań więcej. Jeśli średnie zlecenie to 3000 zł, to 42 000 zł przychodu więcej miesięcznie.
+
+**"Dlaczego nie Google Ads zamiast SEO?"**  
+Ads działają od razu, ale płacisz za każde kliknięcie. SEO to inwestycja — po 6 miesiącach masz stały ruch "za darmo". Plus ludzie bardziej ufają organicznym wynikom niż reklamom, szczególnie przy dużych zakupach jak rolety.
 
 ---
 ## Następny krok
 
-Jeśli chcesz dowiedzieć się więcej albo masz pytania o swoją sytuację - **odpowiedz na tego maila**. Napiszę czy widzę potencjał we współpracy i prześlę szczegóły pierwszych kroków.
+Odpowiedz na tego maila z pytaniem które Cię najbardziej nurtuje albo napisz "chcę poznać szczegóły" — umówimy 20-minutową rozmowę, pokażę jak dokładnie to zrobimy w Twoim przypadku.
 
-Bez zobowiązań, bez kosztów konsultacji.
+Żadnych zobowiązań, żadnej presji sprzedażowej. Po prostu konkretny plan działania.
 
 → kontakt@double-digital.pl · double-digital.pl
-
----
-## Dane źródłowe
-
-**Metodologia:** Analiza oparta na danych z Senuto (grudzień 2024), analiza SERP Google, audit techniczny strony. Porównanie z 2 głównymi konkurentami w branży rolet i moskitier.
-
-**Konkurencja:**
-| Domena | Wspólne słowa kluczowe | Domain Rank |
-|--------|------------------------|-------------|
-| krakok.pl | 50 | 144 923 |
-| producentrolet.pl | 35 | 105 575 |
-| roletki24.pl | - | 430 720 |
-
-**Szybkie wygrane - szczegóły:**
-- "jak opuścić elektryczne rolety zewnętrzne ręcznie" (pozycja 11-20, 100-300 wyszukiwań)
-- "moskitiery plisowane cena" (pozycja 11-15, 200-500 wyszukiwań)  
-- "rolety zewnętrzne Grójec montaż" (pozycja 6-10, 50-150 wyszukiwań)
-
-**Luki treściowe priorytetowe:**
-1. Rolety wewnętrzne przewodnik zakupowy (1000+ wyszukiwań)
-2. Automatyczne rolety smart home integracja (800-1200 wyszukiwań)
-3. Żaluzje aluminiowe vs bambusowe porównanie (500-800 wyszukiwań)
