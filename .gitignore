@@ -1,0 +1,22 @@
+# API keys — never commit
+config.json
+.env
+
+# Generated briefs
+data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+*.swp
