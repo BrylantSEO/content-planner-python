@@ -229,8 +229,11 @@ def get_files(slug: str):
 
 
 if __name__ == "__main__":
+    from dotenv import load_dotenv
+    load_dotenv()
+    port = int(os.environ.get("PORT", 5000))
     print("╔══════════════════════════════════════╗")
     print("  Content Planner UI")
-    print("  → http://localhost:5000")
+    print(f"  → http://localhost:{port}")
     print("╚══════════════════════════════════════╝")
-    app.run(debug=False, port=5000, threaded=True)
+    app.run(debug=False, port=port, threaded=True)

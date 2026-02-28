@@ -33,9 +33,7 @@ import json
 import re
 import time
 import argparse
-import threading
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 try:
@@ -69,7 +67,6 @@ OPENROUTER_BASE   = "https://openrouter.ai/api/v1/chat/completions"
 
 NODESHUB_SEARCH_URL  = "https://api.nodeshub.io/v1/search"
 NODESHUB_FANOUT_URL  = "https://api.nodeshub.io/v1/query-fanout"
-JINA_BASE            = "https://r.jina.ai/"
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -262,21 +259,17 @@ def format_serp_summary(serp: dict) -> str:
     return "\n".join(lines)
 
 
-# ─── Jina Reader ──────────────────────────────────────────────────────────────
+# ─── Crawl4AI Scraper ─────────────────────────────────────────────────────────
 
-class _RateLimiter:
-    def __init__(self, rpm):
-        self.interval = 60.0 / rpm
-        self.lock = threading.Lock()
-        self.last = 0.0
-
-    def wait(self):
-        with self.lock:
-            now = time.monotonic()
-            w = self.last + self.interval - now
-            if w > 0:
-                time.sleep(w)
-            self.last = time.monotonic()
+try:
+    import asyncio
+    from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode
+    from crawl4ai.content_filter_strategy import PruningContentFilter
+    from crawl4ai.markdown_generation_strategy import DefaultMarkdownGenerator
+    CRAWL4AI_AVAILABLE = True
+except ImportError:
+    CRAWL4AI_AVAILABLE = False
+    print("WARN: crawl4ai nie zainstalowane. Run: pip install crawl4ai && crawl4ai-setup")
 
 
 def _sanitize_filename(url: str) -> str:
@@ -286,40 +279,6 @@ def _sanitize_filename(url: str) -> str:
     return name.strip("_")[:100]
 
 
-def _clean_content(text: str) -> str:
-    text = re.sub(r'\[!\[[^\]]*\]\([^\)]*\)\]\([^\)]*\)', '', text)
-    text = re.sub(r'!\[[^\]]*\]\([^\)]*\)', '', text)
-    lines = text.split('\n')
-    cleaned, nav_buf = [], []
-    for line in lines:
-        s = line.strip()
-        is_nav = bool(re.match(r'^[*\-]\s+\[', s))
-        if is_nav:
-            nav_buf.append(line)
-        else:
-            if len(nav_buf) < 3:
-                cleaned.extend(nav_buf)
-            nav_buf = []
-            cleaned.append(line)
-    if len(nav_buf) < 3:
-        cleaned.extend(nav_buf)
-    text = '\n'.join(cleaned)
-    lines = [l for l in text.split('\n') if len(re.findall(r'\[[^\]]*\]\([^\)]*\)', l)) < 3]
-    text = '\n'.join(lines)
-    text = re.sub(r'\[([^\]]*)\]\([^\)]*\)', r'\1', text)
-    boiler = re.compile(
-        r'do koszyka|zaloguj się|cookie|polityka prywatności|regulamin|'
-        r'edytuj kod|edytuj sekcję|strony specjalne|ostatnie zmiany|'
-        r'^\s*zamknij\s*$|^\s*menu\s*$|^\s*szukaj\s*$|^\s*logowanie\s*$',
-        re.IGNORECASE
-    )
-    lines = [l for l in text.split('\n') if not boiler.search(l)]
-    lines = [l for l in lines if not re.match(r'^\s*[-=]{3,}\s*$', l)]
-    text = '\n'.join(lines)
-    text = re.sub(r'\n{3,}', '\n\n', text)
-    return text.strip()
-
-
 def _truncate_content(text: str, max_words: int = 1500) -> str:
     words = text.split()
     if len(words) <= max_words:
@@ -327,62 +286,87 @@ def _truncate_content(text: str, max_words: int = 1500) -> str:
     return ' '.join(words[:max_words]) + '\n\n[... treść skrócona do 1500 słów ...]'
 
 
-def _jina_fetch_single(url: str) -> dict | None:
-    headers = {"Accept": "application/json", "X-Return-Format": "markdown"}
-    if JINA_API_KEY:
-        headers["Authorization"] = f"Bearer {JINA_API_KEY}"
-    for attempt in range(3):
-        try:
-            resp = requests.get(f"{JINA_BASE}{url}", headers=headers, timeout=60)
-            if resp.status_code == 200:
-                return resp.json()
-            elif resp.status_code == 429:
-                time.sleep(2 ** (attempt + 1))
-            else:
-                return None
-        except Exception:
-            time.sleep(2)
-    return None
+async def _crawl4ai_batch_async(urls: list, output_dir: Path,
+                                 max_concurrent: int = 5) -> list:
+    """Async batch fetch z crawl4ai + PruningContentFilter (content pruning)."""
+    pruning_filter = PruningContentFilter(
+        threshold=0.45,
+        threshold_type="fixed",
+        min_word_threshold=50,
+    )
+    md_generator = DefaultMarkdownGenerator(content_filter=pruning_filter)
 
+    browser_config = BrowserConfig(
+        headless=True,
+        viewport_width=1280,
+        viewport_height=800,
+        verbose=False,
+    )
+    crawler_config = CrawlerRunConfig(
+        cache_mode=CacheMode.BYPASS,
+        markdown_generator=md_generator,
+        excluded_tags=["nav", "footer", "aside", "header", "script", "style"],
+        remove_overlay_elements=True,
+        remove_forms=True,
+        exclude_external_links=True,
+        page_timeout=30000,
+        screenshot=False,
+    )
 
-def _jina_fetch_task(url, output_dir, idx, total, rl):
-    rl.wait()
-    print(f"  [{idx}/{total}] {url[:70]}...", file=sys.stderr)
-    result = {"url": url, "filename": None, "title": "", "word_count": 0,
-              "status": "ERROR", "error": None}
-    data = _jina_fetch_single(url)
-    if not data:
-        result["error"] = "fetch failed"
-        return result
-    title   = data.get("data", {}).get("title", "")
-    content = data.get("data", {}).get("content", "")
-    wc      = len(content.split())
-    fname   = _sanitize_filename(url) + ".md"
-    fpath   = output_dir / fname
-    fpath.write_text(f"# {title}\n\nSource: {url}\n\n{content}", encoding="utf-8")
-    result.update({"filename": fname, "title": title, "word_count": wc,
-                   "status": "OK" if wc >= 200 else "SKIP"})
-    print(f"  {'OK' if wc >= 200 else 'SKIP'} ({wc} words)", file=sys.stderr)
-    return result
-
-
-def jina_batch_fetch(urls: list, output_dir: Path, workers: int = 5) -> list:
-    rpm = 200 if JINA_API_KEY else 18
-    rl  = _RateLimiter(rpm)
-    total = len(urls)
-    results = []
-    with ThreadPoolExecutor(max_workers=min(workers, total)) as ex:
-        futures = {ex.submit(_jina_fetch_task, url, output_dir, i, total, rl): url
-                   for i, url in enumerate(urls, 1)}
-        for f in as_completed(futures):
-            try:
-                results.append(f.result())
-            except Exception as e:
-                results.append({"url": futures[f], "filename": None, "title": "",
-                                "word_count": 0, "status": "ERROR", "error": str(e)})
     url_order = {url: i for i, url in enumerate(urls)}
+    results_map: dict[str, dict] = {
+        url: {"url": url, "filename": None, "title": "", "word_count": 0,
+              "status": "ERROR", "error": None}
+        for url in urls
+    }
+
+    async with AsyncWebCrawler(config=browser_config) as crawler:
+        batch = await crawler.arun_many(
+            urls=urls,
+            config=crawler_config,
+            max_concurrent=max_concurrent,
+        )
+
+    for crawl_result in batch:
+        url = crawl_result.url
+        r = results_map.get(url, {"url": url, "filename": None, "title": "",
+                                   "word_count": 0, "status": "ERROR", "error": None})
+        if crawl_result.success:
+            # Preferuj fit_markdown (po pruning), fallback na raw_markdown
+            md = crawl_result.markdown
+            if hasattr(md, "fit_markdown") and md.fit_markdown:
+                content = md.fit_markdown
+            elif hasattr(md, "raw_markdown") and md.raw_markdown:
+                content = md.raw_markdown
+            else:
+                content = str(md)
+
+            title = (crawl_result.metadata or {}).get("title", "")
+            wc    = len(content.split())
+            fname = _sanitize_filename(url) + ".md"
+            fpath = output_dir / fname
+            fpath.write_text(f"# {title}\n\nSource: {url}\n\n{content}", encoding="utf-8")
+            status = "OK" if wc >= 200 else "SKIP"
+            print(f"  {status} ({wc} words) {url[:70]}", file=sys.stderr)
+            r.update({"filename": fname, "title": title, "word_count": wc, "status": status})
+        else:
+            r["error"] = crawl_result.error_message or "unknown error"
+            print(f"  ERROR {url[:70]}: {r['error']}", file=sys.stderr)
+        results_map[url] = r
+
+    results = list(results_map.values())
     results.sort(key=lambda r: url_order.get(r["url"], 999))
     return results
+
+
+def crawl4ai_batch_fetch(urls: list, output_dir: Path,
+                          max_concurrent: int = 5) -> list:
+    """Sync wrapper dla async crawl4ai batch fetch."""
+    if not CRAWL4AI_AVAILABLE:
+        print("ERROR: crawl4ai niedostępne. Run: pip install crawl4ai && crawl4ai-setup")
+        return [{"url": u, "filename": None, "title": "", "word_count": 0,
+                 "status": "ERROR", "error": "crawl4ai not installed"} for u in urls]
+    return asyncio.run(_crawl4ai_batch_async(urls, output_dir, max_concurrent))
 
 
 def build_consolidated(results: list, output_dir: Path) -> Path:
@@ -632,11 +616,11 @@ def step2_competitor_analysis(topic: str, output_dir: Path,
 
     # 2.2 Batch fetch konkurentów
     if not llm_only and urls_file.exists() and not consolidated_file.exists():
-        print("  2.2 Jina Reader batch fetch...")
+        print("  2.2 Crawl4AI batch fetch (z content pruning)...")
         urls = [l.strip() for l in urls_file.read_text().splitlines() if l.strip()]
         if urls:
             competitors_dir.mkdir(parents=True, exist_ok=True)
-            results = jina_batch_fetch(urls, competitors_dir)
+            results = crawl4ai_batch_fetch(urls, competitors_dir)
             ok_count = sum(1 for r in results if r["status"] == "OK")
             print(f"  Pobrano {ok_count}/{len(urls)} OK")
             build_quality_report(results, competitors_dir)
