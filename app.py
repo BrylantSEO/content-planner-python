@@ -24,6 +24,19 @@ except ImportError:
 
 app = Flask(__name__)
 
+# Nagłówki CORS dla każdej odpowiedzi (potrzebne gdy przeglądarka wysyła preflight OPTIONS)
+@app.after_request
+def add_cors(response):
+    response.headers["Access-Control-Allow-Origin"]  = "*"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    return response
+
+@app.route("/api/config", methods=["OPTIONS"])
+@app.route("/api/run", methods=["OPTIONS"])
+def options_handler():
+    return "", 204
+
 BASE_DIR    = Path(__file__).parent
 CONFIG_FILE = BASE_DIR / "config.json"
 PLANNER     = BASE_DIR / "content_planner.py"

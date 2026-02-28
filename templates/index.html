@@ -972,7 +972,8 @@ async function saveSettings() {
     const r = await fetch('/api/config', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      mode: 'same-origin',
     });
 
     let data;
