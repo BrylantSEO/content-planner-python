@@ -1,6 +1,28 @@
+# Secrets & config
 .env
+config.json
+
+# macOS
 .DS_Store
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# Data robocza
 data/embeddings/
+data/briefs/
+output/
+
+# Node
 app/node_modules/
+ai-search-pro/node_modules/
+
+# Pliki tymczasowe / screenshoty
+Zrzut ekranu*
+*.png
+*.jpg
+article_humanized.*
+attraction_pipeline.py
+T3F5-article_humanization_file.py

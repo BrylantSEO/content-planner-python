@@ -2,6 +2,39 @@
 
 Kolekcja skilli Claude AI do semantycznego SEO i optymalizacji pod AI Search (RAG, ChatGPT, Perplexity, Google AI Overviews).
 
+---
+
+## 🚀 Content Planner UI
+
+Web UI do generowania content briefów przez pipeline AI (Query Fanout → Topic Research → Competitor Analysis → Contextual Vector → Content Brief).
+
+### Uruchomienie lokalne
+
+```bash
+# 1. Zainstaluj zależności
+pip install flask requests python-dotenv
+
+# 2. Uruchom serwer
+python3 app.py
+
+# 3. Otwórz w przeglądarce
+open http://localhost:5000
+```
+
+### Konfiguracja kluczy API
+
+Po otwarciu `http://localhost:5000` kliknij **⚙ Ustawienia** i uzupełnij:
+
+| Klucz | Gdzie zdobyć | Wymagany |
+|-------|-------------|----------|
+| `OPENROUTER_API_KEY` | [openrouter.ai/keys](https://openrouter.ai/keys) | ✅ tak — LLM (Claude Sonnet 4.6) |
+| `NODESHUB_API_KEY` | [nodeshub.io](https://nodeshub.io) | opcjonalny — SERP Google |
+| `JINA_API_KEY` | [jina.ai](https://jina.ai) | opcjonalny — scraping konkurencji (20 req/min bez klucza) |
+
+> Klucze zapisywane są lokalnie w `config.json`. Bez `NODESHUB_API_KEY` pipeline działa w trybie **LLM-only** (bez danych SERP).
+
+---
+
 ## Skille
 
 ### Analiza semantyczna

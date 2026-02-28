@@ -16,5 +16,12 @@
       "cwd": "app",
       "port": 3456
     }
+    ,
+    {
+      "name": "content-planner",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["app.py"],
+      "port": 5000
+    }
   ]
 }
