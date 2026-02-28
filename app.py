@@ -122,17 +122,20 @@ def get_config():
 
 @app.route("/api/config", methods=["POST"])
 def set_config():
-    data    = request.json or {}
-    config  = load_config()
-    changed = 0
-    for k in ["OPENROUTER_API_KEY", "NODESHUB_API_KEY", "JINA_API_KEY"]:
-        v = (data.get(k) or "").strip()
-        if v and not all(c in "•" for c in v):  # skip masked placeholder
-            config[k] = v
-            changed += 1
-    if changed:
+    try:
+        data = request.get_json(force=True, silent=True) or {}
+        config = load_config()
+        changed = 0
+        for k in ["OPENROUTER_API_KEY", "NODESHUB_API_KEY", "JINA_API_KEY"]:
+            v = (data.get(k) or "").strip()
+            # Pomijamy puste i zamaskowane placeholdery (same kropki)
+            if v and not all(c == "\u2022" for c in v):
+                config[k] = v
+                changed += 1
         save_config(config)
-    return jsonify({"ok": True, "saved": changed})
+        return jsonify({"ok": True, "saved": changed})
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
 
 
 @app.route("/api/run", methods=["POST"])

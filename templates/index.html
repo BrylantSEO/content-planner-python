@@ -974,19 +974,33 @@ async function saveSettings() {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)
     });
-    const data = await r.json();
 
-    if (data.ok) {
-      // Clear fields
-      ['key_openrouter','key_nodeshub','key_jina'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
-      const status = document.getElementById('saveStatus');
-      status.classList.add('visible');
-      setTimeout(() => status.classList.remove('visible'), 2500);
-      loadKeyStatus();
+    let data;
+    try {
+      data = await r.json();
+    } catch(parseErr) {
+      showToast(`Błąd serwera (${r.status}) — sprawdź konsolę Flask`, true);
+      return;
     }
-  } catch(e) { showToast('Błąd zapisu', true); }
+
+    if (!r.ok || !data.ok) {
+      showToast(data.error || `Błąd ${r.status}`, true);
+      return;
+    }
+
+    ['key_openrouter','key_nodeshub','key_jina'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    const status = document.getElementById('saveStatus');
+    status.classList.add('visible');
+    setTimeout(() => status.classList.remove('visible'), 2500);
+    loadKeyStatus();
+    // Odśwież placeholdery żeby pokazywały nowe zamaskowane klucze
+    setTimeout(loadCurrentKeys, 300);
+
+  } catch(e) {
+    showToast(`Błąd połączenia: ${e.message}`, true);
+  }
 }
 
 async function loadKeyStatus() {
