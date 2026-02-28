@@ -1,22 +1,28 @@
-# API keys — never commit
-config.json
+# Secrets & config
 .env
+config.json
 
-# Generated briefs
-data/
+# macOS
+.DS_Store
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
-.venv/
-venv/
-env/
 
-# macOS
-.DS_Store
+# Data robocza
+data/embeddings/
+data/briefs/
+output/
 
-# Editor
-.idea/
-.vscode/
-*.swp
+# Node
+app/node_modules/
+ai-search-pro/node_modules/
+
+# Pliki tymczasowe / screenshoty
+Zrzut ekranu*
+*.png
+*.jpg
+article_humanized.*
+attraction_pipeline.py
+T3F5-article_humanization_file.py

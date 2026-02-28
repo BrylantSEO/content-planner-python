@@ -1,147 +1,214 @@
-# Content Planner — AI Search Pipeline
+# Semantic-OS
 
-Automatyczny pipeline tworzenia content briefów zoptymalizowanych pod AI Search i semantyczne SEO.
-
-**Wpisz temat artykułu + opis firmy → dostaniesz gotowy brief z analizą konkurencji, EAV matrix, strukturą H1/H2/H3 i BLUF per sekcja.**
+Kolekcja skilli Claude AI do semantycznego SEO i optymalizacji pod AI Search (RAG, ChatGPT, Perplexity, Google AI Overviews).
 
 ---
 
-## Jak to działa
+## 🚀 Content Planner UI
 
-```
-Temat + Source Context
-        │
-        ▼
- Krok 0 — Query Fanout (NodeHub)
-        │  warianty keyword, top SERP titles
-        ▼
- Krok 1 — Topic Research (LLM)
-        │  CSI, ramka semantyczna, sub-queries, terminologia
-        ▼
- Krok 2 — Competitor Analysis (NodeHub + Jina + LLM)
-        │  SERP top 10, scraping konkurentów, EAV matrix, URR, gap analysis
-        ▼
- Krok 3 — Contextual Vector (LLM)
-        │  H1/H2/H3, BLUF per sekcja, chunki RAG
-        ▼
- Krok 4 — Content Brief (LLM)
-        │  9 sekcji: CSI, EAV, gaps, struktura, checklist, keywords
-        ▼
-   brief.md — gotowy do przekazania copywriterowi
-```
+Web UI do generowania content briefów przez pipeline AI (Query Fanout → Topic Research → Competitor Analysis → Contextual Vector → Content Brief).
 
-Model LLM: **claude-sonnet-4-6** via [OpenRouter](https://openrouter.ai).
-
----
-
-## Wymagania
-
-- Python 3.10+
-- Konto [OpenRouter](https://openrouter.ai) (wymagane)
-- Konto [NodeHub](https://nodeshub.io) (opcjonalne — bez niego pipeline działa w trybie LLM-only)
-
----
-
-## Instalacja
+### Uruchomienie lokalne
 
 ```bash
-git clone https://github.com/BrylantSEO/content-planner-python.git
-cd content-planner-python
-pip install -r requirements.txt
-```
+# 1. Zainstaluj zależności
+pip install flask requests python-dotenv
 
----
-
-## Uruchomienie — interfejs webowy
-
-```bash
+# 2. Uruchom serwer
 python3 app.py
+
+# 3. Otwórz w przeglądarce
+open http://localhost:5000
 ```
 
-Otwórz **http://localhost:5000** w przeglądarce.
+### Konfiguracja kluczy API
 
-1. Kliknij **Ustawienia ⚙** i wklej klucze API
-2. Wpisz temat artykułu i opis firmy
-3. Kliknij **Uruchom pipeline**
-4. Pobierz wygenerowany `brief.md`
+Po otwarciu `http://localhost:5000` kliknij **⚙ Ustawienia** i uzupełnij:
 
-Klucze API zapisywane są lokalnie w pliku `config.json` — **nigdy nie opuszczają Twojego komputera**.
+| Klucz | Gdzie zdobyć | Wymagany |
+|-------|-------------|----------|
+| `OPENROUTER_API_KEY` | [openrouter.ai/keys](https://openrouter.ai/keys) | ✅ tak — LLM (Claude Sonnet 4.6) |
+| `NODESHUB_API_KEY` | [nodeshub.io](https://nodeshub.io) | opcjonalny — SERP Google |
+| `JINA_API_KEY` | [jina.ai](https://jina.ai) | opcjonalny — scraping konkurencji (20 req/min bez klucza) |
+
+> Klucze zapisywane są lokalnie w `config.json`. Bez `NODESHUB_API_KEY` pipeline działa w trybie **LLM-only** (bez danych SERP).
 
 ---
 
-## Uruchomienie — CLI (bez UI)
+## Skille
+
+### Analiza semantyczna
+| Skill | Opis |
+|-------|------|
+| `csi-definition-helper` | Definiuje Central Entity, Source Context i Central Search Intent |
+| `eav-extractor` | Ekstrahuje strukturę Entity-Attribute-Value z tekstu |
+| `attribute-classifier` | Klasyfikuje atrybuty encji na Unique, Root i Rare |
+| `semantic-role-labels-parser` | Analizuje role semantyczne: Agent, Predicate, Patient, Beneficiary |
+| `frame-semantics` | Generuje ramki semantyczne z mapowaniem na sub-queries |
+
+### Optymalizacja contentu
+| Skill | Opis |
+|-------|------|
+| `bluf-generator` | Konwertuje tekst na format BLUF (Bottom Line Up Front) |
+| `chunk-optimizer` | Optymalizuje strukturę artykułu pod systemy RAG |
+| `cost-of-retrieval-optimizer` | Redukuje koszt przetwarzania strony przez wyszukiwarki |
+| `information-density-checker` | Audytuje stosunek faktów do "puchu" |
+| `tfidf-analyzer` | Identyfikuje terminologię specjalistyczną vs generyczną |
+
+### Zrozumienie zapytań
+| Skill | Opis |
+|-------|------|
+| `query-expansion` | Rozszerza keyword na powiązane frazy i warianty |
+| `query-fanout` | Symuluje dekompozycję zapytań przez AI Search |
+| `lexical-expander` | Generuje drzewo relacji leksykalnych (synonimy, hiponimy, antonimy) |
+
+### Keyword Clustering Pipeline
+| Skill | Opis |
+|-------|------|
+| `keyword-expander` | Rozszerza seed keyword o synonimy, pytania i frazy z SERP (PAA, Related, Chips) |
+| `keyword-clusterer` | Klasteryzuje keywords embeddingami (Gemini API + K-means/DBSCAN/hierarchiczna) |
+| `cluster-namer` | Nazywa klastry, identyfikuje Central Entity i canonical query |
+| `cluster-mapper` | Mapuje klastry na topical map CORE/OUTER z rekomendacjami formatu |
+| `cluster-validator` | Waliduje klastry przez porównanie SERP (overlap, coherence) |
+| `content-gap-detector` | Identyfikuje luki w contencie vs konkurencja z SERP |
+
+Pipeline orchestrowany przez sub-agenta `keyword-clustering-pipeline` z walidacją międzykrokową i SERP enrichment.
+
+### Content Planning Pipeline
+| Skill | Opis |
+|-------|------|
+| `topic-researcher` | Bada temat semantycznie: CSI, ramka semantyczna, query fanout, terminologia |
+| `competitor-gap-analyzer` | Analiza konkurencji: SERP + ekstrakcja treści, EAV, klasyfikacja URR, gap analysis |
+| `contextual-vector-builder` | Buduje strukturę artykułu: H1/H2/H3 z mapowania URR, BLUF per sekcja, chunki RAG |
+| `content-brief-generator` | Kompiluje kompletny brief: 9 sekcji, metryki jakości, checklist 15-punktowy |
+| `jina-reader` | Konwertuje URL na markdown przez Jina Reader API (single + batch mode) |
+
+Pipeline orchestrowany przez sub-agenta `content-planner`: topic-researcher → competitor-gap-analyzer → contextual-vector-builder → content-brief-generator. Briefs zapisywane do `data/briefs/`.
+
+### Integracja z wyszukiwarką
+| Skill | Opis |
+|-------|------|
+| `nodeshub-search` | Wyniki Google SERP przez NodeHub API (organic, PAA, related, chips, videos) |
+
+### Meta
+| Skill | Opis |
+|-------|------|
+| `content-auditor` | Kompleksowy audyt contentu przez pryzmat 8 kryteriów semantycznego SEO |
+| `skill-creator` | Tworzy i optymalizuje nowe skille Claude |
+
+## Użycie
+
+Skille działają w Claude Code. Wywołaj je przez slash command:
+
+```
+/query-expansion "kredyt hipoteczny"
+/bluf-generator [wklej tekst do optymalizacji]
+/content-auditor [wklej artykuł w markdown]
+/keyword-expander "baseny ogrodowe"
+/nodeshub-search "baseny ogrodowe"
+```
+
+### Keyword Clustering Pipeline
+
+Pełny pipeline od seed keyword do topical map:
+
+```
+/keyword-expander "baseny ogrodowe"
+/keyword-clusterer [CSV z keywords]
+/cluster-namer [CSV z klastrami]
+/cluster-validator [CSV z nazwanymi klastrami]
+/cluster-mapper [CSV z nazwanymi klastrami]
+/content-gap-detector [CSV z nazwanymi klastrami]
+```
+
+Lub automatycznie przez sub-agenta:
+```
+Uruchom keyword-clustering-pipeline dla "baseny ogrodowe"
+```
+
+### Content Planning Pipeline
+
+Od tematu do gotowego content briefu:
+
+```
+/topic-researcher "kortyzol" (Source Context: portal medyczny)
+/competitor-gap-analyzer "kortyzol" (+ wynik topic-researcher)
+/contextual-vector-builder (+ wyniki poprzednich kroków)
+/content-brief-generator (+ wyniki poprzednich kroków)
+```
+
+Lub automatycznie przez sub-agenta:
+```
+Uruchom content-planner dla "kortyzol" (Source Context: portal medyczny)
+```
+
+## Python
+
+### Keyword Clusterer
 
 ```bash
-python3 content_planner.py "temat artykułu" "opis firmy / source context"
-
-# Przykłady:
-python3 content_planner.py "pozycjonowanie sklepu internetowego" "Agencja SEO dla e-commerce"
-python3 content_planner.py "jak dobrać roletki" "Sklep z roletkami i żaluzjami" --lang pl
-python3 content_planner.py "google ads optymalizacja" "Agencja PPC B2B" --llm-only
-
-# Opcje:
-#   --lang pl/en/de      język SERP (domyślnie: pl)
-#   --country pl/us/gb   kraj SERP (domyślnie: pl)
-#   --llm-only           pomiń SERP i scraping, użyj tylko LLM
-#   --no-resume          zacznij od nowa (domyślnie: wznawia od ostatniego kroku)
-#   --output-dir PATH    katalog docelowy (domyślnie: data/briefs)
+python3 .claude/skills/keyword-clusterer/cluster.py INPUT.csv OUTPUT.csv [options]
 ```
 
-Klucze API podaj przez plik `.env` w katalogu projektu:
+Opcje: `--algorithm kmeans|dbscan|hierarchical`, `--k N`, `--visualize`, `--min-samples N`, `--eps FLOAT`, `--no-cache`
 
-```env
-OPENROUTER_API_KEY=sk-or-v1-...
-NODESHUB_API_KEY=nh-...
-JINA_API_KEY=jina_...        # opcjonalny
+Wymaga: `GEMINI_API_KEY` w `.env`, `pip install -r .claude/skills/keyword-clusterer/requirements.txt`
+
+### NodeHub Search
+
+```bash
+python3 .claude/skills/nodeshub-search/nodeshub_search.py "KEYWORD" [hl] [gl] [--json]
 ```
 
----
+Wymaga: `NODESHUB_API_KEY` w `.env`, `pip install requests python-dotenv`
 
-## Klucze API
+### Jina Reader
 
-| Klucz | Wymagany | Do czego |
-|-------|----------|----------|
-| `OPENROUTER_API_KEY` | **tak** | LLM (claude-sonnet-4-6) — analiza, brief, EAV |
-| `NODESHUB_API_KEY` | opcjonalny | Google SERP — top 10, PAA, Related Searches |
-| `JINA_API_KEY` | opcjonalny | Scraping treści konkurentów (bez klucza: 20 req/min) |
-
-Bez `NODESHUB_API_KEY` pipeline automatycznie przechodzi w tryb **LLM-only** — brief wciąż powstaje, ale bez danych z realnego SERP.
-
----
-
-## Pliki wyjściowe
-
-Każdy pipeline zapisuje wyniki w `data/briefs/<slug>/`:
-
-```
-data/briefs/pozycjonowanie_sklepu_internetowego/
-├── 00_query_fanout.json       warianty keyword, top SERP titles
-├── 01_topic_research.md       CSI, ramka semantyczna, sub-queries
-├── urls.txt                   top 10 URLs z SERP
-├── competitors/
-│   ├── _consolidated.md       treść konkurentów (oczyszczona)
-│   └── _quality_report.txt    status OK/SKIP/ERROR per URL
-├── 02_competitor_analysis.md  EAV matrix, URR, gap analysis
-├── 03_contextual_vector.md    H1/H2/H3, BLUF per sekcja
-└── brief.md                   ← FINALNY BRIEF
+```bash
+python3 .claude/skills/jina-reader/jina_reader.py "URL"
+python3 .claude/skills/jina-reader/jina_reader.py --batch urls.txt --output data/competitor_content
 ```
 
-Pipeline jest **wznawialny** — jeśli plik pośredni istnieje, krok jest pomijany. Możesz przerwać i kontynuować od miejsca przerwania.
+Opcje: `--batch` (batch mode z pliku URL), `--output` (katalog wyjściowy), `--workers N` (domyślnie 5), `--no-consolidate`, `--json`
 
----
+Batch mode generuje: pliki `.md` + `_quality_report.txt` + `_consolidated.md` (max 1500 słów/konkurent, z czyszczeniem szumu).
 
-## Tryby degradacji
+Wymaga: `pip install requests python-dotenv`. Opcjonalnie: `JINA_API_KEY` w `.env`
 
-| Tryb | Dostępne narzędzia | Jakość |
-|------|-------------------|--------|
-| **Full** | QueryFanout + SERP + Jina + LLM | Najwyższa |
-| **SERP-only** | SERP + LLM (bez Jina) | Wysoka |
-| **LLM-only** | Tylko LLM | Dobra — bez danych realnego SERP |
+## Pakowanie skilli
 
-Pipeline automatycznie degraduje do niższego poziomu przy niedostępności API.
+```bash
+# Pakowanie
+python3 .claude/skills/skill-creator/scripts/package_skill.py .claude/skills/<skill-name> skills/optimized
 
----
+# Walidacja
+python3 .claude/skills/skill-creator/scripts/quick_validate.py .claude/skills/<skill-name>
+```
+
+## Struktura repozytorium
+
+```
+├── .claude/skills/          # Definicje skilli Claude (27 skilli)
+├── .claude/agents/          # Sub-agenty (keyword-clustering-pipeline, content-planner)
+├── skills/optimized/        # Spakowane .skill do dystrybucji
+├── data/                    # Dane robocze (keywords/, clusters/, embeddings/, briefs/)
+├── audyt/                   # Dokumentacja procesu audytu AI Search
+├── ai-semantic-seo-full.md  # Materiały kursowe
+└── CLAUDE.md                # Instrukcje dla Claude Code
+```
+
+## Kluczowe koncepcje
+
+- **Entity-Attribute-Value (EAV)** - struktura danych fundamentalna dla Knowledge Graphs
+- **CSI (Central Search Intent)** - główna intencja = Central Entity + Source Context
+- **Query Fanout** - dekompozycja pytania użytkownika na 5-10 sub-zapytań przez AI
+- **Information Density** - stosunek faktów do słów (wyższy = lepsze cytowanie przez AI)
+- **BLUF Format** - odpowiedź na początku, kontekst potem - optymalny dla AI
+- **Cost of Retrieval (CoR)** - koszt obliczeniowy ekstrakcji informacji ze strony
+- **Semantic Roles** - Agent, Predicate, Patient, Beneficiary w strukturze zdania
+- **Attribute Classification** - UNIQUE (wyróżniki) > ROOT (esencja) > RARE (opcjonalne)
 
 ## Licencja
 
 MIT
+# SEO-OS-DD
