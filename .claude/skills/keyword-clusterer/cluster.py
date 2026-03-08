@@ -44,12 +44,13 @@ except ImportError:
 
 import numpy as np
 import pandas as pd
-from google import genai
+import requests
 from sklearn.cluster import DBSCAN, AgglomerativeClustering, KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.neighbors import NearestNeighbors
 
-EMBEDDING_MODEL = "gemini-embedding-001"
+EMBEDDING_MODEL = "google/gemini-embedding-001"
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/embeddings"
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 CACHE_DIR = PROJECT_ROOT / "data" / "embeddings"
 
@@ -105,7 +106,7 @@ def derive_seed_name(input_path: str) -> str:
 
 def get_embeddings(
     keywords: list[str],
-    client: genai.Client,
+    api_key: str,
     seed_name: str = "",
     use_cache: bool = True,
 ) -> np.ndarray:
@@ -123,9 +124,12 @@ def get_embeddings(
     if new_keywords:
         print(f"  Do pobrania z API: {len(new_keywords)} keywords")
 
-    # Pobierz brakujące z API
+    # Pobierz brakujące z API (z incremental cache save po każdym batchu)
     if new_keywords:
-        new_embeddings = _fetch_embeddings_with_retry(new_keywords, client)
+        new_embeddings = _fetch_embeddings_with_retry(
+            new_keywords, api_key,
+            cache=cache, seed_name=seed_name if use_cache else "",
+        )
 
         # Walidacja wymiarów
         dims = {len(emb) for emb in new_embeddings}
@@ -135,7 +139,7 @@ def get_embeddings(
             new_embeddings = [e for e in new_embeddings if len(e) == expected_dim]
             new_keywords = [kw for kw, e in zip(new_keywords, new_embeddings) if len(e) == expected_dim]
 
-        # Aktualizuj cache
+        # Aktualizuj cache (finalny zapis całości)
         for kw, emb in zip(new_keywords, new_embeddings):
             cache[kw] = emb
 
@@ -165,11 +169,19 @@ def get_embeddings(
 
 
 def _fetch_embeddings_with_retry(
-    keywords: list[str], client: genai.Client, max_retries: int = 3
+    keywords: list[str],
+    api_key: str,
+    max_retries: int = 5,
+    cache: dict | None = None,
+    seed_name: str = "",
 ) -> list[list[float]]:
-    """Pobierz embeddingi z API z retry i exponential backoff."""
+    """Pobierz embeddingi przez OpenRouter API z retry i incremental cache save."""
     all_embeddings = []
-    batch_size = 100  # Gemini limit
+    batch_size = 100
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
 
     for i in range(0, len(keywords), batch_size):
         batch = keywords[i : i + batch_size]
@@ -177,15 +189,29 @@ def _fetch_embeddings_with_retry(
 
         for attempt in range(max_retries):
             try:
-                result = client.models.embed_content(
-                    model=EMBEDDING_MODEL,
-                    contents=batch,
-                    config={"task_type": "CLUSTERING"},
+                resp = requests.post(
+                    OPENROUTER_API_URL,
+                    headers=headers,
+                    json={"model": EMBEDDING_MODEL, "input": batch},
+                    timeout=60,
                 )
-                for embedding in result.embeddings:
-                    all_embeddings.append(embedding.values)
+                if resp.status_code == 429:
+                    retry_after = int(resp.headers.get("Retry-After", 65))
+                    print(f"  Rate limit 429 — czekam {retry_after}s (Retry-After)...")
+                    time.sleep(retry_after)
+                    continue
+                resp.raise_for_status()
+                data = resp.json()
+                batch_embeddings = [item["embedding"] for item in sorted(data["data"], key=lambda x: x["index"])]
+                all_embeddings.extend(batch_embeddings)
+
+                # Incremental cache save po każdym batchu
+                if cache is not None and seed_name:
+                    for kw, emb in zip(batch, batch_embeddings):
+                        cache[kw] = emb
+                    save_embedding_cache(seed_name, cache)
                 break
-            except Exception as e:
+            except requests.HTTPError as e:
                 if attempt < max_retries - 1:
                     wait = 2 ** (attempt + 1)
                     print(f"  Retry {attempt + 1}/{max_retries} za {wait}s: {e}")
@@ -193,10 +219,6 @@ def _fetch_embeddings_with_retry(
                 else:
                     print(f"  BŁĄD po {max_retries} próbach: {e}")
                     raise
-
-        # Rate limiting
-        if i + batch_size < len(keywords):
-            time.sleep(0.5)
 
     return all_embeddings
 
@@ -422,9 +444,9 @@ def main():
     args = parser.parse_args()
 
     # Sprawdź API key
-    api_key = os.environ.get("GEMINI_API_KEY")
+    api_key = os.environ.get("OPENROUTER_API_KEY") or os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        print("BŁĄD: Ustaw GEMINI_API_KEY w zmiennych środowiskowych")
+        print("BŁĄD: Ustaw OPENROUTER_API_KEY w zmiennych środowiskowych")
         sys.exit(1)
 
     # Wczytaj keywords
@@ -448,8 +470,7 @@ def main():
     seed_name = derive_seed_name(args.input_csv)
     use_cache = not args.no_cache
     print(f"Generowanie embeddingów ({EMBEDDING_MODEL}, task_type=CLUSTERING)...")
-    client = genai.Client(api_key=api_key)
-    embeddings = get_embeddings(keywords, client, seed_name=seed_name, use_cache=use_cache)
+    embeddings = get_embeddings(keywords, api_key, seed_name=seed_name, use_cache=use_cache)
 
     # Gemini embeddingi są już znormalizowane - NIE stosujemy dodatkowej L2 normalizacji
     # (dodatkowa normalizacja powodowała overflow/NaN w matmul)
